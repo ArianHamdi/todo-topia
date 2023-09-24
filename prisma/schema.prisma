@@ -6,6 +6,23 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  // Should be edited after reading telegram authentication documents
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TodoList {
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  title String?
+}
+
+model Todo {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
 }
