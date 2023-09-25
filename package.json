@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "ngrok": "ngrok http --domain=subtly-growing-gorilla.ngrok-free.app 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@prisma/client": "^5.3.1",
+    "@twa.js/init-data-node": "^0.0.11",
+    "@twa.js/sdk-react": "^0.4.2",
     "@types/node": "20.6.4",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
@@ -18,6 +21,7 @@
     "next": "13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sass": "^1.68.0",
     "typescript": "5.2.2"
   },
   "devDependencies": {
