@@ -10,19 +10,44 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum repeatStep {
+  daily
+  weekly
+  monthly
+}
+
 model User {
-  // Should be edited after reading telegram authentication documents
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String     @unique
+  category  Category[] @relation()
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Category {
+  id       String     @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  color    String
+  TodoList TodoList[]
+  User     User?      @relation(fields: [userId], references: [id])
+  userId   String?    @db.ObjectId
 }
 
 model TodoList {
-  id    String  @id @default(auto()) @map("_id") @db.ObjectId
-  title String?
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  title      String?
+  catrgoryId String   @db.ObjectId
+  category   Category @relation(fields: [catrgoryId], references: [id])
+  Task       Task[]
 }
 
-model Todo {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+model Task {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  deadline    DateTime?
+  repeat      repeatStep
+
+  todoListId String   @db.ObjectId
+  todoList   TodoList @relation(fields: [todoListId], references: [id])
 }
