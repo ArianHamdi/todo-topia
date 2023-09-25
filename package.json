@@ -22,9 +22,11 @@
     "axios": "^1.5.0",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
+    "framer-motion": "^10.16.4",
     "next": "13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rooks": "^7.14.1",
     "sass": "^1.68.0",
     "typescript": "5.2.2"
   },
