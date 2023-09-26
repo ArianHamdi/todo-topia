@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "ngrok": "ngrok http --domain=subtly-growing-gorilla.ngrok-free.app 3000",
+    "ngrok-silver": "ngrok http --domain=open-evolving-seal.ngrok-free.app 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
