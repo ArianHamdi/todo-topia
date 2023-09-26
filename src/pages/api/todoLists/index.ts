@@ -1,3 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
+// import withAuthorization from "@/utils/withAuthorization";
+// import { NextApiRequest, NextApiResponse } from "next";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {}
+// export default withAuthorization(function handler(
+//   req: NextApiRequest,
+//   res: NextApiResponse,
+//   user: any
+// ) {
+//   console.log(user);
+// });
