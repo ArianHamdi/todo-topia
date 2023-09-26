@@ -17,11 +17,13 @@ enum repeatStep {
 }
 
 model User {
-  id        String     @id @default(auto()) @map("_id") @db.ObjectId
-  userId    String     @unique
-  category  Category[] @relation()
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  id       String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId   String     @unique
+  category Category[]
+  TodoList TodoList[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Category {
@@ -30,23 +32,26 @@ model Category {
   color    String
   TodoList TodoList[]
   User     User?      @relation(fields: [userId], references: [id])
-  userId   String?    @db.ObjectId
+  userId   String     @db.ObjectId
 }
 
 model TodoList {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   title      String?
   catrgoryId String   @db.ObjectId
+  userId     String   @db.ObjectId
+  user       User     @relation(fields: [userId], references: [id])
   category   Category @relation(fields: [catrgoryId], references: [id])
-  Task       Task[]
+
+  Task Task[]
 }
 
 model Task {
-  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String?
   deadline    DateTime?
-  repeat      repeatStep
+  repeat      repeatStep?
 
   todoListId String   @db.ObjectId
   todoList   TodoList @relation(fields: [todoListId], references: [id])
