@@ -3,7 +3,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import getUser from "@/utils/getUser";
 import prisma from "@/lib/prisma";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { promisify } from "util";
 
 export default function withAuthorization(next: Function) {
   return async function (req: NextApiRequest, res: NextApiResponse) {
