@@ -22,9 +22,10 @@ export default function withAuthorization(next: Function) {
           { id: userData.id },
           process.env.BOT_API_TOKEN!
         );
+
         const user = await prisma.user.findUnique({
           where: {
-            id: userData.id,
+            userId: userData.id.toString(),
           },
         });
 
