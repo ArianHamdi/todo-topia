@@ -40,9 +40,6 @@ export default function withAuthorization(next: Function) {
       }
 
       next(req, res);
-      // } else {
-      //   next(req, res, user);
-      // }
     } catch (error) {
       console.log(error);
       console.log("Unauthorized user");
