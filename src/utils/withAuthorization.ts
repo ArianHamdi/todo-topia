@@ -39,7 +39,7 @@ export default function withAuthorization(next: Function) {
         res.setHeader("Set-Cookie", `token=${signToken}; Path=/; HttpOnly`);
       }
 
-      next(req, res);
+      next(req, res, userData.userId);
     } catch (error) {
       console.log(error);
       console.log("Unauthorized user");
