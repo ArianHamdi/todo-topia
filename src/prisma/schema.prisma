@@ -31,7 +31,7 @@ model Category {
   title    String
   color    String
   TodoList TodoList[]
-  User     User?      @relation(fields: [userId], references: [userId])
+  User     User       @relation(fields: [userId], references: [userId])
   userId   String
 }
 
