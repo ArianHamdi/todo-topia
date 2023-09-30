@@ -1,4 +1,5 @@
 import {
+  useClosingBehaviour,
   useLaunchParams,
   useMainButton,
   usePopup,
@@ -8,6 +9,8 @@ import {
 import { createTodo } from "@/api/todo";
 
 import { retrieveLaunchParams } from "@twa.js/sdk";
+import Dropdown from "@/components/Dropdown";
+import { useEffect } from "react";
 
 const Home = () => {
   const mainButton = useMainButton();
@@ -17,6 +20,8 @@ const Home = () => {
   const webApp = useWebApp();
 
   const popup = usePopup();
+
+  const closingBehaviour = useClosingBehaviour();
 
   // const launchParams = useLaunchParams();
 
@@ -31,10 +36,11 @@ const Home = () => {
     mainButton.show();
   };
 
+  useEffect(() => {}, []);
+
   return (
     <div>
-      <p onClick={createTodo}>test</p>
-      <p>{JSON.stringify(retrieveLaunchParams().initData, null, 2)}</p>
+      <Dropdown />
     </div>
   );
 };
