@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "ngrok": "ngrok http --domain=subtly-growing-gorilla.ngrok-free.app 3000",
+    "ngrok-silver": "ngrok http --domain=open-evolving-seal.ngrok-free.app 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -23,6 +24,7 @@
     "axios": "^1.5.0",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
+    "jsonwebtoken": "^9.0.2",
     "framer-motion": "^10.16.4",
     "next": "13.5.2",
     "react": "18.2.0",
@@ -32,6 +34,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.3",
     "prisma": "^5.3.1"
   }
 }
