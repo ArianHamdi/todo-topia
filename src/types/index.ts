@@ -1,3 +1,5 @@
+import { Properties } from "csstype";
+
 export interface ITask {
   id: string;
   title: string;
@@ -16,7 +18,7 @@ export interface ITodoList {
 export interface ICategory {
   id: string;
   title: string;
-  color: string;
+  color: Properties["color"];
   todolist?: ITodoList[];
 }
 
