@@ -1,19 +1,37 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { validate } from "@twa.js/init-data-node";
+import withAuthorization from "@/utils/withAuthorization";
+import prisma from "@/lib/prisma";
 
 type Data = {
-  name: string;
+  message: string;
 };
 
-export default function handler(
+export default withAuthorization(async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
+  user: any
 ) {
-  try {
-    validate(req.headers.authorization!, process.env.BOT_API_TOKEN!);
-  } catch (err) {
-    console.log("err", err);
-  }
-  res.status(200).json({ name: "John Doe" });
-}
+  // console.log(user);
+
+  // // const newCategory = await prisma.category.create({
+  // //   data: {
+  // //     color: "test",
+  // //     title: "test",
+  // //     userId: user.userId,
+  // //   },
+  // // });
+
+  // const data = await prisma.user.findUnique({
+  //   where: {
+  //     userId: user.userId,
+  //   },
+  //   include: {
+  //     category: true,
+  //   },
+  // });
+
+  res.status(200).json({
+    message: "OK",
+  });
+});
