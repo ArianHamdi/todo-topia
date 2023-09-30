@@ -1,4 +1,4 @@
-interface ITask {
+export interface ITask {
   id: string;
   title: string;
   description?: string;
@@ -6,26 +6,26 @@ interface ITask {
   repeat: string;
 }
 
-interface ITodoList {
+export interface ITodoList {
   id: string;
   title: string;
   categoryId: string;
-  task?: Array<ITask>;
+  task?: ITask[];
 }
 
-interface ICategory {
+export interface ICategory {
   id: string;
   title: string;
   color: string;
-  todolist?: Array<ITodoList>;
+  todolist?: ITodoList[];
 }
 
-interface GetCategoriesResponse {
+export interface GetCategoriesResponse {
   status: number;
-  data: Array<ICategory>;
+  data: ICategory[];
 }
 
-interface GetTodoListsResponse {
+export interface GetTodoListsResponse {
   status: number;
-  data: Array<ITodoList>;
+  data: ITodoList[];
 }
