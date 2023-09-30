@@ -1,6 +1,6 @@
 import axios from "@/lib/axios";
 
-export const createTodo = async () => {
-  const { data } = await axios.get("/todoLists/2");
+export const getCategories = async () => {
+  const { data } = (await axios.get("/category")).data;
   return data;
 };
