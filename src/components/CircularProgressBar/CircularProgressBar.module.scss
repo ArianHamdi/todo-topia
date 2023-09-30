@@ -1,0 +1,21 @@
+.circularProgressBar {
+    text-align: center;
+  }
+  
+  .progressCircle {
+    stroke: #ccc;
+    stroke-width: 6;
+  }
+  
+  .progressFill {
+    // stroke: #0073e6; /* Change the color of the filled circle */
+    stroke-width: 6;
+    transition: stroke-dashoffset 0.5s;
+  }
+  
+  .percentageLabel {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

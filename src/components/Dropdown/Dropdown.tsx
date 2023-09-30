@@ -13,7 +13,7 @@ const Dropdown = () => {
   const [ref] = useOutsideClickRef(toggleHandler, isOpen);
 
   return (
-    <div ref={ref}>
+    <div className={styles.dropdown} ref={ref}>
       <DropdownToggle onClick={toggleHandler} />
     </div>
   );

@@ -4,6 +4,12 @@
   margin: 0;
 }
 
+body {
+  color: $color-text;
+  background-color: $color-background;
+  padding: 8px 32px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
