@@ -5,7 +5,7 @@ import CircularProgressBar from '../CircularProgressBar';
 import CircleFilled from '../CircleFilled';
 import { ICategory } from '@/types';
 
-const Category = ({ color, title, todolist }: ICategory) => {
+const Category = ({ color, title, todoLists }: ICategory) => {
   return (
     <div className={styles.category}>
       <div className={styles.header}>
