@@ -22,6 +22,8 @@ export interface ICategory {
   todolist?: ITodoList[];
 }
 
+export type ICategoryPost = Pick<ICategory, "title" | "color">;
+
 export interface GetCategoriesResponse {
   status: number;
   data: ICategory[];

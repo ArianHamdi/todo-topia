@@ -8,7 +8,6 @@ import {
   useThemeParams,
   useWebApp,
 } from "@twa.js/sdk-react";
-import { createTodo } from "@/api/todo";
 
 import { retrieveLaunchParams } from "@twa.js/sdk";
 import Dropdown from "@/components/Dropdown";
@@ -34,7 +33,6 @@ const Home = () => {
   const mainButtonHandler = () => {
     // mainButton.setBackgroundColor("#231ea2");
     mainButton.setText("hello");
-    mainButton.on("main_button_pressed", createTodo);
 
     webApp.setBackgroundColor("#ffffff");
     webApp.setHeaderColor("#ffffff");
