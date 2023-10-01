@@ -9,7 +9,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --list-different"
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --list-different",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@prisma/client": "^5.3.1",
@@ -38,7 +41,7 @@
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.3",
     "csstype": "^3.1.2",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prisma": "^5.3.1"
