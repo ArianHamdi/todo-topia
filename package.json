@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "check-env": "node ./src/scripts/check-env.js",
+    "dev": "npm run check-env && next dev",
+    "build": "npm run check-env && next build",
     "ngrok": "ngrok http --domain=subtly-growing-gorilla.ngrok-free.app 3000",
     "ngrok-silver": "ngrok http --domain=open-evolving-seal.ngrok-free.app 3000",
-    "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --list-different",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@prisma/client": "^5.3.1",
@@ -35,8 +40,13 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@cspell/eslint-plugin": "^7.3.7",
+    "@next/env": "^13.5.2",
     "@types/jsonwebtoken": "^9.0.3",
     "csstype": "^3.1.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
     "prisma": "^5.3.1"
   }
 }

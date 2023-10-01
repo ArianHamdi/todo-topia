@@ -1,15 +1,15 @@
-import { validate } from "@twa.js/init-data-node";
-import { NextApiRequest, NextApiResponse } from "next";
-import getUser from "@/utils/getUser";
-import prisma from "@/lib/prisma";
-import jwt, { JwtPayload } from "jsonwebtoken";
+import { validate } from '@twa.js/init-data-node';
+import { NextApiRequest, NextApiResponse } from 'next';
+import getUser from '@/utils/getUser';
+import prisma from '@/lib/prisma';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 
 export default function withAuthorization(next: Function) {
   return async function (req: NextApiRequest, res: NextApiResponse) {
     try {
       validate(req.headers.authorization!, process.env.BOT_API_TOKEN!);
       const urlParams = new URLSearchParams(req.headers.authorization);
-      const userData = JSON.parse(urlParams.get("user")!);
+      const userData = JSON.parse(urlParams.get('user')!);
 
       if (req.cookies.token) {
         const decoded = jwt.verify(
@@ -36,16 +36,16 @@ export default function withAuthorization(next: Function) {
           });
         }
 
-        res.setHeader("Set-Cookie", `token=${signToken}; Path=/; HttpOnly`);
+        res.setHeader('Set-Cookie', `token=${signToken}; Path=/; HttpOnly`);
       }
 
       next(req, res, userData.userId);
     } catch (error) {
       console.log(error);
-      console.log("Unauthorized user");
+      console.log('Unauthorized user');
 
       res.status(401).json({
-        error: "Unauthorized user",
+        error: 'Unauthorized user',
       });
     }
   };

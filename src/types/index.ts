@@ -1,4 +1,4 @@
-import { Properties } from "csstype";
+import { Properties } from 'csstype';
 
 export interface ITask {
   id: string;
@@ -18,11 +18,11 @@ export interface ITodoList {
 export interface ICategory {
   id: string;
   title: string;
-  color: Properties["color"];
+  color: Properties['color'];
   todolist?: ITodoList[];
 }
 
-export type ICategoryPost = Pick<ICategory, "title" | "color">;
+export type ICategoryPost = Pick<ICategory, 'title' | 'color'>;
 
 export interface GetCategoriesResponse {
   status: number;

@@ -7,11 +7,11 @@ import {
   usePopup,
   useThemeParams,
   useWebApp,
-} from "@twa.js/sdk-react";
+} from '@twa.js/sdk-react';
 
-import { retrieveLaunchParams } from "@twa.js/sdk";
-import Dropdown from "@/components/Dropdown";
-import { useEffect } from "react";
+import { retrieveLaunchParams } from '@twa.js/sdk';
+import Dropdown from '@/components/Dropdown';
+import { useEffect } from 'react';
 
 const Home = () => {
   const mainButton = useMainButton();
@@ -32,17 +32,17 @@ const Home = () => {
 
   const mainButtonHandler = () => {
     // mainButton.setBackgroundColor("#231ea2");
-    mainButton.setText("hello");
+    mainButton.setText('hello');
 
-    webApp.setBackgroundColor("#ffffff");
-    webApp.setHeaderColor("#ffffff");
+    webApp.setBackgroundColor('#ffffff');
+    webApp.setHeaderColor('#ffffff');
 
     // mainButton.setTextColor("#ffffff");
     mainButton.show();
   };
 
   const test = () => {
-    mainButton.setText("xx");
+    mainButton.setText('xx');
     mainButton.show();
     mainButton.showProgress();
   };
@@ -60,7 +60,7 @@ const Home = () => {
   return (
     <div>
       <Dropdown />
-      <h1 onClick={() => hapticFeedback.impactOccurred("heavy")}>
+      <h1 onClick={() => hapticFeedback.impactOccurred('heavy')}>
         Hi how are you
       </h1>
       <h1 onClick={test}>Hi how are you</h1>

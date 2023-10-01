@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,20 +7,19 @@ const nextConfig = {
     includePaths: [path.join(__dirname)],
     prependData: "@use './src/styles' as *;",
   },
-  webpack: (config) => {
+  webpack: config => {
     config.module.rules.push({
       test: /\.svg$/,
       use: [
         {
           loader: '@svgr/webpack',
-          options: {
-          },
+          options: {},
         },
       ],
     });
 
     return config;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

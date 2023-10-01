@@ -1,6 +1,6 @@
-import prisma from "@/lib/prisma";
-import withAuthorization from "@/utils/withAuthorization";
-import { NextApiRequest, NextApiResponse } from "next";
+import prisma from '@/lib/prisma';
+import withAuthorization from '@/utils/withAuthorization';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 export default withAuthorization(async function handler(
   req: NextApiRequest,
@@ -9,7 +9,7 @@ export default withAuthorization(async function handler(
 ) {
   try {
     switch (req.method) {
-      case "GET":
+      case 'GET':
         const data = await prisma.category.findMany({
           where: {
             userId,
@@ -23,7 +23,7 @@ export default withAuthorization(async function handler(
         });
 
         break;
-      case "POST":
+      case 'POST':
         const { color, title } = req.body;
 
         const newCategory = await prisma.category.create({
@@ -42,7 +42,7 @@ export default withAuthorization(async function handler(
   } catch (error) {
     res.status(400).json({
       //should be fixed
-      error: "Error",
+      error: 'Error',
     });
   }
 });
