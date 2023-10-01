@@ -40,6 +40,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@cspell/eslint-plugin": "^7.3.7",
     "@next/env": "^13.5.2",
     "@types/jsonwebtoken": "^9.0.3",
     "csstype": "^3.1.2",
