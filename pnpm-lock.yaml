@@ -73,6 +73,9 @@ dependencies:
     version: 5.2.2
 
 devDependencies:
+  '@next/env':
+    specifier: ^13.5.2
+    version: 13.5.2
   '@types/jsonwebtoken':
     specifier: ^9.0.3
     version: 9.0.3
@@ -1481,7 +1484,6 @@ packages:
 
   /@next/env@13.5.2:
     resolution: {integrity: sha512-dUseBIQVax+XtdJPzhwww4GetTjlkRSsXeQnisIJWBaHsnxYcN2RGzsPHi58D6qnkATjnhuAtQTJmR1hKYQQPg==}
-    dev: false
 
   /@next/eslint-plugin-next@13.5.2:
     resolution: {integrity: sha512-Ew8DOUerJYGRo8pI84SVwn9wxxx8sH92AanCXSkkLJM2W0RJEWy+BqWSCfrlA/3ZIczEl4l4o4lOeTGBPYfBJg==}
