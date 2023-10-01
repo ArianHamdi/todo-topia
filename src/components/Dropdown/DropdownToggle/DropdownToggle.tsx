@@ -1,6 +1,6 @@
-import { MouseEvent, Ref, forwardRef } from "react";
-import More from "@/assets/icons/more.svg";
-import styles from "./DropdownToggle.module.scss";
+import { MouseEvent, Ref, forwardRef } from 'react';
+import More from '@/assets/icons/more.svg';
+import styles from './DropdownToggle.module.scss';
 
 interface IProps {
   onClick: () => void;

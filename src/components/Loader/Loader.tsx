@@ -1,5 +1,5 @@
-import { useSDK } from "@twa.js/sdk-react";
-import { PropsWithChildren } from "react";
+import { useSDK } from '@twa.js/sdk-react';
+import { PropsWithChildren } from 'react';
 
 const Loader = ({ children }: PropsWithChildren<{}>) => {
   const { didInit, components, error } = useSDK();

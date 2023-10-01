@@ -1,6 +1,6 @@
-import prisma from "@/lib/prisma";
-import withAuthorization from "@/utils/withAuthorization";
-import { NextApiRequest, NextApiResponse } from "next";
+import prisma from '@/lib/prisma';
+import withAuthorization from '@/utils/withAuthorization';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 export default withAuthorization(async function handler(
   req: NextApiRequest,
@@ -8,7 +8,7 @@ export default withAuthorization(async function handler(
   userId: any
 ) {
   switch (req.method) {
-    case "POST":
+    case 'POST':
       const { title, categoryId } = req.body;
       const TodoList = prisma.todoList.create({
         data: {
