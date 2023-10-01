@@ -17,22 +17,22 @@ enum repeatStep {
 }
 
 model User {
-  id       String     @id @default(auto()) @map("_id") @db.ObjectId
-  userId   String     @unique
-  category Category[]
-  TodoList TodoList[]
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String     @unique
+  categories Category[]
+  todoLists  TodoList[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Category {
-  id       String     @id @default(auto()) @map("_id") @db.ObjectId
-  title    String
-  color    String
-  TodoList TodoList[]
-  User     User       @relation(fields: [userId], references: [userId])
-  userId   String
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  color     String
+  todoLists TodoList[]
+  User      User       @relation(fields: [userId], references: [userId])
+  userId    String
 }
 
 model TodoList {
@@ -43,7 +43,7 @@ model TodoList {
   user       User     @relation(fields: [userId], references: [userId])
   category   Category @relation(fields: [categoryId], references: [id])
 
-  Task Task[]
+  tasks Task[]
 }
 
 model Task {

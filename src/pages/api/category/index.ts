@@ -17,7 +17,7 @@ export default withAuthorization(async function handler(
             userId,
           },
           include: {
-            TodoList: true,
+            todoLists: true,
           },
         });
 

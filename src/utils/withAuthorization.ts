@@ -31,7 +31,7 @@ export default function withAuthorization(next: Function) {
           const newUser = await prisma.user.create({
             data: {
               userId: userData.id.toString(),
-              category: {
+              categories: {
                 create: [
                   { title: 'Personal', color: '#0BF33E' },
                   { title: 'Work', color: '#0C6CC0' },
