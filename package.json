@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "check-env": "node ./src/scripts/check-env.js",
+    "dev": "npm run check-env && next dev",
+    "build": "npm run check-env && next build",
     "ngrok": "ngrok http --domain=subtly-growing-gorilla.ngrok-free.app 3000",
     "ngrok-silver": "ngrok http --domain=open-evolving-seal.ngrok-free.app 3000",
-    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --list-different",
@@ -39,6 +40,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@next/env": "^13.5.2",
     "@types/jsonwebtoken": "^9.0.3",
     "csstype": "^3.1.2",
     "husky": "^8.0.0",
