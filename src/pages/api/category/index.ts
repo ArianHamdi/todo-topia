@@ -1,5 +1,7 @@
 import prisma from '@/lib/prisma';
+import { ICategory } from '@/types';
 import withAuthorization from '@/utils/withAuthorization';
+import { Category } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default withAuthorization(async function handler(
@@ -18,11 +20,10 @@ export default withAuthorization(async function handler(
             TodoList: true,
           },
         });
-        res.status(200).json({
-          data,
-        });
 
+        res.status(200).json(data);
         break;
+
       case 'POST':
         const { color, title } = req.body;
 
@@ -34,15 +35,10 @@ export default withAuthorization(async function handler(
           },
         });
 
-        res.status(200).json({
-          newCategory,
-        });
+        res.status(200).json(newCategory);
         break;
     }
   } catch (error) {
-    res.status(400).json({
-      //should be fixed
-      error: 'Error',
-    });
+    res.status(400).json('Error');
   }
 });
