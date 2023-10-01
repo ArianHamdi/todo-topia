@@ -14,7 +14,7 @@ export default withAuthorization(async function handler(
         data: {
           userId,
           title,
-          catrgoryId: categoryId,
+          categoryId: categoryId,
         },
       });
 
