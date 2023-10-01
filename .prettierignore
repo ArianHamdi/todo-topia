@@ -1,0 +1,13 @@
+# Ignore directories
+node_modules
+.out
+build
+.cache
+
+# Ignore specific files
+.next
+public/*
+
+# Ignore some dot files
+.idea/*
+.vscode/*

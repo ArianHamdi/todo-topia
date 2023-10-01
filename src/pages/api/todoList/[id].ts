@@ -1,13 +1,13 @@
-import prisma from "@/lib/prisma";
-import withAuthorization from "@/utils/withAuthorization";
-import { NextApiRequest, NextApiResponse } from "next";
+import prisma from '@/lib/prisma';
+import withAuthorization from '@/utils/withAuthorization';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 export default withAuthorization(async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   switch (req.method) {
-    case "GET":
+    case 'GET':
       const { id } = req.query;
       const idAsString = Array.isArray(id) ? id[0] : id;
       const TodoList = prisma.todoList.findUnique({
@@ -21,7 +21,7 @@ export default withAuthorization(async function handler(
       });
       break;
 
-    case "POST":
+    case 'POST':
       break;
   }
 });

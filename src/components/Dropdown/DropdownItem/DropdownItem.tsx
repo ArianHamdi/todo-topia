@@ -1,4 +1,4 @@
-import styles from "./DropdownItem.module.scss";
+import styles from './DropdownItem.module.scss';
 
 const DropdownItem = () => {};
 

@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["plugin:@cspell/recommended", "next/core-web-vitals"],
+  "rules": {
+    "@cspell/spellchecker": [
+      "warn",
+      {
+        "cspell": {
+          "words": ["Behaviour"]
+        }
+      }
+    ]
+  }
 }
