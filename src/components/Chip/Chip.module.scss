@@ -1,12 +1,12 @@
 .chip {
-  border: 12px;
-  padding: 4px;
+    border: 12px;
+    padding: 4px;
 
-  &[data-variant="success"] {
-    background-color: $color-success-400;
-  }
+    &[data-variant='success'] {
+        background-color: $color-success-400;
+    }
 
-  &[data-variant="danger"] {
-    background-color: $color-danger-400;
-  }
+    &[data-variant='danger'] {
+        background-color: $color-danger-400;
+    }
 }

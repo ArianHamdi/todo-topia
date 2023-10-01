@@ -8,7 +8,8 @@
     "ngrok-silver": "ngrok http --domain=open-evolving-seal.ngrok-free.app 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --list-different"
   },
   "dependencies": {
     "@prisma/client": "^5.3.1",
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.3",
     "csstype": "^3.1.2",
+    "prettier": "^3.0.3",
     "prisma": "^5.3.1"
   }
 }

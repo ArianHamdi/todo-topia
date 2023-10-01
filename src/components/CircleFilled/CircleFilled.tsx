@@ -1,8 +1,8 @@
-import { Properties } from "csstype";
-import styles from "./CircleFilled.module.scss";
+import { Properties } from 'csstype';
+import styles from './CircleFilled.module.scss';
 
 interface IProps {
-  background: Properties["backgroundColor"];
+  background: Properties['backgroundColor'];
   size: number;
 }
 

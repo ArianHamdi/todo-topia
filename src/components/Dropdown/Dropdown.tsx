@@ -1,13 +1,13 @@
-import { useState } from "react";
-import styles from "./Dropdown.module.scss";
-import { useOutsideClickRef } from "rooks";
-import DropdownToggle from "./DropdownToggle";
+import { useState } from 'react';
+import styles from './Dropdown.module.scss';
+import { useOutsideClickRef } from 'rooks';
+import DropdownToggle from './DropdownToggle';
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleHandler = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpen(prev => !prev);
   };
 
   const [ref] = useOutsideClickRef(toggleHandler, isOpen);
