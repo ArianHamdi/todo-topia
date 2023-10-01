@@ -1,6 +1,5 @@
 import { validate } from '@twa.js/init-data-node';
 import { NextApiRequest, NextApiResponse } from 'next';
-import getUser from '@/utils/getUser';
 import prisma from '@/lib/prisma';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
@@ -32,6 +31,17 @@ export default function withAuthorization(next: Function) {
           const newUser = await prisma.user.create({
             data: {
               userId: userData.id.toString(),
+              category: {
+                create: [
+                  { title: 'Personal', color: '#0BF33E' },
+                  { title: 'Work', color: '#0C6CC0' },
+                  { title: 'Sport', color: '#FF5C01' },
+                  { title: 'Other', color: '#F0DC28' },
+                ].map(el => ({
+                  title: el.title,
+                  color: el.color,
+                })),
+              },
             },
           });
         }
