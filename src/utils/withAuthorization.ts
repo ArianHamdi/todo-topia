@@ -9,7 +9,7 @@ export default function withAuthorization(next: Function) {
       validate(req.headers.authorization!, process.env.BOT_API_TOKEN!);
       const urlParams = new URLSearchParams(req.headers.authorization);
       const userData = JSON.parse(urlParams.get('user')!);
-
+      console.log(userData.id);
       if (req.cookies.token) {
         const decoded = jwt.verify(
           req.cookies.token,
@@ -48,8 +48,7 @@ export default function withAuthorization(next: Function) {
 
         res.setHeader('Set-Cookie', `token=${signToken}; Path=/; HttpOnly`);
       }
-
-      next(req, res, userData.userId);
+      next(req, res, userData.id.toString());
     } catch (error) {
       console.log(error);
       console.log('Unauthorized user');
