@@ -10,6 +10,7 @@ export default withAuthorization(async function handler(
   userId: any
 ) {
   try {
+    console.log('category', userId);
     switch (req.method) {
       case 'GET':
         const data = await prisma.category.findMany({
@@ -39,6 +40,7 @@ export default withAuthorization(async function handler(
         break;
     }
   } catch (error) {
+    console.log(error);
     res.status(400).json('Error');
   }
 });

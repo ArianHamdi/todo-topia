@@ -10,15 +10,18 @@ export default withAuthorization(async function handler(
   try {
     switch (req.method) {
       case 'POST':
-        const { title, categoryId } = req.body;
-        const todoList = await prisma.todoList.create({
+        const { title, description, deadline, repeat, todoListId } = req.body;
+        const newTask = await prisma.task.create({
           data: {
-            userId,
             title,
-            categoryId,
+            description,
+            deadline,
+            repeat,
+            todoListId,
           },
         });
-        res.status(200).json(todoList);
+
+        res.status(201).json(newTask);
         break;
 
       default:
