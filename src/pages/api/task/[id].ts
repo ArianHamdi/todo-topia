@@ -4,37 +4,29 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default withAuthorization(async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
+  userId: any
 ) {
   const { id } = req.query;
   const idAsString = Array.isArray(id) ? id[0] : id;
 
   try {
     switch (req.method) {
-      case 'GET':
-        const todoList = await prisma.todoList.findUnique({
+      case 'DELETE':
+        const deletedTask = await prisma.task.delete({
           where: {
             id: idAsString,
           },
-          include: {
-            tasks: true,
-          },
         });
 
-        res.status(201).json(todoList);
+        res.status(201).json('success');
         break;
 
-      case 'DELETE':
-        const deletedTodoList = await prisma.todoList.delete({
-          where: {
-            id: idAsString,
-          },
-        });
-
-        res.status(200).json('Success');
+      default:
+        break;
     }
   } catch (error) {
     console.log(error);
-    res.status(400).json('Error');
+    res.status(400).json('error');
   }
 });
