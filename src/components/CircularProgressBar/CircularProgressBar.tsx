@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const CircularProgressBar = ({ percentage, stroke }: IProps) => {
-  const radius = 40;
+  const radius = 20;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percentage / 100) * circumference;
 
