@@ -7,33 +7,35 @@ interface IProps {
 }
 
 const CircularProgressBar = ({ percentage, stroke }: IProps) => {
-  const radius = 20;
+  const radius = 16;
+  const radiusWithStroke = 20 + 2;
+  const diameter = 2 * radiusWithStroke;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percentage / 100) * circumference;
 
   return (
     <div className={styles.circularProgressBar}>
-      <svg width='100' height='100'>
+      <svg width={diameter} height={diameter}>
         <circle
           className={styles.progressCircle}
-          cx='50'
-          cy='50'
           r={radius}
+          cx={radiusWithStroke}
+          cy={radiusWithStroke}
           fill='transparent'
         />
         <circle
           className={styles.progressFill}
-          cx='50'
-          cy='50'
           r={radius}
+          cx={radiusWithStroke}
+          cy={radiusWithStroke}
           fill='transparent'
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           stroke={stroke}
         />
         <text
-          x='50'
-          y='50'
+          x={radiusWithStroke}
+          y={radiusWithStroke}
           className={styles.percentageLabel}
           textAnchor='middle'
           dominantBaseline='middle'
