@@ -1,9 +1,10 @@
 .category {
     padding: 12px;
+    border-radius: 8px;
+    background-color: $color-background;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
