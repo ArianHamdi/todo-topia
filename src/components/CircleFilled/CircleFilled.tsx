@@ -9,7 +9,7 @@ interface IProps {
 const CircleFilled = ({ background, size }: IProps) => {
   return (
     <div
-      className={styles.color}
+      className={styles.circle}
       style={{ width: size, height: size, backgroundColor: background }}
     ></div>
   );
