@@ -12,7 +12,6 @@
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --list-different",
     "prepare": "husky install",
-    "lint-staged": "lint-staged",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
