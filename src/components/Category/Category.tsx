@@ -10,7 +10,7 @@ const Category = ({ color, title, todoLists }: ICategory) => {
     <div className={styles.category}>
       <div className={styles.header}>
         <CircularProgressBar stroke={color} percentage={66} />
-        <CircleFilled background={color} size={8} />
+        <CircleFilled background={color} size={10} />
       </div>
       <h3>{title}</h3>
       {/* <h4></h4> */}
