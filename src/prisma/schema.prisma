@@ -49,6 +49,7 @@ model TodoList {
 model Task {
   id          String      @id @default(auto()) @map("_id") @db.ObjectId
   title       String
+  status      Boolean     @default(false)
   description String?
   deadline    DateTime?
   repeat      repeatStep?
