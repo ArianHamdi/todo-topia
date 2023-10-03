@@ -7,11 +7,12 @@ export const getCategories = async () => {
 };
 
 export const createCategory = async ({ title, color }: ICategoryPost) => {
-  const { data } = (
-    await axios.post('/category', {
+  const { data } = await axios.post<ICategory, any, ICategoryPost>(
+    '/category',
+    {
       title,
       color,
-    })
-  ).data;
+    }
+  );
   return data;
 };
