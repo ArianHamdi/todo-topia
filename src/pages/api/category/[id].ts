@@ -1,4 +1,5 @@
 import prisma from '@/lib/prisma';
+import { categorySchema } from '@/schema';
 import withAuthorization from '@/utils/withAuthorization';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -14,7 +15,9 @@ export default withAuthorization(async function handler(
     switch (req.method) {
       case 'PUT':
         const { color, title } = req.body;
-        const category = await prisma.category.update({
+        await categorySchema.validateAsync({ color, title });
+
+        await prisma.category.update({
           where: {
             id: idAsString,
           },
@@ -28,7 +31,7 @@ export default withAuthorization(async function handler(
         break;
 
       case 'DELETE':
-        const deletedCategory = await prisma.category.delete({
+        await prisma.category.delete({
           where: {
             id: idAsString,
           },
