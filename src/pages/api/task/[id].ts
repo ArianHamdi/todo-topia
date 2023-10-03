@@ -1,4 +1,5 @@
 import prisma from '@/lib/prisma';
+import { taskSchema } from '@/schema';
 import withAuthorization from '@/utils/withAuthorization';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -15,8 +16,14 @@ export default withAuthorization(async function handler(
       case 'PUT':
         const { title, description, deadline, repeat, todoListId, status } =
           req.body;
+        await taskSchema.validateAsync({
+          title,
+          description,
+          deadline,
+          repeat,
+        });
 
-        const task = await prisma.task.update({
+        await prisma.task.update({
           where: {
             id: idAsString,
           },
@@ -34,7 +41,7 @@ export default withAuthorization(async function handler(
 
         break;
       case 'DELETE':
-        const deletedTask = await prisma.task.delete({
+        await prisma.task.delete({
           where: {
             id: idAsString,
           },

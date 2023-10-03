@@ -1,4 +1,5 @@
 import prisma from '@/lib/prisma';
+import { taskSchema } from '@/schema';
 import withAuthorization from '@/utils/withAuthorization';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -11,6 +12,13 @@ export default withAuthorization(async function handler(
     switch (req.method) {
       case 'POST':
         const { title, description, deadline, repeat, todoListId } = req.body;
+        await taskSchema.validateAsync({
+          title,
+          description,
+          deadline,
+          repeat,
+        });
+
         const newTask = await prisma.task.create({
           data: {
             title,

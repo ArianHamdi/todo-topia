@@ -1,4 +1,5 @@
 import prisma from '@/lib/prisma';
+import { todoListSchema } from '@/schema';
 import withAuthorization from '@/utils/withAuthorization';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -27,7 +28,13 @@ export default withAuthorization(async function handler(
       case 'PUT':
         {
           const { title, categoryId } = req.body;
-          const todoList = await prisma.todoList.update({
+
+          await todoListSchema.validateAsync({
+            title,
+            categoryId,
+          });
+
+          await prisma.todoList.update({
             where: { id: idAsString },
             data: { title, categoryId },
           });
@@ -37,7 +44,7 @@ export default withAuthorization(async function handler(
         break;
 
       case 'DELETE':
-        const deletedTodoList = await prisma.todoList.delete({
+        await prisma.todoList.delete({
           where: {
             id: idAsString,
           },
