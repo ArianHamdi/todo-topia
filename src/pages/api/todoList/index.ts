@@ -18,7 +18,7 @@ export default withAuthorization(async function handler(
             categoryId,
           },
         });
-        res.status(200).json(todoList);
+        res.status(201).json(todoList);
         break;
 
       default:
