@@ -2,5 +2,7 @@
   "task_categories": "Task Categories",
   "tasks": "tasks",
   "completed": "completed",
-  "left": "left"
+  "left": "left",
+  "add": "add",
+  "new_task": "new task"
 }

@@ -1,5 +1,7 @@
 import { Properties } from 'csstype';
 
+export type RequiredName<T> = T & { name: string };
+
 export interface ITask {
   id: string;
   title: string;

@@ -1,7 +1,7 @@
 import { translations } from '@/translations';
 import { injectParamsToString } from '@/utils';
 
-export const useTranslations = () => {
+export const useTranslation = () => {
   const translation = translations['en'];
 
   const translator = (
