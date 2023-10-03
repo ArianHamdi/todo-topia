@@ -36,7 +36,10 @@ export default withAuthorization(async function handler(
           },
         });
 
-        res.status(200).json(newCategory);
+        res.status(201).json(newCategory);
+        break;
+
+      default:
         break;
     }
   } catch (error) {

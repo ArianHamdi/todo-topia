@@ -37,7 +37,7 @@ model Category {
 
 model TodoList {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  title      String?
+  title      String
   categoryId String   @db.ObjectId
   userId     String
   user       User     @relation(fields: [userId], references: [userId])

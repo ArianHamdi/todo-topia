@@ -12,6 +12,27 @@ export default withAuthorization(async function handler(
 
   try {
     switch (req.method) {
+      case 'PUT':
+        const { title, description, deadline, repeat, todoListId, status } =
+          req.body;
+
+        const task = await prisma.task.update({
+          where: {
+            id: idAsString,
+          },
+          data: {
+            title,
+            description,
+            deadline,
+            repeat,
+            todoListId,
+            status,
+          },
+        });
+
+        res.status(201).json('success');
+
+        break;
       case 'DELETE':
         const deletedTask = await prisma.task.delete({
           where: {
@@ -19,7 +40,7 @@ export default withAuthorization(async function handler(
           },
         });
 
-        res.status(201).json('success');
+        res.status(204).json('success');
         break;
 
       default:
