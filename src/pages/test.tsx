@@ -7,9 +7,8 @@ import {
   usePopup,
   useThemeParams,
   useWebApp,
-} from '@twa.js/sdk-react';
+} from '@tma.js/sdk-react';
 
-import { retrieveLaunchParams } from '@twa.js/sdk';
 import Dropdown from '@/components/Dropdown';
 import { useEffect } from 'react';
 
