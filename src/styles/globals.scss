@@ -7,7 +7,8 @@
 body {
     color: $color-text;
     background-color: $color-hint;
-    // padding: 8px 32px;
+
+    @include no-select;
 }
 
 a {

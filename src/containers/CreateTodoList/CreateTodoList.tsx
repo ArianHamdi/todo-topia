@@ -6,9 +6,7 @@ const CreateTodoList = () => {
 
   return (
     <div>
-      <h1>
-        {t('add')} {t('new_task')}
-      </h1>
+      <h1>{t('add_new_todo_list')}</h1>
     </div>
   );
 };

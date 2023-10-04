@@ -14,12 +14,12 @@ const FloatingActionButton = ({ children }: IProps) => {
   };
 
   return (
-    <div className={styles.backdrop} data-is-open={isOpen}>
-      <div onClick={toggleHandler} className={styles.button}>
-        <Add className={styles.icon} />
-        {isOpen && <ul className={styles.list}>{children}</ul>}
-      </div>
+    // <div className={styles.backdrop} data-is-open={isOpen}>
+    <div onClick={toggleHandler} className={styles.button}>
+      <Add className={styles.icon} />
+      {isOpen && <ul className={styles.list}>{children}</ul>}
     </div>
+    // </div>
   );
 };
 
