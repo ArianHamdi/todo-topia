@@ -23,3 +23,7 @@ export const generateRandomHexColor = (): RGB => {
 
   return color as RGB;
 };
+
+export const capitalizeFirstLetter = (text: string) => {
+  return text.replace(/\b\w/g, match => match.toUpperCase());
+};
