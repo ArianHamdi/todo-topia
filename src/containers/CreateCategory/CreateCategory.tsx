@@ -7,6 +7,7 @@ import { categorySchema } from '@/schema';
 import { generateRandomHexColor } from '@/utils';
 import { useCreateCategory } from '@/hooks/api/todo';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useClosingBehaviour } from '@/hooks/useClosingBehaviour';
 
 const CreateCategory = () => {
   const methods = useForm({
@@ -36,6 +37,8 @@ const CreateCategory = () => {
     isLoading: isLoading,
     onClick: onSubmit,
   });
+
+  useClosingBehaviour(isValid);
 
   return (
     <div>
