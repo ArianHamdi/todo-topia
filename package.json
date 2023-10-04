@@ -15,11 +15,13 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@hookform/devtools": "^4.3.1",
     "@hookform/resolvers": "^3.3.1",
     "@prisma/client": "^5.3.1",
     "@svgr/webpack": "^8.1.0",
     "@tanstack/react-query": "^4.35.3",
     "@tanstack/react-query-devtools": "^4.35.3",
+    "@twa.js/colors": "^0.0.1",
     "@twa.js/init-data-node": "^0.0.11",
     "@twa.js/sdk": "^0.11.2",
     "@twa.js/sdk-react": "^0.4.2",

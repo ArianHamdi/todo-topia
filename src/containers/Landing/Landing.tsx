@@ -5,10 +5,20 @@ import { useTranslation } from '@/hooks/useTranslation';
 import FloatingActionButton from '@/components/FloatingActionButton';
 import FloatingActionButtonItem from '@/components/FloatingActionButton/FloatingActionButtonItem';
 import Add from '@/assets/icons/add.svg';
+import { useMainButton } from '@/hooks/useMainButton';
 
 const Landing = () => {
   const { data } = useCategories();
   const { t } = useTranslation();
+
+  useMainButton({
+    text: 'salam2',
+    backgroundColor: '#a12122',
+
+    onClick: () => {
+      console.log('landing');
+    },
+  });
 
   const items = data?.map(category => (
     <Category key={category.id} {...category} />
