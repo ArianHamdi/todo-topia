@@ -1,4 +1,4 @@
-import { validate } from '@twa.js/init-data-node';
+import { validate } from '@tma.js/init-data-node';
 import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/lib/prisma';
 import jwt, { JwtPayload } from 'jsonwebtoken';

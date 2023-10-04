@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { retrieveLaunchParams } from '@twa.js/sdk';
+import { retrieveLaunchParams } from '@tma.js/sdk';
 
 const instance = axios.create({
   baseURL: '/api',

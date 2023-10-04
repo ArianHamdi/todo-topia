@@ -1,6 +1,6 @@
 import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
-import { SDKProvider } from '@twa.js/sdk-react';
+import { SDKProvider } from '@tma.js/sdk-react';
 import Loader from '@/components/Loader';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@/lib/react-query';

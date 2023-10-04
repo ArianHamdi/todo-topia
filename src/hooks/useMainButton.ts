@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
-import { useMainButton as useMainButtonReact } from '@twa.js/sdk-react';
-import { RGB } from '@twa.js/colors';
+import { useMainButton as useMainButtonReact } from '@tma.js/sdk-react';
+import { RGB } from '@tma.js/colors';
 import { capitalizeFirstLetter } from '@/utils';
 
 interface IProps {

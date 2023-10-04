@@ -1,4 +1,4 @@
-import { RGB } from '@twa.js/colors';
+import { RGB } from '@tma.js/colors';
 
 export const isServer = typeof window === 'undefined';
 
