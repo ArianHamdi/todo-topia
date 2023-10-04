@@ -5,7 +5,7 @@
       "warn",
       {
         "cspell": {
-          "words": ["Behaviour"]
+          "words": ["Behaviour", "hookform"]
         }
       }
     ]
