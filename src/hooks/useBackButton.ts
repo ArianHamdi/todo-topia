@@ -1,4 +1,4 @@
-import { useBackButton as useBackButtonReact } from '@twa.js/sdk-react';
+import { useBackButton as useBackButtonReact } from '@tma.js/sdk-react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 

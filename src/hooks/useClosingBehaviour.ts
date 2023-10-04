@@ -1,4 +1,4 @@
-import { useClosingBehaviour as useClosingBehaviourReact } from '@twa.js/sdk-react';
+import { useClosingBehaviour as useClosingBehaviourReact } from '@tma.js/sdk-react';
 import { useEffect } from 'react';
 
 export const useClosingBehaviour = (enable: boolean = true) => {
