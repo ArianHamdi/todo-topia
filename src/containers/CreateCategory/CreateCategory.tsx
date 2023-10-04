@@ -5,6 +5,7 @@ import { useMainButton } from '@/hooks/useMainButton';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { categorySchema } from '@/schema';
 import { generateRandomHexColor } from '@/utils';
+import { useCreateCategory } from '@/hooks/api/todo';
 
 const CreateCategory = () => {
   const methods = useForm({
@@ -15,22 +16,21 @@ const CreateCategory = () => {
     resolver: joiResolver(categorySchema),
   });
 
+  const { mutate, isLoading } = useCreateCategory();
+
   const {
     formState: { isValid },
     handleSubmit,
   } = methods;
 
-  const onSubmit = handleSubmit((data, err) => {
-    console.log('Data33', data);
-    console.log('err33', err);
-  });
+  const onSubmit = handleSubmit(data => mutate(data));
 
   useMainButton({
     text: 'Create',
     isEnabled: isValid,
     backgroundColor: '#22ff11',
     disableBackgroundColor: '#ff1133',
-    isLoading: true,
+    isLoading: isLoading,
     onClick: onSubmit,
   });
 
