@@ -4,17 +4,18 @@ import Chip from '@/components/Chip';
 import CircularProgressBar from '../CircularProgressBar';
 import CircleFilled from '../CircleFilled';
 import { ICategory } from '@/types';
+import Link from 'next/link';
 
-const Category = ({ color, title, todoLists }: ICategory) => {
+const Category = ({ color, title, todoLists, id }: ICategory) => {
   return (
-    <div className={styles.category}>
+    <Link href={'/category/' + id} className={styles.category}>
       <div className={styles.header}>
         <CircularProgressBar stroke={color} percentage={66} />
         <CircleFilled background={color} size={10} />
       </div>
       <h3>{title}</h3>
       {/* <h4></h4> */}
-    </div>
+    </Link>
   );
 };
 
