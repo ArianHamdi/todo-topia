@@ -6,6 +6,7 @@ import { joiResolver } from '@hookform/resolvers/joi';
 import { categorySchema } from '@/schema';
 import { generateRandomHexColor } from '@/utils';
 import { useCreateCategory } from '@/hooks/api/todo';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const CreateCategory = () => {
   const methods = useForm({
@@ -18,6 +19,8 @@ const CreateCategory = () => {
 
   const { mutate, isLoading } = useCreateCategory();
 
+  const { t } = useTranslation();
+
   const {
     formState: { isValid },
     handleSubmit,
@@ -26,7 +29,7 @@ const CreateCategory = () => {
   const onSubmit = handleSubmit(data => mutate(data));
 
   useMainButton({
-    text: 'Create',
+    text: t('create'),
     isEnabled: isValid,
     backgroundColor: '#22ff11',
     disableBackgroundColor: '#ff1133',

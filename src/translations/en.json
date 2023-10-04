@@ -4,5 +4,6 @@
   "completed": "completed",
   "left": "left",
   "add": "add",
-  "new_task": "new task"
+  "new_task": "new task",
+  "create": "create"
 }
