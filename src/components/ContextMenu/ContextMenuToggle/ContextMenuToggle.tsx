@@ -1,12 +1,12 @@
 import { MouseEvent, Ref, forwardRef } from 'react';
 import More from '@/assets/icons/more.svg';
-import styles from './DropdownToggle.module.scss';
+import styles from './ContextMenuToggle.module.scss';
 
 interface IProps {
   onClick: () => void;
 }
 
-const DropdownToggle = ({ onClick }: IProps, ref: Ref<HTMLElement>) => {
+const ContextMenuToggle = ({ onClick }: IProps, ref: Ref<HTMLElement>) => {
   // return <More className={styles.more} />;
 
   return (
@@ -16,4 +16,4 @@ const DropdownToggle = ({ onClick }: IProps, ref: Ref<HTMLElement>) => {
   );
 };
 
-export default forwardRef(DropdownToggle);
+export default forwardRef(ContextMenuToggle);
