@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { useMainButton as useMainButtonReact } from '@twa.js/sdk-react';
 import { RGB } from '@twa.js/colors';
+import { capitalizeFirstLetter } from '@/utils';
 
 interface IProps {
   isVisible?: boolean;
@@ -72,7 +73,7 @@ export const useMainButton = ({
 
   useEffect(() => {
     if (text) {
-      mainButton.setText(text);
+      mainButton.setText(capitalizeFirstLetter(text));
     }
   }, [text, mainButton]);
 
