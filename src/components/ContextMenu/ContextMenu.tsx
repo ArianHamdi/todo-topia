@@ -20,7 +20,7 @@ const ContextMenu = ({ children }: IContextMenu) => {
   return (
     <div className={styles.menu} ref={ref}>
       <DropdownToggle onClick={toggleHandler} />
-      {isOpen && children}
+      {isOpen && <ul className={styles.list}>{children}</ul>}
     </div>
   );
 };

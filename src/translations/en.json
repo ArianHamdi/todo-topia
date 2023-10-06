@@ -6,5 +6,7 @@
   "add_new_task": "Add new task",
   "add_new_category": "Add new category",
   "add_new_todo_list": "Add new todo list",
-  "create": "create"
+  "create": "Create",
+  "delete": "Delete",
+  "delete_category": "Are you sure you want to delete {title} category?"
 }
