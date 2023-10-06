@@ -25,3 +25,30 @@ export const useCreateCategory = () => {
     },
   });
 };
+
+export const useDeleteCategory = () => {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+
+  return useMutation({
+    mutationFn: api.deleteCategory,
+    onMutate: async ({ id }) => {
+      // Snapshot the previous value
+      const snapshot = queryClient.getQueryData<ICategory[]>(['categories']);
+
+      // Optimistically update to the new value
+      queryClient.setQueryData<ICategory[]>(['categories'], old => {
+        return old?.filter(category => category.id !== id);
+      });
+
+      // Redirect to landing page
+      router.replace('/');
+
+      // Return a context object with the snapshot value
+      return { snapshot };
+    },
+    onError: (_error, _variables, context) => {
+      queryClient.setQueryData(['categories'], context?.snapshot);
+    },
+  });
+};

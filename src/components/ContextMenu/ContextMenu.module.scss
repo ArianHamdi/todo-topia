@@ -1,37 +1,14 @@
-.menu h1 {
-    &:nth-child(1) {
-        color: $color-background;
-    }
+.menu {
+    position: relative;
+    display: inline-block;
+}
 
-    &:nth-child(2) {
-        color: $color-background-secondary;
-    }
-
-    &:nth-child(3) {
-        color: $color-button;
-    }
-
-    &:nth-child(4) {
-        color: $color-button-text;
-    }
-
-    &:nth-child(5) {
-        color: $color-hint;
-    }
-
-    &:nth-child(6) {
-        color: $color-link;
-    }
-
-    &:nth-child(7) {
-        color: $color-text;
-    }
-
-    &:nth-child(8) {
-        color: $color-twa-background;
-    }
-
-    &:nth-child(9) {
-        color: $color-twa-header;
-    }
+.list {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 250px;
+    padding: 8px 0;
+    border-radius: 8px;
+    background-color: $color-background;
 }
