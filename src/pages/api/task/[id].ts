@@ -23,6 +23,42 @@ export default withAuthorization(async function handler(
           repeat,
         });
 
+        const task = await prisma.task.findUnique({
+          where: {
+            id: idAsString,
+          },
+        });
+
+        if (task?.status !== status && status === true) {
+          await prisma.todoList.update({
+            where: {
+              id: todoListId.toString(),
+            },
+            data: {
+              left: {
+                decrement: 1,
+              },
+              completed: {
+                increment: 1,
+              },
+            },
+          });
+        } else if (task?.status !== status && status === false) {
+          await prisma.todoList.update({
+            where: {
+              id: todoListId.toString(),
+            },
+            data: {
+              left: {
+                increment: 1,
+              },
+              completed: {
+                decrement: 1,
+              },
+            },
+          });
+        }
+
         await prisma.task.update({
           where: {
             id: idAsString,

@@ -40,6 +40,8 @@ model TodoList {
   title      String
   categoryId String   @db.ObjectId
   userId     String
+  completed  Int      @default(0)
+  left       Int      @default(0)
   user       User     @relation(fields: [userId], references: [userId])
   category   Category @relation(fields: [categoryId], references: [id])
 
