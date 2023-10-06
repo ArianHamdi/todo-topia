@@ -29,6 +29,17 @@ export default withAuthorization(async function handler(
           },
         });
 
+        await prisma.todoList.update({
+          where: {
+            id: todoListId.toString(),
+          },
+          data: {
+            left: {
+              increment: 1,
+            },
+          },
+        });
+
         res.status(201).json(newTask);
         break;
 

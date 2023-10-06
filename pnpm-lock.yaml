@@ -35,18 +35,6 @@ dependencies:
   '@tma.js/sdk-react':
     specifier: ^0.4.6
     version: 0.4.6(@types/react@18.2.22)(react@18.2.0)
-  '@twa.js/colors':
-    specifier: ^0.0.1
-    version: 0.0.1
-  '@twa.js/init-data-node':
-    specifier: ^0.0.11
-    version: 0.0.11
-  '@twa.js/sdk':
-    specifier: ^0.11.2
-    version: 0.11.2
-  '@twa.js/sdk-react':
-    specifier: ^0.4.2
-    version: 0.4.2(@types/react@18.2.22)(react@18.2.0)
   '@types/node':
     specifier: 20.6.4
     version: 20.6.4
@@ -2405,83 +2393,6 @@ packages:
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
-    dev: false
-
-  /@twa.js/bridge@1.3.1:
-    resolution: {integrity: sha512-ABcaiMaR99jo4jCCDJ8mYtCPzuWpfAe3YoQQkAyPxg/ZWVjdVYg4T9q1NM5EDLJ1jhtpnr21No7s2pOIy9LFNQ==}
-    dependencies:
-      '@twa.js/colors': 0.0.1
-      '@twa.js/event-emitter': 0.0.1
-      '@twa.js/parsing': 0.0.1
-      '@twa.js/util-types': 0.0.1
-      '@twa.js/utils': 0.5.1
-    dev: false
-
-  /@twa.js/colors@0.0.1:
-    resolution: {integrity: sha512-/QX/kg5KLZuUmYnp7SoOLGkzn6/Lk51KDVhbX6EhGN7bu8EQiDa8EXbfevzLgStj+iM354FwjVZkD/Sfd1u82w==}
-    deprecated: Use @tma.js/colors
-    dev: false
-
-  /@twa.js/event-emitter@0.0.1:
-    resolution: {integrity: sha512-h92G+kmNXqr0edoyl1BIURnOE+THXOLvOm9F7W1pdNWxt7YU0Yru09Gztv8FcqOEhvMORXoTvV5DAPbFrR8BuA==}
-    dependencies:
-      '@twa.js/util-types': 0.0.1
-    dev: false
-
-  /@twa.js/init-data-node@0.0.11:
-    resolution: {integrity: sha512-WWg3QNr+LpixthlGS2OrHX4nwdXw2VvTfcXmJFIy2WeLDIYEu/KrY67kczG44dTd75Z+ESAVwN8ztP4DPqtZXg==}
-    dependencies:
-      '@twa.js/init-data': 0.2.13
-    dev: false
-
-  /@twa.js/init-data@0.2.13:
-    resolution: {integrity: sha512-CG8hBeeq/jSc65NNHyg6u7CHI69ZEyNLtThjR/osTXTPwhPW4JUimpmzLJ+ayvXV6T9M6igNUCYBWnjHZbQcug==}
-    dependencies:
-      '@twa.js/parsing': 0.0.1
-    dev: false
-
-  /@twa.js/parsing@0.0.1:
-    resolution: {integrity: sha512-bDa0AjiQ8yw+YOQxcv6UlO4ZbNy1Ob2VX1MN1cCTyScUJV8h4jdURLr0VMEI/K8/26hPH8da0Dd3r8/MHcgTEA==}
-    dependencies:
-      '@twa.js/colors': 0.0.1
-      '@twa.js/util-types': 0.0.1
-    dev: false
-
-  /@twa.js/sdk-react@0.4.2(@types/react@18.2.22)(react@18.2.0):
-    resolution: {integrity: sha512-dUydO+Gm1wS9T7RVlADZsQOI4AkTmN8bgDevb5Pkg3hkGHI8n4S9sjwkTbAqf1lsOeZ28o2FNu+tlr8PmPzs7A==}
-    peerDependencies:
-      '@types/react': ^17.0.0 || ^18.0.0
-      react: ^17.0.0 || ^18.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-    dependencies:
-      '@twa.js/bridge': 1.3.1
-      '@twa.js/sdk': 0.11.2
-      '@types/react': 18.2.22
-      react: 18.2.0
-    dev: false
-
-  /@twa.js/sdk@0.11.2:
-    resolution: {integrity: sha512-rzNM7wss3IdPpFWidHYIexpoXmxvMauC9T56TZFR1YA+yU9i/qifF3+fnZ2wFCXfRnhwge2dJdvLXkANP1Sg4Q==}
-    dependencies:
-      '@twa.js/bridge': 1.3.1
-      '@twa.js/colors': 0.0.1
-      '@twa.js/event-emitter': 0.0.1
-      '@twa.js/init-data': 0.2.13
-      '@twa.js/parsing': 0.0.1
-      '@twa.js/util-types': 0.0.1
-      '@twa.js/utils': 0.5.1
-    dev: false
-
-  /@twa.js/util-types@0.0.1:
-    resolution: {integrity: sha512-nEbiRbiKUN5guKsmR8sPxUrRDiHLsAIAyDc7/X0FvzDW5JbvSGjINFEKUzc3d0zUVZjY566Te912Qj48UxgbtQ==}
-    dev: false
-
-  /@twa.js/utils@0.5.1:
-    resolution: {integrity: sha512-NcgKyat1wnmqKEefWDOzefGrgH7049qccGEHcLTYbv7C3aeEmGsZzrnJh3nfSA+UIpnqFb1LLdNGwiVc9rKZ6g==}
-    dependencies:
-      '@twa.js/util-types': 0.0.1
     dev: false
 
   /@types/estree@1.0.2:
