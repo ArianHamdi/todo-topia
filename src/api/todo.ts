@@ -1,5 +1,5 @@
 import axios from '@/lib/axios';
-import { ICategory, ICategoryPost } from '@/types';
+import { ICategory, ICategoryDelete, ICategoryPost } from '@/types';
 
 export const getCategories = async () => {
   const { data } = await axios.get<ICategory[]>('/category');
@@ -14,5 +14,11 @@ export const createCategory = async ({ title, color }: ICategoryPost) => {
       color,
     }
   );
+  return data;
+};
+
+export const deleteCategory = async ({ id }: ICategoryDelete) => {
+  console.log('ICategoryDelete');
+  const { data } = await axios.delete<ICategory>('/category/' + id);
   return data;
 };
