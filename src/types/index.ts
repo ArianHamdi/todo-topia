@@ -2,8 +2,7 @@ import { Properties } from 'csstype';
 
 export type RequiredName<T> = T & { name: string };
 
-export type CallbackFunction = (...args: any[]) => void;
-
+export type IFormType = 'create' | 'edit';
 export interface ITask {
   id: string;
   title: string;
@@ -27,7 +26,9 @@ export interface ICategory {
 }
 
 export type ICategoryPost = Pick<ICategory, 'title' | 'color'>;
+export type ICategoryEdit = Pick<ICategory, 'title' | 'color' | 'id'>;
 export type ICategoryDelete = Pick<ICategory, 'id'>;
+
 export type ITodoListPost = Pick<ITodoList, 'title' | 'categoryId'>;
 export type ITaskPost = Pick<
   ITask,

@@ -1,9 +1,8 @@
-import { CallbackFunction } from '@/types';
 import { PopupParams } from '@tma.js/sdk';
 import { usePopup as usePopupReact } from '@tma.js/sdk-react';
 
 interface IOpen extends PopupParams {
-  onConfirm: CallbackFunction;
+  onConfirm: () => void;
 }
 
 export const usePopup = () => {

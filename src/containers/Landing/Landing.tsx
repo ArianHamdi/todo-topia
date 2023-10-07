@@ -1,5 +1,5 @@
 import Category from '@/components/Category';
-import { useCategories } from '@/hooks/api/todo';
+import { useCategories } from '@/hooks/api/category';
 import styles from './Landing.module.scss';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingActionButton from '@/components/FloatingActionButton';
