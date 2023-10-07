@@ -17,6 +17,9 @@ export interface ITodoList {
   categoryId: string;
   tasks?: ITask[];
 }
+export type ITodoListPost = Pick<ITodoList, 'title' | 'categoryId'>;
+export type ITodoListEdit = Pick<ITodoList, 'title' | 'categoryId' | 'id'>;
+export type ITodoListDelete = Pick<ITodoList, 'id'>;
 
 export interface ICategory {
   id: string;
@@ -24,12 +27,10 @@ export interface ICategory {
   color: Properties['color'];
   todoLists?: ITodoList[];
 }
-
 export type ICategoryPost = Pick<ICategory, 'title' | 'color'>;
 export type ICategoryEdit = Pick<ICategory, 'title' | 'color' | 'id'>;
 export type ICategoryDelete = Pick<ICategory, 'id'>;
 
-export type ITodoListPost = Pick<ITodoList, 'title' | 'categoryId'>;
 export type ITaskPost = Pick<
   ITask,
   'title' | 'description' | 'deadline' | 'repeat'

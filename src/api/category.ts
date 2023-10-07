@@ -25,11 +25,7 @@ export const createCategory = async ({ title, color }: ICategoryPost) => {
 };
 
 export const editCategory = async ({ color, title, id }: ICategoryEdit) => {
-  const { data } = await axios.put<
-    ICategory,
-    AxiosResponse<ICategory>,
-    ICategoryPost
-  >('/category/' + id, {
+  const { data } = await axios.put<ICategory>('/category/' + id, {
     title,
     color,
   });
