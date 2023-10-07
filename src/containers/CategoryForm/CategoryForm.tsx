@@ -2,7 +2,6 @@ import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import styles from './CategoryForm.module.scss';
 import { ColorPicker, TextField } from '@/components/FormRHF';
 import { useMainButton } from '@/hooks/useMainButton';
-import { joiResolver } from '@hookform/resolvers/joi';
 import { categorySchema } from '@/schema';
 import { generateRandomHexColor } from '@/utils';
 import {
@@ -15,6 +14,7 @@ import { useClosingBehaviour } from '@/hooks/useClosingBehaviour';
 import { IFormType } from '@/types';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 interface IProps {
   type: IFormType;
@@ -30,7 +30,7 @@ const CategoryForm = ({ type }: IProps) => {
   const randomHexColor = useMemo(generateRandomHexColor, []);
 
   const methods = useForm({
-    resolver: joiResolver(categorySchema),
+    resolver: yupResolver(categorySchema),
     values: {
       title: category?.title ?? '',
       color: category?.color ?? randomHexColor,

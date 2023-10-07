@@ -29,7 +29,7 @@ export default withAuthorization(async function handler(
         {
           const { title, categoryId } = req.body;
 
-          await todoListSchema.validateAsync({
+          await todoListSchema.validate({
             title,
             categoryId,
           });
