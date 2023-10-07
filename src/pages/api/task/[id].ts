@@ -16,7 +16,7 @@ export default withAuthorization(async function handler(
       case 'PUT':
         const { title, description, deadline, repeat, todoListId, status } =
           req.body;
-        await taskSchema.validateAsync({
+        await taskSchema.validate({
           title,
           description,
           deadline,
