@@ -5,34 +5,19 @@ import {
   ICategoryEdit,
   ICategoryPost,
 } from '@/types';
-import { AxiosResponse } from 'axios';
 
 export const getCategories = async () => {
   const { data } = await axios.get<ICategory[]>('/category');
   return data;
 };
 
-export const createCategory = async ({ title, color }: ICategoryPost) => {
-  const { data } = await axios.post<
-    ICategory,
-    AxiosResponse<ICategory>,
-    ICategoryPost
-  >('/category', {
-    title,
-    color,
-  });
+export const createCategory = async (body: ICategoryPost) => {
+  const { data } = await axios.post<ICategory>('/category', body);
   return data;
 };
 
-export const editCategory = async ({ color, title, id }: ICategoryEdit) => {
-  const { data } = await axios.put<
-    ICategory,
-    AxiosResponse<ICategory>,
-    ICategoryPost
-  >('/category/' + id, {
-    title,
-    color,
-  });
+export const editCategory = async ({ id, ...body }: ICategoryEdit) => {
+  const { data } = await axios.put<ICategory>('/category/' + id, body);
   return data;
 };
 
