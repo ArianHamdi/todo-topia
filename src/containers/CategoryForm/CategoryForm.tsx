@@ -1,0 +1,81 @@
+import { FormProvider, useForm, useWatch } from 'react-hook-form';
+import styles from './CategoryForm.module.scss';
+import { ColorPicker, TextField } from '@/components/FormRHF';
+import { useMainButton } from '@/hooks/useMainButton';
+import { joiResolver } from '@hookform/resolvers/joi';
+import { categorySchema } from '@/schema';
+import { generateRandomHexColor } from '@/utils';
+import {
+  useCategory,
+  useCreateCategory,
+  useEditCategory,
+} from '@/hooks/api/category';
+import { useTranslation } from '@/hooks/useTranslation';
+import { useClosingBehaviour } from '@/hooks/useClosingBehaviour';
+import { IFormType } from '@/types';
+import { useRouter } from 'next/router';
+import { useMemo } from 'react';
+
+interface IProps {
+  type: IFormType;
+}
+
+const CategoryForm = ({ type }: IProps) => {
+  const {
+    query: { id },
+  } = useRouter();
+
+  const { data: category, isLoading } = useCategory(id as string);
+
+  const randomHexColor = useMemo(generateRandomHexColor, []);
+
+  const methods = useForm({
+    resolver: joiResolver(categorySchema),
+    values: {
+      title: category?.title ?? '',
+      color: category?.color ?? randomHexColor,
+    },
+  });
+
+  const { mutate: create, isLoading: isCreateLoading } = useCreateCategory();
+  const { mutate: edit, isLoading: isEditLoading } = useEditCategory();
+
+  const { t } = useTranslation();
+
+  const {
+    formState: { isValid },
+    handleSubmit,
+  } = methods;
+
+  const onSubmit = handleSubmit(data => {
+    if (!category?.id) return;
+    type === 'create' ? create(data) : edit({ ...data, id: category.id });
+  });
+
+  useMainButton({
+    text: t(type),
+    isEnabled: isValid,
+    backgroundColor: '#22ff11',
+    disableBackgroundColor: '#ff1133',
+    isLoading: isCreateLoading || isEditLoading,
+    onClick: onSubmit,
+  });
+
+  useClosingBehaviour(isValid);
+
+  if (isLoading) return 'loading...';
+
+  return (
+    <div>
+      <h1>Add new category</h1>
+      <FormProvider {...methods}>
+        <form>
+          <TextField name='title' label='Category name' />
+          <ColorPicker name='color' label='Color' />
+        </form>
+      </FormProvider>
+    </div>
+  );
+};
+
+export default CategoryForm;

@@ -8,5 +8,6 @@
   "add_new_todo_list": "Add new todo list",
   "create": "Create",
   "delete": "Delete",
+  "edit": "Edit",
   "delete_category": "Are you sure you want to delete {title} category?"
 }
