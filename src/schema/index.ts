@@ -1,19 +1,19 @@
 import { ICategoryPost, ITaskPost, ITodoListPost } from '@/types';
-import Joi from 'joi';
+import * as yup from 'yup';
 
-export const categorySchema = Joi.object<ICategoryPost>({
-  color: Joi.string().required(),
-  title: Joi.string().required(),
+export const categorySchema = yup.object().shape({
+  color: yup.string().required(),
+  title: yup.string().required(),
 });
 
-export const todoListSchema = Joi.object<ITodoListPost>({
-  title: Joi.string().required(),
-  categoryId: Joi.string().required(),
+export const todoListSchema = yup.object().shape({
+  title: yup.string().required(),
+  categoryId: yup.string().required(),
 });
 
-export const taskSchema = Joi.object<ITaskPost>({
-  title: Joi.string().required(),
-  description: Joi.string(),
-  deadline: Joi.date(),
-  repeat: Joi.string().valid('daily', 'weekly', 'monthly'),
+export const taskSchema = yup.object().shape({
+  title: yup.string().required(),
+  description: yup.string(),
+  deadline: yup.date(),
+  repeat: yup.string().oneOf(['daily', 'weekly', 'monthly']),
 });

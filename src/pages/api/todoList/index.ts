@@ -12,7 +12,7 @@ export default withAuthorization(async function handler(
     switch (req.method) {
       case 'POST':
         const { title, categoryId } = req.body;
-        await todoListSchema.validateAsync({ title, categoryId });
+        await todoListSchema.validate({ title, categoryId });
 
         const todoList = await prisma.todoList.create({
           data: {
