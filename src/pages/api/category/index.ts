@@ -29,7 +29,7 @@ export default withAuthorization(async function handler(
       case 'POST':
         const { color, title } = req.body;
 
-        await categorySchema.validateAsync({ color, title });
+        await categorySchema.validate({ color, title });
 
         const newCategory = await prisma.category.create({
           data: {

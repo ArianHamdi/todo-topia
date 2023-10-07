@@ -12,7 +12,7 @@ export default withAuthorization(async function handler(
     switch (req.method) {
       case 'POST':
         const { title, description, deadline, repeat, todoListId } = req.body;
-        await taskSchema.validateAsync({
+        await taskSchema.validate({
           title,
           description,
           deadline,

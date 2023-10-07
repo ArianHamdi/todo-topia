@@ -15,7 +15,7 @@ export default withAuthorization(async function handler(
     switch (req.method) {
       case 'PUT':
         const { color, title } = req.body;
-        await categorySchema.validateAsync({ color, title });
+        await categorySchema.validate({ color, title });
 
         await prisma.category.update({
           where: {
