@@ -21,6 +21,7 @@ model User {
   userId     String     @unique
   categories Category[]
   todoLists  TodoList[]
+  Task       Task[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -56,6 +57,8 @@ model Task {
   deadline    DateTime?
   repeat      repeatStep?
 
+  userId     String
+  user       User     @relation(fields: [userId], references: [userId])
   todoListId String   @db.ObjectId
   todoList   TodoList @relation(fields: [todoListId], references: [id])
 }

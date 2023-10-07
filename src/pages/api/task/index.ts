@@ -18,7 +18,7 @@ export default withAuthorization(async function handler(
           deadline,
           repeat,
         });
-
+        console.log('USER', userId);
         const newTask = await prisma.task.create({
           data: {
             title,
@@ -26,6 +26,7 @@ export default withAuthorization(async function handler(
             deadline,
             repeat,
             todoListId,
+            userId: userId,
           },
         });
 
@@ -43,6 +44,16 @@ export default withAuthorization(async function handler(
         res.status(201).json(newTask);
         break;
 
+      case 'GET':
+        const data = await prisma.task.findMany({
+          where: {
+            userId: userId,
+          },
+        });
+
+        res.status(200).json(data);
+
+        break;
       default:
         break;
     }
