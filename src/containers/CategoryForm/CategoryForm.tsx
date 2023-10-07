@@ -48,8 +48,12 @@ const CategoryForm = ({ type }: IProps) => {
   } = methods;
 
   const onSubmit = handleSubmit(data => {
-    if (!category?.id) return;
-    type === 'create' ? create(data) : edit({ ...data, id: category.id });
+    if (type === 'create') {
+      create(data);
+    } else {
+      if (!category?.id) return;
+      edit({ ...data, id: category.id });
+    }
   });
 
   useMainButton({
