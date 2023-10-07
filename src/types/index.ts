@@ -11,6 +11,10 @@ export interface ITask {
   repeat?: string;
 }
 
+export type ITaskPost = Omit<ITask, 'id'>;
+export type ITaskEdit = ITask;
+export type ITaskDelete = Pick<ITask, 'id'>;
+
 export interface ITodoList {
   id: string;
   title: string;
@@ -30,8 +34,3 @@ export interface ICategory {
 export type ICategoryPost = Pick<ICategory, 'title' | 'color'>;
 export type ICategoryEdit = Pick<ICategory, 'title' | 'color' | 'id'>;
 export type ICategoryDelete = Pick<ICategory, 'id'>;
-
-export type ITaskPost = Pick<
-  ITask,
-  'title' | 'description' | 'deadline' | 'repeat'
->;

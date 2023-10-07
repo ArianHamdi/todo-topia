@@ -6,22 +6,17 @@ import {
   ITodoListDelete,
 } from '@/types';
 
-export const getCategories = async () => {
-  const { data } = await axios.get<ITodoList[]>('/category');
+export const createTodoList = async (body: ITodoListPost) => {
+  const { data } = await axios.post<ITodoList>('/todoList', body);
   return data;
 };
 
-export const createCategory = async (body: ITodoListPost) => {
-  const { data } = await axios.post<ITodoList>('/category', body);
+export const editTodoList = async ({ id, ...body }: ITodoListEdit) => {
+  const { data } = await axios.put<ITodoList>('/todoList/' + id, body);
   return data;
 };
 
-export const editCategory = async ({ id, ...body }: ITodoListEdit) => {
-  const { data } = await axios.put<ITodoList>('/category/' + id, body);
-  return data;
-};
-
-export const deleteCategory = async ({ id }: ITodoListDelete) => {
-  const { data } = await axios.delete<ITodoList>('/category/' + id);
+export const deleteTodoList = async ({ id }: ITodoListDelete) => {
+  const { data } = await axios.delete<ITodoList>('/todoList/' + id);
   return data;
 };
