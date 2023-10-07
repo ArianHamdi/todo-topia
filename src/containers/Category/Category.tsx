@@ -1,7 +1,7 @@
 import { ContextMenu, ContextMenuItem } from '@/components/ContextMenu';
 import styles from './Category.module.scss';
 import NotFound from '@/components/NotFound';
-import { useCategories, useDeleteCategory } from '@/hooks/api/todo';
+import { useCategory, useDeleteCategory } from '@/hooks/api/category';
 import { useRouter } from 'next/router';
 import Delete from '@/assets/icons/delete.svg';
 import Edit from '@/assets/icons/edit.svg';
@@ -13,21 +13,19 @@ const Category = () => {
     query: { id },
   } = useRouter();
 
-  const { data, isLoading } = useCategories();
+  const { data, isLoading } = useCategory(id as string);
   const { open } = usePopup();
   const { t } = useTranslation();
 
   const { mutate } = useDeleteCategory();
 
-  const category = data?.find(category => category.id === id);
-
   if (isLoading) return 'loading ...';
 
-  if (!category) return <NotFound />;
+  if (!data) return <NotFound />;
 
   const deletePopupHandler = () => {
     open({
-      message: t('delete_category', { title: category.title }),
+      message: t('delete_category', { title: data.title }),
       title: t('delete'),
       buttons: [
         {
@@ -39,19 +37,21 @@ const Category = () => {
           type: 'cancel',
         },
       ],
-      onConfirm: () => mutate({ id: category.id }),
+      onConfirm: () => mutate({ id: data.id }),
     });
   };
 
   return (
     <div className={styles.header}>
-      <h1>{category.title}</h1>
+      <h1>{data.title}</h1>
       <ContextMenu>
-        {/* <ContextMenuItem icon={<Edit />}>Edit</ContextMenuItem> */}
+        <ContextMenuItem href={'/edit/category/' + data.id} icon={<Edit />}>
+          {t('edit')}
+        </ContextMenuItem>
         <ContextMenuItem
-          onClick={deletePopupHandler}
           variant='danger'
           icon={<Delete />}
+          onClick={deletePopupHandler}
         >
           {t('delete')}
         </ContextMenuItem>
