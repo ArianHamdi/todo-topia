@@ -3,8 +3,11 @@
 }
 
 .circle {
-    width: 30px;
-    height: 30px;
+    @include flex-center;
+    width: 50px;
+    height: 50px;
     border-radius: 100px;
     background-color: $color-button;
+
+    fill: $color-background;
 }

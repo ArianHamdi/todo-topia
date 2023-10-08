@@ -4,7 +4,8 @@ import styles from './Landing.module.scss';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingActionButton from '@/components/FloatingActionButton';
 import FloatingActionButtonItem from '@/components/FloatingActionButton/FloatingActionButtonItem';
-import Add from '@/assets/icons/add.svg';
+import CategoryIcon from '@/assets/icons/category.svg';
+import LinkButton from '@/components/LinkButton';
 
 const Landing = () => {
   const { data } = useCategories();
@@ -16,15 +17,11 @@ const Landing = () => {
 
   return (
     <div>
-      <h1>{t('task_categories')}</h1>
+      <div className={styles.header}>
+        <h1>{t('task_categories')}</h1>
+        <LinkButton href='/create/category'>{t('new_category')}</LinkButton>
+      </div>
       <div className={styles.categories}>{items}</div>
-      <FloatingActionButton>
-        <FloatingActionButtonItem
-          label='new category'
-          href='/create/category/'
-          icon={<Add />}
-        />
-      </FloatingActionButton>
     </div>
   );
 };

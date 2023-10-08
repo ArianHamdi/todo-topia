@@ -7,6 +7,9 @@ import Delete from '@/assets/icons/delete.svg';
 import Edit from '@/assets/icons/edit.svg';
 import { usePopup } from '@/hooks/usePopup';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useTodoLists } from '@/hooks/api/todo-list';
+import LinkButton from '@/components/LinkButton';
+import TodoList from '@/components/TodoList';
 
 const Category = () => {
   const {
@@ -21,7 +24,7 @@ const Category = () => {
 
   if (isLoading) return 'loading ...';
 
-  if (!data) return <NotFound />;
+  if (!data) return '<NotFound />';
 
   const deletePopupHandler = () => {
     open({
@@ -42,20 +45,32 @@ const Category = () => {
   };
 
   return (
-    <div className={styles.header}>
-      <h1>{data.title}</h1>
-      <ContextMenu>
-        <ContextMenuItem href={'/edit/category/' + data.id} icon={<Edit />}>
-          {t('edit')}
-        </ContextMenuItem>
-        <ContextMenuItem
-          variant='danger'
-          icon={<Delete />}
-          onClick={deletePopupHandler}
-        >
-          {t('delete')}
-        </ContextMenuItem>
-      </ContextMenu>
+    <div>
+      <div className={styles.header}>
+        <h1>{data.title}</h1>
+        <div className={styles.menu}>
+          <ContextMenu>
+            <ContextMenuItem href={'/edit/category/' + data.id} icon={<Edit />}>
+              {t('edit')}
+            </ContextMenuItem>
+            <ContextMenuItem
+              variant='danger'
+              icon={<Delete />}
+              onClick={deletePopupHandler}
+            >
+              {t('delete')}
+            </ContextMenuItem>
+          </ContextMenu>
+        </div>
+      </div>
+      <LinkButton href={`/create/category/${id}/todo-list`}>
+        {t('new_todo_list')}
+      </LinkButton>
+      <div>
+        {data.todoLists.map(todoList => (
+          <TodoList key={todoList.id} {...todoList} />
+        ))}
+      </div>
     </div>
   );
 };

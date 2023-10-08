@@ -1,5 +1,4 @@
-import { ICategoryPost, ITaskPost, ITodoListPost } from '@/types';
-import * as yup from 'yup';
+import yup from '@/lib/yup';
 
 export const categorySchema = yup.object().shape({
   color: yup.string().required(),
