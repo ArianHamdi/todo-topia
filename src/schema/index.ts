@@ -8,6 +8,8 @@ export const categorySchema = yup.object().shape({
 export const todoListSchema = yup.object().shape({
   title: yup.string().required(),
   categoryId: yup.string().required(),
+  left: yup.number(),
+  completed: yup.number(),
 });
 
 export const taskSchema = yup.object().shape({
@@ -15,4 +17,5 @@ export const taskSchema = yup.object().shape({
   description: yup.string(),
   deadline: yup.date(),
   repeat: yup.string().oneOf(['daily', 'weekly', 'monthly']),
+  status: yup.boolean().required(),
 });
