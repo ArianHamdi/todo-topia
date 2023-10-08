@@ -37,14 +37,15 @@ model Category {
 }
 
 model TodoList {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  title      String
-  categoryId String   @db.ObjectId
-  userId     String
-  completed  Int      @default(0)
-  left       Int      @default(0)
-  user       User     @relation(fields: [userId], references: [userId])
-  category   Category @relation(fields: [categoryId], references: [id])
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  categoryId  String   @db.ObjectId
+  userId      String
+  description String?
+  completed   Int      @default(0)
+  left        Int      @default(0)
+  user        User     @relation(fields: [userId], references: [userId])
+  category    Category @relation(fields: [categoryId], references: [id])
 
   tasks Task[]
 }
