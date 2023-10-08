@@ -24,7 +24,7 @@ const Category = () => {
 
   if (isLoading) return 'loading ...';
 
-  if (!data) return <NotFound />;
+  if (!data) return '<NotFound />';
 
   const deletePopupHandler = () => {
     open({
