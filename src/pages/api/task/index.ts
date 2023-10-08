@@ -17,6 +17,7 @@ export default withAuthorization(async function handler(
           description,
           deadline,
           repeat,
+          status: false,
         });
         console.log('USER', userId);
         const newTask = await prisma.task.create({
