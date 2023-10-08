@@ -2,7 +2,7 @@ import { ContextMenu, ContextMenuItem } from '@/components/ContextMenu';
 import styles from './Category.module.scss';
 import NotFound from '@/components/NotFound';
 import { useCategory, useDeleteCategory } from '@/hooks/api/category';
-import { useRouter } from 'next/router';
+import { useRouter } from '@/hooks/useRouter';
 import Delete from '@/assets/icons/delete.svg';
 import Edit from '@/assets/icons/edit.svg';
 import { usePopup } from '@/hooks/usePopup';
@@ -24,7 +24,7 @@ const Category = () => {
 
   if (isLoading) return 'loading ...';
 
-  if (!data) return '<NotFound />';
+  if (!data) return <NotFound />;
 
   const deletePopupHandler = () => {
     open({

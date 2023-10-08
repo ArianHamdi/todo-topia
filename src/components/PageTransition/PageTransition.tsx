@@ -1,7 +1,7 @@
 import { pageTransition } from '@/animations/transitions';
 import { pageVariants } from '@/animations/variants';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useRouter } from 'next/router';
+import { useRouter } from '@/hooks/useRouter';
 import { ReactNode } from 'react';
 
 interface PageTransitionProps {
