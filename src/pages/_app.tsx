@@ -7,6 +7,7 @@ import { queryClient } from '@/lib/react-query';
 import { sdkInitOptions } from '@/lib/twa-sdk';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import RootLayout from '@/layouts/RootLayout';
+import PageTransition from '@/components/PageTransition';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -14,7 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <SDKProvider initOptions={sdkInitOptions}>
         <Loader>
           <RootLayout>
-            <Component {...pageProps} />
+            <PageTransition>
+              <Component {...pageProps} />
+            </PageTransition>
           </RootLayout>
         </Loader>
       </SDKProvider>
