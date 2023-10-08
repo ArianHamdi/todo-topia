@@ -2,7 +2,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import styles from './TaskForm.module.scss';
 import { ColorPicker, TextField } from '@/components/FormRHF';
 import { useMainButton } from '@/hooks/useMainButton';
-import { categorySchema } from '@/schema';
+import { categorySchema, taskSchema } from '@/schema';
 import { generateRandomHexColor } from '@/utils';
 import {
   useCategory,
@@ -13,8 +13,8 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { useClosingBehaviour } from '@/hooks/useClosingBehaviour';
 import { IFormType } from '@/types';
 import { useRouter } from '@/hooks/useRouter';
-import { useMemo } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useCreateTask, useEditTask, useTask } from '@/hooks/api/task';
 
 interface IProps {
   type: IFormType;
@@ -22,23 +22,23 @@ interface IProps {
 
 const TaskForm = ({ type }: IProps) => {
   const {
-    query: { id },
+    query: { todoListId, taskId },
   } = useRouter();
 
-  const { data: category, isLoading } = useCategory(id as string);
-
-  const randomHexColor = useMemo(generateRandomHexColor, []);
-
-  const methods = useForm({
-    resolver: yupResolver(categorySchema),
-    values: {
-      title: category?.title ?? '',
-      color: category?.color ?? randomHexColor,
-    },
+  const { data: task, isLoading } = useTask({
+    todoListId: todoListId as string,
+    taskId: taskId as string,
   });
 
-  const { mutate: create, isLoading: isCreateLoading } = useCreateCategory();
-  const { mutate: edit, isLoading: isEditLoading } = useEditCategory();
+  const methods = useForm({
+    resolver: yupResolver(taskSchema),
+    // values: {
+
+    // },
+  });
+
+  const { mutate: create, isLoading: isCreateLoading } = useCreateTask();
+  const { mutate: edit, isLoading: isEditLoading } = useEditTask();
 
   const { t } = useTranslation();
 
@@ -51,8 +51,8 @@ const TaskForm = ({ type }: IProps) => {
     if (type === 'create') {
       create(data);
     } else {
-      if (!category?.id) return;
-      edit({ ...data, id: category.id });
+      if (!task?.id) return;
+      edit({ ...data, id: task.id });
     }
   });
 
@@ -74,8 +74,7 @@ const TaskForm = ({ type }: IProps) => {
       <h1>{t('new_category')}</h1>
       <FormProvider {...methods}>
         <form>
-          <TextField name='title' label='Category name' />
-          <ColorPicker name='color' label='Color' />
+          <TextField name='title' label={t('task_name')} />
         </form>
       </FormProvider>
     </div>

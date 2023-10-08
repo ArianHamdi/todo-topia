@@ -1,0 +1,17 @@
+.label {
+}
+
+.textarea {
+    width: 100%;
+    outline: none;
+    padding: 12px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $color-twa-header;
+
+    transition: all 0.2s;
+
+    &:focus {
+        border-color: $color-button;
+    }
+}

@@ -22,10 +22,10 @@ interface IProps {
 
 const CategoryForm = ({ type }: IProps) => {
   const {
-    query: { id },
+    query: { categoryId },
   } = useRouter();
 
-  const { data: category, isLoading } = useCategory(id as string);
+  const { data: category, isLoading } = useCategory(categoryId as string);
 
   const randomHexColor = useMemo(generateRandomHexColor, []);
 
