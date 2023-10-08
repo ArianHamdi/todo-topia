@@ -20,6 +20,7 @@ export interface ITodoList {
   id: string;
   title: string;
   categoryId: string;
+  description?: string;
   left: number;
   completed: number;
   tasks: ITask[];
