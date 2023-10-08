@@ -1,5 +1,5 @@
-import { FormProvider, useForm, useWatch } from 'react-hook-form';
-import styles from './CategoryForm.module.scss';
+import { FormProvider, useForm } from 'react-hook-form';
+import styles from './TaskForm.module.scss';
 import { ColorPicker, TextField } from '@/components/FormRHF';
 import { useMainButton } from '@/hooks/useMainButton';
 import { categorySchema } from '@/schema';
@@ -20,7 +20,7 @@ interface IProps {
   type: IFormType;
 }
 
-const CategoryForm = ({ type }: IProps) => {
+const TaskForm = ({ type }: IProps) => {
   const {
     query: { id },
   } = useRouter();
@@ -82,4 +82,4 @@ const CategoryForm = ({ type }: IProps) => {
   );
 };
 
-export default CategoryForm;
+export default TaskForm;

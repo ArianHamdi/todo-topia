@@ -1,44 +1,40 @@
-import { FormProvider, useForm, useWatch } from 'react-hook-form';
-import styles from './CategoryForm.module.scss';
+import { FormProvider, useForm } from 'react-hook-form';
+import styles from './TodoListForm.module.scss';
 import { ColorPicker, TextField } from '@/components/FormRHF';
 import { useMainButton } from '@/hooks/useMainButton';
-import { categorySchema } from '@/schema';
-import { generateRandomHexColor } from '@/utils';
-import {
-  useCategory,
-  useCreateCategory,
-  useEditCategory,
-} from '@/hooks/api/category';
+import { todoListSchema } from '@/schema';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useClosingBehaviour } from '@/hooks/useClosingBehaviour';
 import { IFormType } from '@/types';
 import { useRouter } from 'next/router';
-import { useMemo } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import {
+  useCreateTodoList,
+  useEditTodoList,
+  useTodoList,
+} from '@/hooks/api/todo-list';
 
 interface IProps {
   type: IFormType;
 }
 
-const CategoryForm = ({ type }: IProps) => {
+const TodoListForm = ({ type }: IProps) => {
   const {
-    query: { id },
+    query: { categoryId, todoListId },
   } = useRouter();
 
-  const { data: category, isLoading } = useCategory(id as string);
-
-  const randomHexColor = useMemo(generateRandomHexColor, []);
+  const { data: todoList, isLoading } = useTodoList(todoListId as string);
 
   const methods = useForm({
-    resolver: yupResolver(categorySchema),
+    resolver: yupResolver(todoListSchema),
     values: {
-      title: category?.title ?? '',
-      color: category?.color ?? randomHexColor,
+      title: todoList?.title ?? '',
+      categoryId: categoryId as string,
     },
   });
 
-  const { mutate: create, isLoading: isCreateLoading } = useCreateCategory();
-  const { mutate: edit, isLoading: isEditLoading } = useEditCategory();
+  const { mutate: create, isLoading: isCreateLoading } = useCreateTodoList();
+  const { mutate: edit, isLoading: isEditLoading } = useEditTodoList();
 
   const { t } = useTranslation();
 
@@ -51,8 +47,8 @@ const CategoryForm = ({ type }: IProps) => {
     if (type === 'create') {
       create(data);
     } else {
-      if (!category?.id) return;
-      edit({ ...data, id: category.id });
+      if (!todoList?.id) return;
+      edit({ ...data, id: todoList.id });
     }
   });
 
@@ -71,15 +67,14 @@ const CategoryForm = ({ type }: IProps) => {
 
   return (
     <div>
-      <h1>{t('add_new_category')}</h1>
+      <h1>{t('add_new_todo_list')}</h1>
       <FormProvider {...methods}>
         <form>
-          <TextField name='title' label='Category name' />
-          <ColorPicker name='color' label='Color' />
+          <TextField name='title' label={t('todo_list_name')} />
         </form>
       </FormProvider>
     </div>
   );
 };
 
-export default CategoryForm;
+export default TodoListForm;
