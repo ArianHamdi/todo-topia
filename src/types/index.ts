@@ -2,6 +2,8 @@ import { Properties } from 'csstype';
 
 export type RequiredName<T> = T & { name: string };
 
+export type IFormError = 'required';
+
 export type IFormType = 'create' | 'edit';
 export interface ITask {
   id: string;
@@ -24,6 +26,7 @@ export interface ITodoList {
   completed: number;
   tasks: ITask[];
 }
+export type ITodoListGet = Pick<ITodoList, 'id'>;
 export type ITodoListPost = Pick<ITodoList, 'title' | 'categoryId'>;
 export type ITodoListEdit = Pick<ITodoList, 'title' | 'categoryId' | 'id'>;
 export type ITodoListDelete = Pick<ITodoList, 'id'>;

@@ -7,16 +7,15 @@ import Delete from '@/assets/icons/delete.svg';
 import Edit from '@/assets/icons/edit.svg';
 import { usePopup } from '@/hooks/usePopup';
 import { useTranslation } from '@/hooks/useTranslation';
-import { useTodoLists } from '@/hooks/api/todo-list';
 import LinkButton from '@/components/LinkButton';
 import TodoList from '@/components/TodoList';
 
 const Category = () => {
   const {
-    query: { id },
+    query: { categoryId },
   } = useRouter();
 
-  const { data, isLoading } = useCategory(id as string);
+  const { data, isLoading } = useCategory(categoryId as string);
   const { open } = usePopup();
   const { t } = useTranslation();
 
@@ -63,7 +62,7 @@ const Category = () => {
           </ContextMenu>
         </div>
       </div>
-      <LinkButton href={`/create/category/${id}/todo-list`}>
+      <LinkButton href={`/create/category/${categoryId}/todo-list`}>
         {t('new_todo_list')}
       </LinkButton>
       <div>
