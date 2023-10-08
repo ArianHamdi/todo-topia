@@ -1,8 +1,23 @@
 import { ITodoList } from '@/types';
 import styles from './TodoList.module.scss';
+import Link from 'next/link';
 
-const TodoList = ({ title }: ITodoList) => {
-  return <div className={styles.list}>{title}</div>;
+const TodoList = ({
+  id,
+  title,
+  categoryId,
+  description,
+  completed,
+  left,
+}: ITodoList) => {
+  return (
+    <Link href={`todoList/${id}`} className={styles.list}>
+      <div className={styles.info}>
+        <h3>{title}</h3>
+        {description && <p>{description}</p>}
+      </div>
+    </Link>
+  );
 };
 
 export default TodoList;

@@ -8,6 +8,7 @@ export const categorySchema = yup.object().shape({
 export const todoListSchema = yup.object().shape({
   title: yup.string().required(),
   categoryId: yup.string().required(),
+  description: yup.string(),
   left: yup.number(),
   completed: yup.number(),
 });
