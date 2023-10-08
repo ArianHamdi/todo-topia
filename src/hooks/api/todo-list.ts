@@ -1,7 +1,7 @@
 import * as api from '@/api/todo-list';
 import { ICategory, ITodoList } from '@/types';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useRouter } from 'next/router';
+import { useRouter } from '@/hooks/useRouter';
 import { useCategories, useCategory } from './category';
 import { produce } from 'immer';
 import { findTodoListById } from '@/utils';

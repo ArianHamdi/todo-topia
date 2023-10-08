@@ -6,7 +6,7 @@ import { todoListSchema } from '@/schema';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useClosingBehaviour } from '@/hooks/useClosingBehaviour';
 import { IFormType } from '@/types';
-import { useRouter } from 'next/router';
+import { useRouter } from '@/hooks/useRouter';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   useCreateTodoList,
