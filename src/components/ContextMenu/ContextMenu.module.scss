@@ -5,10 +5,11 @@
 
 .list {
     position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 250px;
+    bottom: 0;
+    right: 0;
+    width: 200px;
     padding: 8px 0;
     border-radius: 8px;
     background-color: $color-background;
+    transform: translateY(100%);
 }
