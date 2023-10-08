@@ -1,0 +1,32 @@
+.button {
+    flex-shrink: 0;
+    flex-grow: 0;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid;
+    outline: none;
+    cursor: pointer;
+    padding: 6px 10px;
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    @include no-select();
+
+    &[data-variant='filled'] {
+        background-color: $color-button;
+        border-color: $color-button;
+        color: $color-button-text;
+    }
+
+    &[data-variant='outline'] {
+        background-color: $color-button-text;
+        border-color: $color-button;
+        color: $color-button;
+    }
+}

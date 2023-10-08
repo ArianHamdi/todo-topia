@@ -46,7 +46,7 @@ export const useCreateTodoList = () => {
           }
         });
       });
-      router.push('/todo-list/' + data.id);
+      router.push(`/category/${data.categoryId}/todo-list/${data.id}`);
     },
   });
 };

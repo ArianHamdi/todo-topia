@@ -14,9 +14,7 @@
 
 .button {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -29,12 +27,12 @@
 }
 
 .icon {
-    fill: $color-danger-100;
+    fill: $color-background;
 }
 
 .list {
     position: absolute;
     right: 50%;
-    top: -40px;
+    top: -60px;
     transform: translateX(50%);
 }

@@ -1,3 +1,10 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 .categories {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

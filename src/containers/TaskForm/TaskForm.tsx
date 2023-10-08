@@ -71,7 +71,7 @@ const TaskForm = ({ type }: IProps) => {
 
   return (
     <div>
-      <h1>{t('add_new_category')}</h1>
+      <h1>{t('new_category')}</h1>
       <FormProvider {...methods}>
         <form>
           <TextField name='title' label='Category name' />

@@ -44,6 +44,7 @@ const TodoListForm = ({ type }: IProps) => {
   } = methods;
 
   const onSubmit = handleSubmit(data => {
+    console.log('data333', data);
     if (type === 'create') {
       create(data);
     } else {
@@ -67,7 +68,7 @@ const TodoListForm = ({ type }: IProps) => {
 
   return (
     <div>
-      <h1>{t('add_new_todo_list')}</h1>
+      <h1>{t('new_todo_list')}</h1>
       <FormProvider {...methods}>
         <form>
           <TextField name='title' label={t('todo_list_name')} />
