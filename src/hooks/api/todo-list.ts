@@ -3,10 +3,22 @@ import { ICategory, ITodoList } from '@/types';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import { useCategories, useCategory } from './category';
+import { produce } from 'immer';
+import { findTodoListById } from '@/utils';
 
 export const useTodoLists = (categoryId: string) => {
   const result = useCategory(categoryId);
   const data = result.data?.todoLists;
+
+  return {
+    ...result,
+    data,
+  };
+};
+
+export const useTodoList = (todoListId: string) => {
+  const result = useCategories();
+  const data = findTodoListById(result.data, todoListId);
 
   return {
     ...result,
@@ -49,27 +61,21 @@ export const useEditTodoList = () => {
       const snapshot = queryClient.getQueryData<ICategory[]>(['categories']);
 
       // Optimistically update to the new value
-      queryClient.setQueryData<ICategory[]>(['categories'], prev => {
-        return prev?.map(category => {
-          if (category.id === variables.categoryId) {
-            return {
-              ...category,
-              todoLists: category.todoLists.map(todoList => {
-                if (todoList.id === variables.id) {
-                  return {
-                    ...todoList,
-                    ...variables,
-                  };
-                } else {
-                  return todoList;
-                }
-              }),
-            };
-          } else {
-            return category;
+      queryClient.setQueryData<ICategory[]>(
+        ['categories'],
+        produce(draft => {
+          const category = draft?.find(
+            category => category.id === variables.categoryId
+          );
+          let todoList = category?.todoLists.find(
+            todo => todo.id === variables.id
+          );
+
+          if (todoList) {
+            todoList = { ...todoList, ...variables };
           }
-        });
-      });
+        })
+      );
 
       // Redirect to landing page
       router.replace('/todo-list/' + variables.id);
@@ -81,7 +87,7 @@ export const useEditTodoList = () => {
 };
 
 //Should converted to Todo List with immer
-export const useDeleteCategory = () => {
+export const useDeleteTodoList = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
 
@@ -89,12 +95,10 @@ export const useDeleteCategory = () => {
     mutationFn: api.deleteTodoList,
     onMutate: async ({ id }) => {
       // Snapshot the previous value
-      const snapshot = queryClient.getQueryData<ITodoList[]>(['categories']);
+      const snapshot = queryClient.getQueryData<ICategory[]>(['categories']);
 
       // Optimistically update to the new value
-      queryClient.setQueryData<ITodoList[]>(['categories'], old => {
-        return old?.filter(category => category.id !== id);
-      });
+      queryClient.setQueryData<ICategory[]>(['categories'], old => old);
 
       // Redirect to landing page
       router.replace('/');

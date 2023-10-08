@@ -1,3 +1,4 @@
+import { ICategory, ITodoList } from '@/types';
 import { RGB } from '@tma.js/colors';
 
 export const isServer = typeof window === 'undefined';
@@ -26,4 +27,20 @@ export const generateRandomHexColor = (): RGB => {
 
 export const capitalizeFirstLetter = (text: string) => {
   return text.replace(/\b\w/g, match => match.toUpperCase());
+};
+
+export const findTodoListById = (
+  categories: ICategory[] = [],
+  todoListId: string
+): ITodoList | undefined => {
+  // Traverse each category
+  for (let category of categories) {
+    // Traverse each todoList within the current category
+    for (let todoList of category.todoLists) {
+      // Check if the current todoList's id matches the specified todoListId
+      if (todoList.id === todoListId) {
+        return todoList;
+      }
+    }
+  }
 };

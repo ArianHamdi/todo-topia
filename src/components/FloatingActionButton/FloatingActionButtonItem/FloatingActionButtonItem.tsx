@@ -2,9 +2,10 @@ import Link, { LinkProps } from 'next/link';
 import styles from './FloatingActionButtonItem.module.scss';
 import { ReactNode } from 'react';
 
-interface IProps extends LinkProps {
+interface IProps {
   label: string;
   icon: ReactNode;
+  href: LinkProps['href'];
 }
 
 const FloatingActionButtonItem = ({ href, label, icon }: IProps) => {

@@ -7,6 +7,9 @@ import Delete from '@/assets/icons/delete.svg';
 import Edit from '@/assets/icons/edit.svg';
 import { usePopup } from '@/hooks/usePopup';
 import { useTranslation } from '@/hooks/useTranslation';
+import FloatingActionButton from '@/components/FloatingActionButton';
+import FloatingActionButtonItem from '@/components/FloatingActionButton/FloatingActionButtonItem';
+import Add from '@/assets/icons/add.svg';
 
 const Category = () => {
   const {
@@ -56,6 +59,13 @@ const Category = () => {
           {t('delete')}
         </ContextMenuItem>
       </ContextMenu>
+      <FloatingActionButton>
+        <FloatingActionButtonItem
+          label='new category'
+          href='/create/todo-list'
+          icon={<Add />}
+        />
+      </FloatingActionButton>
     </div>
   );
 };

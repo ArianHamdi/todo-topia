@@ -6,8 +6,12 @@
   "add_new_task": "Add new task",
   "add_new_category": "Add new category",
   "add_new_todo_list": "Add new todo list",
+  "category_name": "Category name",
+  "todo_list_name": "Todo list name",
+  "task_name": "Task name",
   "create": "Create",
   "delete": "Delete",
   "edit": "Edit",
-  "delete_category": "Are you sure you want to delete {title} category?"
+  "delete_category": "Are you sure you want to delete {title} category?",
+  "required": "*Required"
 }
