@@ -6,24 +6,11 @@ import { useCategories, useCategory } from './category';
 import { produce } from 'immer';
 import { findTodoListById } from '@/utils';
 
-export const useTodoLists = (categoryId: string) => {
-  const result = useCategory(categoryId);
-  const data = result.data?.todoLists;
-
-  return {
-    ...result,
-    data,
-  };
-};
-
 export const useTodoList = (todoListId: string) => {
-  const result = useCategories();
-  const data = findTodoListById(result.data, todoListId);
-
-  return {
-    ...result,
-    data,
-  };
+  return useQuery({
+    queryKey: ['todo-list', todoListId],
+    queryFn: () => api.getTodoList(todoListId),
+  });
 };
 
 export const useCreateTodoList = () => {

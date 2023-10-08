@@ -4,7 +4,13 @@ import {
   ITodoListPost,
   ITodoListEdit,
   ITodoListDelete,
+  ITodoListGet,
 } from '@/types';
+
+export const getTodoList = async (id: ITodoListGet['id']) => {
+  const { data } = await axios.get<ITodoList>('/todoList/' + id);
+  return data;
+};
 
 export const createTodoList = async (body: ITodoListPost) => {
   const { data } = await axios.post<ITodoList>('/todoList', body);
