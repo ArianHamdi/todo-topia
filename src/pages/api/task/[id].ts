@@ -21,6 +21,7 @@ export default withAuthorization(async function handler(
           description,
           deadline,
           repeat,
+          status,
         });
 
         const task = await prisma.task.findUnique({

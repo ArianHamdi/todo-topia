@@ -9,6 +9,7 @@ export interface ITask {
   description?: string;
   deadline?: Date;
   repeat?: string;
+  status: boolean;
 }
 
 export type ITaskPost = Omit<ITask, 'id'>;
@@ -19,6 +20,8 @@ export interface ITodoList {
   id: string;
   title: string;
   categoryId: string;
+  left: number;
+  completed: number;
   tasks: ITask[];
 }
 export type ITodoListPost = Pick<ITodoList, 'title' | 'categoryId'>;
