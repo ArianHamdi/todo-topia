@@ -13,7 +13,6 @@
 }
 
 .percentageLabel {
-    font-size: 12px;
-    font-weight: bold;
+    @include get-font($font-body-2);
     fill: $color-text;
 }

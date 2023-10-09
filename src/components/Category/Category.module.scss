@@ -9,3 +9,16 @@
     display: flex;
     justify-content: space-between;
 }
+
+.title{
+    @include get-font($font-header-4)
+}
+
+.tasks{
+    margin:8px 0;
+}
+
+.chips{
+    display: flex;
+    gap: 4px;
+}

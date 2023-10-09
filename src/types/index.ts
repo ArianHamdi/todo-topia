@@ -2,6 +2,10 @@ import { Properties } from 'csstype';
 
 export type RequiredName<T> = T & { name: string };
 
+export type IFormErrorObj = {
+  key: IFormError;
+  values: Record<string, string>;
+};
 export type IFormError = 'required';
 
 export type IFormType = 'create' | 'edit';
@@ -42,3 +46,10 @@ export interface ICategory {
 export type ICategoryPost = Pick<ICategory, 'title' | 'color'>;
 export type ICategoryEdit = Pick<ICategory, 'title' | 'color' | 'id'>;
 export type ICategoryDelete = Pick<ICategory, 'id'>;
+
+export interface ICategoryAnalyze {
+  completed: number;
+  left: number;
+  totalTasks: number;
+  completionPercentage: number;
+}

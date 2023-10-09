@@ -1,4 +1,4 @@
-import { ICategory, ITask, ITodoList } from '@/types';
+import { ICategory, ICategoryAnalyze, ITask, ITodoList } from '@/types';
 import { RGB } from '@tma.js/colors';
 import { format, isFuture } from 'date-fns';
 import orderBy from 'lodash/orderBy';
@@ -85,4 +85,27 @@ export const generateNameAbbr = (
 
 export const setCookie = (name: string, value: string) => {
   document.cookie = `${name}=${value}; path=/`;
+};
+
+export const analyzeTodoLists = (todoLists: ITodoList[]): ICategoryAnalyze => {
+  let completed = 0;
+  let left = 0;
+
+  for (const todoList of todoLists) {
+    completed += todoList.completed;
+    left += todoList.left;
+  }
+
+  let completionPercentage = 0;
+  const totalTasks = completed + left;
+  if (totalTasks !== 0) {
+    completionPercentage = (completed / totalTasks) * 100;
+  }
+
+  return {
+    completed,
+    left,
+    totalTasks,
+    completionPercentage,
+  };
 };
