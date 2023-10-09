@@ -1,0 +1,28 @@
+.colorPicker {
+    margin: 10px 0;
+}
+
+.hexColor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.preview {
+    width: 120px;
+    height: 60px;
+    background-color: red;
+    border-radius: 8px;
+    text-transform: uppercase;
+    @include flex-center;
+
+    &[data-is-bg-dark='true'] {
+        color: #fff;
+    }
+
+    &[data-is-bg-dark='false'] {
+        color: #000;
+    }
+}
