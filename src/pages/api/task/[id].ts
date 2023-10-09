@@ -16,15 +16,12 @@ export default withAuthorization(async function handler(
     switch (req.method) {
       case 'PUT':
         // Handle HTTP PUT request (update a task)
-        const { title, description, deadline, repeat, todoListId, status } =
-          req.body; // Extract task data from the request body
-
+        const { title, description, deadline, todoListId, status } = req.body; // Extract task data from the request body
         // Validate the extracted data using the taskSchema
         await taskSchema.validate({
           title,
           description,
-          deadline,
-          repeat,
+          deadline: deadline !== null ? deadline : undefined,
           status,
         });
 
@@ -75,7 +72,6 @@ export default withAuthorization(async function handler(
             title,
             description,
             deadline,
-            repeat,
             todoListId,
             status,
           },
