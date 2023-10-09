@@ -10,14 +10,16 @@ const TextFieldUI = (
   ref: ForwardedRef<HTMLInputElement>
 ) => {
   return (
-    <label className={styles.label}>
+    <div className={styles.formItem}>
       <input
         ref={ref}
         className={styles.input}
-        placeholder={label}
         {...props}
+        required
+        autoComplete='off'
       />
-    </label>
+      <label className={styles.label}>{label}</label>
+    </div>
   );
 };
 
