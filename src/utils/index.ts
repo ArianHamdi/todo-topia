@@ -99,7 +99,7 @@ export const analyzeTodoLists = (todoLists: ITodoList[]): ICategoryAnalyze => {
   let completionPercentage = 0;
   const totalTasks = completed + left;
   if (totalTasks !== 0) {
-    completionPercentage = (completed / totalTasks) * 100;
+    completionPercentage = Math.floor((completed / totalTasks) * 100);
   }
 
   return {
