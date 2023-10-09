@@ -9,13 +9,19 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.details {
+.stats {
     display: flex;
     @include flex-center;
     background-color: $color-header-bg;
     border-radius: 8px;
     padding: 10px;
     @include get-font($font-body-1)
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .description {
