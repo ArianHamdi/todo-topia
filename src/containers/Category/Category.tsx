@@ -9,6 +9,7 @@ import { usePopup } from '@/hooks/usePopup';
 import { useTranslation } from '@/hooks/useTranslation';
 import LinkButton from '@/components/LinkButton';
 import TodoList from '@/components/TodoList';
+import Header from '@/components/Header';
 
 const Category = () => {
   const {
@@ -45,7 +46,7 @@ const Category = () => {
 
   return (
     <div>
-      <div className={styles.header}>
+      <Header>
         <h1>{data.title}</h1>
         <div className={styles.menu}>
           <ContextMenu>
@@ -61,7 +62,7 @@ const Category = () => {
             </ContextMenuItem>
           </ContextMenu>
         </div>
-      </div>
+      </Header>
       <LinkButton href={`/create/category/${categoryId}/todo-list`}>
         {t('new_todo_list')}
       </LinkButton>

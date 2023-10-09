@@ -15,6 +15,7 @@
     height: 60px;
     background-color: red;
     border-radius: 8px;
+    text-transform: uppercase;
     @include flex-center;
 
     &[data-is-bg-dark='true'] {
