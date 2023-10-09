@@ -13,27 +13,20 @@ export default withAuthorization(async function handler(
     switch (req.method) {
       case 'POST':
         // Handle HTTP POST request (create a new task)
-        const { title, description, deadline, repeat, todoListId } = req.body; // Extract task data from the request body
+        const { title, description, deadline, todoListId } = req.body; // Extract task data from the request body
 
         // Validate the extracted data using the taskSchema
         await taskSchema.validate({
           title,
           description,
           deadline,
-          repeat,
           status: false,
         });
-
-        console.log('USER', userId); // Log the user ID for debugging
 
         // Create a new task in the database
         const newTask = await prisma.task.create({
           data: {
-            title,
-            description,
-            deadline,
-            repeat,
-            todoListId,
+            ...req.body,
             userId: userId,
           },
         });
