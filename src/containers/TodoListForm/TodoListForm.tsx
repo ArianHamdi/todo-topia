@@ -20,17 +20,17 @@ interface IProps {
 
 const TodoListForm = ({ type }: IProps) => {
   const {
-    query: { todoListId },
+    query: { todoListId, categoryId },
   } = useRouter();
 
   const { data: todoList, isLoading } = useTodoList(todoListId as string);
 
   const methods = useForm({
     resolver: yupResolver(todoListSchema),
-    // values: {
-    // title: todoList?.title ?? '',
-    // categoryId: categoryId as string,
-    // },
+    values: {
+      title: todoList?.title ?? '',
+      categoryId: categoryId as string,
+    },
   });
 
   const { mutate: create, isLoading: isCreateLoading } = useCreateTodoList();
@@ -44,7 +44,6 @@ const TodoListForm = ({ type }: IProps) => {
   } = methods;
 
   const onSubmit = handleSubmit(data => {
-    console.log('data333', data);
     if (type === 'create') {
       create(data);
     } else {
