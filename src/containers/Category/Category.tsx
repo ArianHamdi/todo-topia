@@ -65,8 +65,8 @@ const Category = () => {
       <LinkButton href={`/create/category/${categoryId}/todo-list`}>
         {t('new_todo_list')}
       </LinkButton>
-      <div>
-        {data.todoLists.map(todoList => (
+      <div className={styles.list}>
+        {data?.todoLists?.map(todoList => (
           <TodoList key={todoList.id} {...todoList} />
         ))}
       </div>
