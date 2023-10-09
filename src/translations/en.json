@@ -1,4 +1,6 @@
 {
+  "hi": "Hi",
+  "welcome_message": "Let's make today productive",
   "task_categories": "Task Categories",
   "tasks": "tasks",
   "completed": "completed",

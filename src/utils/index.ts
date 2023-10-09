@@ -73,3 +73,12 @@ export const sortTimelineTasks = (tasks: ITask[]) => {
 
   return result;
 };
+
+export const generateNameAbbr = (
+  firstName?: string,
+  lastName?: string
+): string => {
+  const firstInitial = firstName ? firstName.split(' ')[0][0] : '';
+  const lastInitial = lastName ? lastName.split(' ').slice(-1)[0][0] : '';
+  return (firstInitial + lastInitial).toUpperCase();
+};

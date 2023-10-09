@@ -2,10 +2,8 @@ import Category from '@/components/Category';
 import { useCategories } from '@/hooks/api/category';
 import styles from './Landing.module.scss';
 import { useTranslation } from '@/hooks/useTranslation';
-import FloatingActionButton from '@/components/FloatingActionButton';
-import FloatingActionButtonItem from '@/components/FloatingActionButton/FloatingActionButtonItem';
-import CategoryIcon from '@/assets/icons/category.svg';
 import LinkButton from '@/components/LinkButton';
+import Profile from '@/components/Profile';
 
 const Landing = () => {
   const { data } = useCategories();
@@ -16,7 +14,8 @@ const Landing = () => {
   ));
 
   return (
-    <div>
+    <div className={styles.landing}>
+      <Profile />
       <div className={styles.header}>
         <h1>{t('task_categories')}</h1>
         <LinkButton href='/create/category'>{t('new_category')}</LinkButton>
