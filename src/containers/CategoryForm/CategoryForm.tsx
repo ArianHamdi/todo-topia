@@ -70,10 +70,10 @@ const CategoryForm = ({ type }: IProps) => {
   if (isLoading) return 'loading...';
 
   return (
-    <div>
+    <div className={styles.categoryForm}>
       <h1>{t('new_category')}</h1>
       <FormProvider {...methods}>
-        <form>
+        <form className={styles.form}>
           <TextField name='title' label='Category name' />
           <ColorPicker name='color' label='Color' />
         </form>
