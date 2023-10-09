@@ -1,17 +1,39 @@
 .label {
+    position: relative;
+    margin: 5px 0;
+}
+
+.placeholder {
+    width: 100px;
+    position: absolute;
+    cursor: text;
+    z-index: 2;
+    bottom: 6px;
+    left: 0;
+    color: #999;
+    transition: all 0.3s;
+
+    @include get-font($font-body-1);
 }
 
 .textarea {
+    display: block;
     width: 100%;
     outline: none;
-    padding: 12px;
+    padding: 8px 0;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid $color-primary;
+    border-bottom: 2px solid $color-border;
+    transition: all 0.3s ease;
+    @include get-font($font-body-1);
 
-    transition: all 0.2s;
-
-    &:focus {
-        border-color: $color-button-bg;
+    &:focus,
+    &:valid {
+        border-color: $color-primary;
+        & + .placeholder {
+            @include get-font($font-body-2);
+            bottom: 28px;
+            color:$color-primary;
+        }
     }
 }
