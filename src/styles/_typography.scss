@@ -1,37 +1,39 @@
+@use 'sass:map';
+
 $font-header-1: (
     'font-size': 28px,
     'font-weight': 700,
-    'line-height': 120%,
+    'line-height': 1.2,
 );
 
 $font-header-2: (
     'font-size': 24px,
     'font-weight': 700,
-    'line-height': 120%,
+    'line-height': 1.2,
 );
 
 $font-header-3: (
     'font-size': 20px,
     'font-weight': 700,
-    'line-height': 120%,
+    'line-height': 1.2,
 );
 
 $font-header-4: (
     'font-size': 18px,
     'font-weight': 700,
-    'line-height': 120%,
+    'line-height': 1.2,
 );
 
 $font-body-1: (
     'font-size': 14px,
     'font-weight': 400,
-    'line-height': 150%,
+    'line-height': 1.5,
 );
 
 $font-body-2: (
     'font-size': 12px,
     'font-weight': 400,
-    'line-height': 150%,
+    'line-height': 1.5,
 );
 
 $font-button: (
