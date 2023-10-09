@@ -17,7 +17,7 @@ export const taskSchema = yup.object().shape({
   todoListId: yup.string(),
   title: yup.string().required(),
   description: yup.string(),
-  deadline: yup.date(),
-  repeat: yup.string().oneOf(['daily', 'weekly', 'monthly']),
+  deadline: yup.date().optional(),
+  repeat: yup.string().oneOf(['daily', 'weekly', 'monthly']).optional(),
   status: yup.boolean(),
 });
