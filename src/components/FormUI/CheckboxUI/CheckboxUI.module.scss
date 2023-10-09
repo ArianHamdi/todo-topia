@@ -8,9 +8,9 @@
     input {
         @include hide-default-input();
         &:checked + .checkbox {
-            background-color: $color-button;
-            border-color: $color-button;
-            color: $color-background;
+            background-color: $color-button-bg;
+            border-color: $color-button-bg;
+            color: $color-bg;
         }
     }
 
@@ -24,7 +24,7 @@
     flex-shrink: 0;
     width: 18px;
     height: 18px;
-    border: 2px solid $color-button;
+    border: 2px solid $color-button-bg;
     border-radius: 4px;
     margin-right: 8px;
     transition: all 0.1s;

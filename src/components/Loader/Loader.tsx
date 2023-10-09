@@ -1,5 +1,5 @@
 import { useSDK } from '@tma.js/sdk-react';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 
 const Loader = ({ children }: PropsWithChildren<{}>) => {
   const { didInit, components, error } = useSDK();
