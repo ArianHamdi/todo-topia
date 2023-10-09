@@ -6,7 +6,7 @@
 
 body {
     color: $color-text;
-    background-color: $color-hint;
+    background-color:#121212;;
     overflow-x: hidden;
     @include no-select;
 }
@@ -19,3 +19,4 @@ a {
 ul {
     list-style: none;
 }
+
