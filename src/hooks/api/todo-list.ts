@@ -39,7 +39,7 @@ export const useCreateTodoList = () => {
           }
         });
       });
-      router.push(`/category/${data.categoryId}/todo-list/${data.id}`);
+      router.push(`/todo-list/${data.id}`);
     },
   });
 };
@@ -70,7 +70,6 @@ export const useEditTodoList = () => {
         })
       );
 
-      // Redirect to landing page
       router.replace('/todo-list/' + variables.id);
 
       // Return a context object with the snapshot value
