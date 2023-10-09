@@ -30,15 +30,11 @@ export default function Document() {
               }
 
               function getBgColor() {
-                // Get the tgWebAppThemeParams from the fragment
                 const tgWebAppThemeParamsStr = getFragmentValue('tgWebAppThemeParams');
                 
-                // If tgWebAppThemeParams is present
                 if (tgWebAppThemeParamsStr) {
-                  // Parse the JSON string to an object
                   const tgWebAppThemeParamsObj = JSON.parse(tgWebAppThemeParamsStr);
                   
-                  // Extract and return bg_color
                   return tgWebAppThemeParamsObj.bg_color;
                 }
                 

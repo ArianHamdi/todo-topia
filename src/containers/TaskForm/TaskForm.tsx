@@ -52,7 +52,7 @@ const TaskForm = ({ type }: IProps) => {
 
   const onSubmit = handleSubmit(data => {
     if (type === 'create') {
-      create(data);
+      create({ ...data, todoListId: todoListId as string });
     } else {
       if (!task?.id) return;
       edit({ ...data, id: task.id });

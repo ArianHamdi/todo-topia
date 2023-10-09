@@ -10,7 +10,7 @@ const TextFieldUI = (
   ref: ForwardedRef<HTMLInputElement>
 ) => {
   return (
-    <div className={styles.formItem}>
+    <label className={styles.label}>
       <input
         ref={ref}
         className={styles.input}
@@ -18,8 +18,8 @@ const TextFieldUI = (
         required
         autoComplete='off'
       />
-      <label className={styles.label}>{label}</label>
-    </div>
+      <span className={styles.placeholder}>{label}</span>
+    </label>
   );
 };
 

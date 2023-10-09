@@ -6,6 +6,7 @@ export type IFormError = 'required';
 
 export type IFormType = 'create' | 'edit';
 export interface ITask {
+  todoListId: string;
   id: string;
   title: string;
   description?: string;
@@ -15,7 +16,7 @@ export interface ITask {
 }
 
 export type ITaskPost = Omit<ITask, 'id'>;
-export type ITaskEdit = ITask;
+export type ITaskEdit = Omit<ITask, 'todoListId'>;
 export type ITaskDelete = Pick<ITask, 'id'>;
 
 export interface ITodoList {
