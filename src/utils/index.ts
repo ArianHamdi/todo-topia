@@ -1,5 +1,8 @@
-import { ICategory, ITodoList } from '@/types';
+import { ICategory, ITask, ITodoList } from '@/types';
 import { RGB } from '@tma.js/colors';
+import { format, isFuture } from 'date-fns';
+import orderBy from 'lodash/orderBy';
+import groupBy from 'lodash/groupBy';
 
 export const isServer = typeof window === 'undefined';
 
@@ -43,4 +46,30 @@ export const findTodoListById = (
       }
     }
   }
+};
+
+export const sortTimelineTasks = (tasks: ITask[]) => {
+  // Filter out tasks with no deadline or deadlines that are in the past
+  const filteredTasks = tasks.filter(
+    task => task.deadline && isFuture(task.deadline)
+  );
+
+  // Group tasks by just their date part (excluding time)
+  const groupedTasks = groupBy(filteredTasks, task =>
+    format(task.deadline!, 'dd MMMM yyyy')
+  );
+
+  // Sort the days in ascending order and sort tasks within each day
+  const sortedDays = orderBy(
+    Object.keys(groupedTasks),
+    [day => new Date(day)],
+    ['asc']
+  );
+
+  const result = sortedDays.map(day => ({
+    day,
+    tasks: orderBy(groupedTasks[day], ['status', 'deadline'], ['asc', 'asc']),
+  }));
+
+  return result;
 };

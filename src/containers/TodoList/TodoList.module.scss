@@ -1,0 +1,12 @@
+.header{
+    position: relative;
+    background-color: $color-background;
+    @include flex-center;
+}
+
+.menu{
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}

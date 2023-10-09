@@ -18,5 +18,5 @@ export const taskSchema = yup.object().shape({
   description: yup.string(),
   deadline: yup.date(),
   repeat: yup.string().oneOf(['daily', 'weekly', 'monthly']),
-  status: yup.boolean().required(),
+  status: yup.boolean(),
 });

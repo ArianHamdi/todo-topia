@@ -1,6 +1,9 @@
 import * as api from '@/api/task';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useTodoList } from './todo-list';
+import { ITodoList } from '@/types';
+import { produce } from 'immer';
+import { useRouter } from '@/hooks/useRouter';
 
 export const useTask = ({
   todoListId,
@@ -18,15 +21,34 @@ export const useTask = ({
   };
 };
 
-export const useCreateTask = () => {
+export const useCreateTask = (todoListId: string) => {
+  const queryClient = useQueryClient();
+  const router = useRouter();
   return useMutation({
     mutationFn: api.createTask,
+    onSuccess: data => {
+      queryClient.setQueryData<ITodoList>(
+        ['todo-list', todoListId],
+        produce(draft => {
+          if (!draft) return;
+          draft.tasks.push(data);
+          draft.left++;
+        })
+      );
+      queryClient.invalidateQueries(['categories']);
+      router.push('/todo-list/' + todoListId);
+    },
   });
 };
 
 export const useEditTask = () => {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: api.editTask,
+    onMutate: variables => {
+      // const snapshot = queryClient.getQueryData<ITodoList>(['todo-list']);
+    },
   });
 };
 

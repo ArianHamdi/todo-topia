@@ -17,7 +17,7 @@ const RootLayout = ({ children }: IProps) => {
 
   return (
     <div className={lato.className}>
-      <div className={styles.layout}>{children}</div>;
+      <div className={styles.layout}>{children}</div>
     </div>
   );
 };

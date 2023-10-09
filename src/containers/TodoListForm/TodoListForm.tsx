@@ -20,17 +20,19 @@ interface IProps {
 
 const TodoListForm = ({ type }: IProps) => {
   const {
-    query: { categoryId, todoListId },
+    query: { todoListId },
   } = useRouter();
 
   const { data: todoList, isLoading } = useTodoList(todoListId as string);
 
+  console.log('todoListId', todoListId);
+
   const methods = useForm({
     resolver: yupResolver(todoListSchema),
-    values: {
-      title: todoList?.title ?? '',
-      categoryId: categoryId as string,
-    },
+    // values: {
+    // title: todoList?.title ?? '',
+    // categoryId: categoryId as string,
+    // },
   });
 
   const { mutate: create, isLoading: isCreateLoading } = useCreateTodoList();
@@ -72,6 +74,7 @@ const TodoListForm = ({ type }: IProps) => {
       <FormProvider {...methods}>
         <form>
           <TextField name='title' label={t('todo_list_name')} />
+          <TextField name='description' label={t('description')} />
         </form>
       </FormProvider>
     </div>

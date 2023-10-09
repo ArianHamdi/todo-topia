@@ -11,7 +11,7 @@ export interface ITask {
   description?: string;
   deadline?: Date;
   repeat?: string;
-  status: boolean;
+  status?: boolean;
 }
 
 export type ITaskPost = Omit<ITask, 'id'>;
