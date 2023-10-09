@@ -2,6 +2,10 @@ import { Properties } from 'csstype';
 
 export type RequiredName<T> = T & { name: string };
 
+export type IFormErrorObj = {
+  key: IFormError;
+  values: Record<string, string>;
+};
 export type IFormError = 'required';
 
 export type IFormType = 'create' | 'edit';
