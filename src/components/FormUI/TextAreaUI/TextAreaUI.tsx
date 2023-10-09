@@ -15,9 +15,11 @@ const TextAreaUI = (
       <textarea
         ref={ref}
         className={styles.textarea}
-        placeholder={label}
+        required
+        autoComplete='off'
         {...props}
       />
+      <span className={styles.placeholder}>{label}</span>
     </label>
   );
 };

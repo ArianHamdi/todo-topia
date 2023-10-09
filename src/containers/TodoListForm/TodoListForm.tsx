@@ -13,6 +13,7 @@ import {
   useEditTodoList,
   useTodoList,
 } from '@/hooks/api/todo-list';
+import Header from '@/components/Header';
 
 interface IProps {
   type: IFormType;
@@ -64,13 +65,17 @@ const TodoListForm = ({ type }: IProps) => {
 
   return (
     <div>
-      <h1>{t('new_todo_list')}</h1>
-      <FormProvider {...methods}>
-        <form>
-          <TextField name='title' label={t('todo_list_name')} />
-          <TextField name='description' label={t('description')} />
-        </form>
-      </FormProvider>
+      <Header>
+        <h1>{t('new_todo_list')}</h1>
+      </Header>
+      <div className={styles.todoListForm}>
+        <FormProvider {...methods}>
+          <form className={styles.form}>
+            <TextField name='title' label={t('todo_list_name')} />
+            <TextField name='description' label={t('description')} />
+          </form>
+        </FormProvider>
+      </div>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const ContextMenuToggle = ({ onClick }: IProps, ref: Ref<HTMLElement>) => {
 
   return (
     <button className={styles.toggle} onClick={onClick}>
-      <More className={styles.more} />
+      <More width={30} height={30} />
     </button>
   );
 };

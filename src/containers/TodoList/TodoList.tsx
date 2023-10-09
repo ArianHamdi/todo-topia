@@ -9,7 +9,7 @@ import { usePopup } from '@/hooks/usePopup';
 import { useTranslation } from '@/hooks/useTranslation';
 import LinkButton from '@/components/LinkButton';
 import Task from '@/components/Task';
-import { useTodoList } from '@/hooks/api/todo-list';
+import { useDeleteTodoList, useTodoList } from '@/hooks/api/todo-list';
 import Header from '@/components/Header';
 
 const TodoList = () => {
@@ -21,7 +21,8 @@ const TodoList = () => {
   const { open } = usePopup();
   const { t } = useTranslation();
 
-  const { mutate } = useDeleteCategory();
+  // const { mutate } = useDeleteCategory();
+  const { mutate } = useDeleteTodoList();
 
   if (isLoading) return 'loading ...';
 
@@ -51,12 +52,15 @@ const TodoList = () => {
         <h1>{data.title}</h1>
         <div className={styles.menu}>
           <ContextMenu>
-            <ContextMenuItem href={'/edit/category/' + data.id} icon={<Edit />}>
+            <ContextMenuItem
+              href={'/edit/todo-list/' + data.id}
+              icon={<Edit width={20} height={20} />}
+            >
               {t('edit')}
             </ContextMenuItem>
             <ContextMenuItem
               variant='danger'
-              icon={<Delete />}
+              icon={<Delete width={20} height={20} />}
               onClick={deletePopupHandler}
             >
               {t('delete')}
