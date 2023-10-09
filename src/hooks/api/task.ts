@@ -67,6 +67,12 @@ export const useEditTask = (todoListId: string) => {
     onError: (_error, _variables, context) => {
       queryClient.setQueryData(['todo-list', todoListId], context?.snapshot);
     },
+    onSuccess: () => {
+      queryClient.refetchQueries({
+        exact: true,
+        queryKey: ['categories'],
+      });
+    },
   });
 };
 
