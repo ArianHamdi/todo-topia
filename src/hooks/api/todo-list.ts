@@ -10,6 +10,7 @@ export const useTodoList = (todoListId: string) => {
   return useQuery({
     queryKey: ['todo-list', todoListId],
     queryFn: () => api.getTodoList(todoListId),
+    enabled: !!todoListId,
   });
 };
 

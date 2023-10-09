@@ -32,12 +32,15 @@ const TaskForm = ({ type }: IProps) => {
 
   const methods = useForm({
     resolver: yupResolver(taskSchema),
-    // values: {
-
-    // },
+    values: {
+      title: task?.title ?? '',
+      description: task?.description ?? '',
+    },
   });
 
-  const { mutate: create, isLoading: isCreateLoading } = useCreateTask();
+  const { mutate: create, isLoading: isCreateLoading } = useCreateTask(
+    todoListId as string
+  );
   const { mutate: edit, isLoading: isEditLoading } = useEditTask();
 
   const { t } = useTranslation();
@@ -75,6 +78,7 @@ const TaskForm = ({ type }: IProps) => {
       <FormProvider {...methods}>
         <form>
           <TextField name='title' label={t('task_name')} />
+          <TextField name='description' label={t('description')} />
         </form>
       </FormProvider>
     </div>

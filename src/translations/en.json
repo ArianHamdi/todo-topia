@@ -11,7 +11,9 @@
   "task_name": "Task name",
   "create": "Create",
   "delete": "Delete",
+  "description": "Description",
   "edit": "Edit",
   "delete_category": "Are you sure you want to delete {title} category?",
+  "delete_task": "Are you sure you want to delete {title} task?",
   "required": "*Required"
 }

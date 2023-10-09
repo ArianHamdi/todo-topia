@@ -11,11 +11,11 @@ const TodoList = ({
   left,
 }: ITodoList) => {
   return (
-    <Link href={`todoList/${id}`} className={styles.list}>
-      <div className={styles.info}>
-        <h3>{title}</h3>
-        {description && <p>{description}</p>}
-      </div>
+    <Link href={`/todo-list/${id}`} className={styles.list}>
+      {/* <div className={styles.info}> */}
+      <h3>{title}</h3>
+      {description && <p>{description}</p>}
+      {/* </div> */}
     </Link>
   );
 };
