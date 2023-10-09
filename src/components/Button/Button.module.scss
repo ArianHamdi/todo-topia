@@ -19,14 +19,14 @@
     @include no-select();
 
     &[data-variant='filled'] {
-        background-color: $color-button;
-        border-color: $color-button;
-        color: $color-button-text;
+        background-color: $color-button-bg;
+        border-color: $color-button-bg;
+        color: $color-text;
     }
 
     &[data-variant='outline'] {
         background-color: $color-button-text;
-        border-color: $color-button;
-        color: $color-button;
+        border-color: $color-button-bg;
+        color: $color-button-bg;
     }
 }

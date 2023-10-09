@@ -7,11 +7,11 @@
     padding: 12px;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid $color-twa-header;
+    border-bottom: 1px solid $color-primary;
 
     transition: all 0.2s;
 
     &:focus {
-        border-color: $color-button;
+        border-color: $color-button-bg;
     }
 }
