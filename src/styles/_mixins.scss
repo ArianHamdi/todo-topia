@@ -28,3 +28,10 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin limit-text-length {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

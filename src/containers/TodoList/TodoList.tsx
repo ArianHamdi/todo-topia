@@ -10,6 +10,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 import LinkButton from '@/components/LinkButton';
 import Task from '@/components/Task';
 import { useTodoList } from '@/hooks/api/todo-list';
+import Header from '@/components/Header';
 
 const TodoList = () => {
   const {
@@ -46,7 +47,7 @@ const TodoList = () => {
 
   return (
     <div>
-      <div className={styles.header}>
+      <Header>
         <h1>{data.title}</h1>
         <div className={styles.menu}>
           <ContextMenu>
@@ -62,7 +63,7 @@ const TodoList = () => {
             </ContextMenuItem>
           </ContextMenu>
         </div>
-      </div>
+      </Header>
       <LinkButton href={`/create/todo-list/${todoListId}/task`}>
         {t('new_task')}
       </LinkButton>

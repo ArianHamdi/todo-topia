@@ -15,6 +15,7 @@ import { IFormType } from '@/types';
 import { useRouter } from '@/hooks/useRouter';
 import { useMemo } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Header from '@/components/Header';
 
 interface IProps {
   type: IFormType;
@@ -70,14 +71,18 @@ const CategoryForm = ({ type }: IProps) => {
   if (isLoading) return 'loading...';
 
   return (
-    <div className={styles.categoryForm}>
-      <h1>{t('new_category')}</h1>
-      <FormProvider {...methods}>
-        <form className={styles.form}>
-          <TextField name='title' label='Category name' />
-          <ColorPicker name='color' label='Color' />
-        </form>
-      </FormProvider>
+    <div>
+      <Header>
+        <h1>{t('new_category')}</h1>
+      </Header>
+      <div className={styles.categoryForm}>
+        <FormProvider {...methods}>
+          <form className={styles.form}>
+            <TextField name='title' label='Category name' />
+            <ColorPicker name='color' label='Color' />
+          </form>
+        </FormProvider>
+      </div>
     </div>
   );
 };

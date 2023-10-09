@@ -1,5 +1,6 @@
 import { HexColorPicker } from 'react-colorful';
-
+import styles from './ColorPickerUI.module.scss';
+import { isColorDark } from '@tma.js/colors';
 export interface IColorPickerUI {
   value: string;
   label?: string;
@@ -7,10 +8,18 @@ export interface IColorPickerUI {
 
 const ColorPickerUI = ({ value, label, ...props }: IColorPickerUI) => {
   return (
-    <div>
+    <div className={styles.colorPicker}>
       <span>{label}</span>
-      <HexColorPicker color={value} {...props} />
-      <div></div>
+      <div className={styles.hexColor}>
+        <HexColorPicker color={value} {...props} />
+        <div
+          className={styles.preview}
+          data-is-bg-dark={isColorDark(value)}
+          style={{ backgroundColor: value }}
+        >
+          {value}
+        </div>
+      </div>
     </div>
   );
 };
