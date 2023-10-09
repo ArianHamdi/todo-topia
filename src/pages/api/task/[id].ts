@@ -82,6 +82,37 @@ export default withAuthorization(async function handler(
 
       case 'DELETE':
         // Handle HTTP DELETE request (delete a task)
+
+        const data = await prisma.task.findUnique({
+          where: {
+            id: idAsString,
+          },
+        });
+
+        if (data?.status === false) {
+          await prisma.todoList.update({
+            where: {
+              id: data?.todoListId,
+            },
+            data: {
+              left: {
+                decrement: 1,
+              },
+            },
+          });
+        } else {
+          await prisma.todoList.update({
+            where: {
+              id: data?.todoListId,
+            },
+            data: {
+              completed: {
+                decrement: 1,
+              },
+            },
+          });
+        }
+
         await prisma.task.delete({
           where: {
             id: idAsString,
