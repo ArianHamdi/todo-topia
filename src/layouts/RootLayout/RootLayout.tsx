@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import styles from './RootLayout.module.scss';
 import { useBackButton } from '@/hooks/useBackButton';
 import { Lato } from 'next/font/google';
+import { useTheme } from '@/hooks/useTheme';
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -13,6 +14,7 @@ interface IProps {
 }
 
 const RootLayout = ({ children }: IProps) => {
+  useTheme();
   useBackButton();
 
   return (
