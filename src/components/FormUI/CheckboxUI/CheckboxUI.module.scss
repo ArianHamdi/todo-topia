@@ -11,6 +11,10 @@
             background-color: $color-button-bg;
             border-color: $color-button-bg;
             color: $color-bg;
+
+            .check_icon {
+                opacity: 1;
+            }
         }
     }
 
@@ -27,9 +31,12 @@
     border: 2px solid $color-button-bg;
     border-radius: 4px;
     margin-right: 8px;
-    transition: all 0.1s;
+    transition: all 0.2s;
 
     .check_icon {
+        fill: $color-button-text;
+        transition: opacity 0.2s;
         @include position-center;
+        opacity: 0;
     }
 }

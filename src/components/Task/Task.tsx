@@ -10,10 +10,12 @@ import { usePopup } from '@/hooks/usePopup';
 import { useTranslation } from '@/hooks/useTranslation';
 
 const Task = (props: ITask) => {
-  const { id, status, title, description, deadline } = props;
+  const { id, status, title, description, deadline, todoListId } = props;
 
-  const { mutate: editTask } = useEditTask();
+  const { mutate: editTask } = useEditTask(todoListId);
   const { mutate: deleteTask } = useDeleteTask();
+
+  console.log('statusstatus', status);
 
   const { t } = useTranslation();
 
@@ -46,7 +48,7 @@ const Task = (props: ITask) => {
   return (
     <Link className={styles.task} href={'/edit/task/' + id}>
       <div className={styles.header}>
-        <CheckboxUI onClick={toggleHandler} checked={status} />
+        <CheckboxUI onClick={toggleHandler} checked={true} />
         <h3>{title}</h3>
         <Close onClick={deleteHandler} />
       </div>

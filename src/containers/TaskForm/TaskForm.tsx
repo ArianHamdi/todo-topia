@@ -41,7 +41,9 @@ const TaskForm = ({ type }: IProps) => {
   const { mutate: create, isLoading: isCreateLoading } = useCreateTask(
     todoListId as string
   );
-  const { mutate: edit, isLoading: isEditLoading } = useEditTask();
+  const { mutate: edit, isLoading: isEditLoading } = useEditTask(
+    todoListId as string
+  );
 
   const { t } = useTranslation();
 
