@@ -1,12 +1,14 @@
 .chip {
-    border: 12px;
+    border-radius: 8px;
     padding: 4px;
 
-    &[data-variant='success'] {
-        background-color: $color-success-400;
+    @include get-font($font-body-2);
+
+    &[data-variant='completed'] {
+        background-color: $color-success-light;
     }
 
-    &[data-variant='danger'] {
-        background-color: $color-danger-400;
+    &[data-variant='left'] {
+        background-color: $color-danger-light;
     }
 }

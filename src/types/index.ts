@@ -46,3 +46,10 @@ export interface ICategory {
 export type ICategoryPost = Pick<ICategory, 'title' | 'color'>;
 export type ICategoryEdit = Pick<ICategory, 'title' | 'color' | 'id'>;
 export type ICategoryDelete = Pick<ICategory, 'id'>;
+
+export interface ICategoryAnalyze {
+  completed: number;
+  left: number;
+  totalTasks: number;
+  completionPercentage: number;
+}
