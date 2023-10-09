@@ -1,15 +1,20 @@
 import { ReactNode } from 'react';
 import styles from './Chip.module.scss';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface IProps {
-  variant: 'success' | 'danger';
-  children: ReactNode;
+  variant: 'completed' | 'left';
+  count: number;
 }
 
-const Chip = ({ variant, children }: IProps) => {
+const Chip = ({ variant, count }: IProps) => {
+  const { t } = useTranslation();
+
+  if (count === 0) return;
+
   return (
     <span className={styles.chip} data-variant={variant}>
-      {children}
+      {count} {t(variant)}
     </span>
   );
 };
