@@ -1,0 +1,60 @@
+:root {
+    &[data-theme='light'] {
+        /* Primary color from user */
+        --color-primary: #6200ea;
+
+        /* Backgrounds */
+        --color-bg: #ffffff;
+        --color-header-bg: #f1f1f1;
+        --color-footer-bg: #f1f1f1;
+        --color-card-bg: #ffffff;
+
+        /* Text */
+        --color-text: #333333;
+        --color-header-text: #212121;
+        --color-footer-text: #616161;
+        --color-link-text: var(--color-primary);
+
+        /* Borders */
+        --color-border: #dddddd;
+
+        /* Buttons */
+        --color-button-bg: var(--color-primary);
+        --color-button-text: #ffffff;
+
+        /* Other */
+        --color-hover: #f1f1f1;
+    }
+
+    [data-theme='dark'] {
+        /* Primary color from user */
+        --color-primary: #bb86fc;
+
+        /* Backgrounds */
+        --color-bg: #121212;
+        --color-header-bg: #1f1f1f;
+        --color-footer-bg: #1f1f1f;
+        --color-card-bg: #1e1e1e;
+
+        /* Text */
+        --color-text: #ffffff;
+        --color-header-text: #ffffff;
+        --color-footer-text: #a1a1a1;
+        --color-link-text: var(--color-primary);
+
+        /* Borders */
+        --color-border: #333333;
+
+        /* Buttons */
+        --color-button-bg: var(--color-primary);
+        --color-button-text: #121212;
+
+        /* Other */
+        --color-hover: #2d2d2d;
+    }
+
+    /* Info, Success, Danger */
+    --color-info: #17a2b8;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+}

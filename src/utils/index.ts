@@ -82,3 +82,7 @@ export const generateNameAbbr = (
   const lastInitial = lastName ? lastName.split(' ').slice(-1)[0][0] : '';
   return (firstInitial + lastInitial).toUpperCase();
 };
+
+export const setCookie = (name: string, value: string) => {
+  document.cookie = `${name}=${value}; path=/`;
+};
