@@ -1,0 +1,31 @@
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: 1000px;
+
+    &[data-is-bg-dark='true'] {
+        color: #fff;
+    }
+
+    &[data-is-bg-dark='false'] {
+        color: #000;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+}
+
+.name {
+}
+
+.message {
+}
