@@ -15,6 +15,7 @@ import { IFormType } from '@/types';
 import { useRouter } from '@/hooks/useRouter';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useCreateTask, useEditTask, useTask } from '@/hooks/api/task';
+import Header from '@/components/Header';
 
 interface IProps {
   type: IFormType;
@@ -84,13 +85,17 @@ const TaskForm = ({ type }: IProps) => {
 
   return (
     <div>
-      <h1>{t('new_category')}</h1>
-      <FormProvider {...methods}>
-        <form>
-          <TextField name='title' label={t('task_name')} />
-          <TextField name='description' label={t('description')} />
-        </form>
-      </FormProvider>
+      <Header>
+        <h1>{t('new_task')}</h1>
+      </Header>
+      <div className={styles.taskForm}>
+        <FormProvider {...methods}>
+          <form className={styles.form}>
+            <TextField name='title' label={t('task_name')} />
+            <TextField name='description' label={t('description')} />
+          </form>
+        </FormProvider>
+      </div>
     </div>
   );
 };
