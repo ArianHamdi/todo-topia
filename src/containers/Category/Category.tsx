@@ -50,12 +50,15 @@ const Category = () => {
         <h1>{data.title}</h1>
         <div className={styles.menu}>
           <ContextMenu>
-            <ContextMenuItem href={'/edit/category/' + data.id} icon={<Edit />}>
+            <ContextMenuItem
+              href={'/edit/category/' + data.id}
+              icon={<Edit width={20} height={20} />}
+            >
               {t('edit')}
             </ContextMenuItem>
             <ContextMenuItem
               variant='danger'
-              icon={<Delete />}
+              icon={<Delete width={20} height={20} />}
               onClick={deletePopupHandler}
             >
               {t('delete')}
