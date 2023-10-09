@@ -10,6 +10,7 @@ const ColorPickerUI = ({ value, label, ...props }: IColorPickerUI) => {
     <div>
       <span>{label}</span>
       <HexColorPicker color={value} {...props} />
+      <div></div>
     </div>
   );
 };

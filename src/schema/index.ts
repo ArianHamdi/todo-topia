@@ -14,6 +14,7 @@ export const todoListSchema = yup.object().shape({
 });
 
 export const taskSchema = yup.object().shape({
+  todoListId: yup.string(),
   title: yup.string().required(),
   description: yup.string(),
   deadline: yup.date(),
