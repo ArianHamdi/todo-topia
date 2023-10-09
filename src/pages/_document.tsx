@@ -13,14 +13,47 @@ export default function Document() {
                 if (parts.length === 2) return parts.pop().split(";").shift();
               }
 
+              function getFragmentValue(key) {
+                const hash = window.location.hash.substring(1);
+                
+                const decodedHash = decodeURIComponent(hash);
+                
+                const pattern = new RegExp(key + "=(.*?)(?:&|$)", 'g');
+                
+                let match = pattern.exec(decodedHash);
+                
+                if (match) {
+                  return match[1];
+                }
+                
+                return null;
+              }
+
+              function getBgColor() {
+                // Get the tgWebAppThemeParams from the fragment
+                const tgWebAppThemeParamsStr = getFragmentValue('tgWebAppThemeParams');
+                
+                // If tgWebAppThemeParams is present
+                if (tgWebAppThemeParamsStr) {
+                  // Parse the JSON string to an object
+                  const tgWebAppThemeParamsObj = JSON.parse(tgWebAppThemeParamsStr);
+                  
+                  // Extract and return bg_color
+                  return tgWebAppThemeParamsObj.bg_color;
+                }
+                
+                return null;
+              }
+
               const theme = getCookie('theme') || 'light';
               document.documentElement.dataset.theme = theme;
 
-              const urlParams = new URLSearchParams(window.location.search);
-              const backgroundColor = urlParams.get('backgroundColor');
+              const backgroundColor = getBgColor();
+
+              console.log("backgroundColor",backgroundColor)
               
               if (backgroundColor) {
-                document.documentElement.style.setProperty('--primary-color', backgroundColor);
+                document.documentElement.style.setProperty('--color-primary',backgroundColor);
               }
           `,
           }}

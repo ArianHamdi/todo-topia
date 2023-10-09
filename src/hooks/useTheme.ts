@@ -3,7 +3,14 @@ import { useThemeParams } from '@tma.js/sdk-react';
 import { useEffect } from 'react';
 
 export const useTheme = () => {
-  const { isDark } = useThemeParams();
+  const { isDark, backgroundColor } = useThemeParams();
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--color-primary',
+      backgroundColor
+    );
+  }, [backgroundColor]);
 
   useEffect(() => {
     const theme = isDark ? 'dark' : 'light';
