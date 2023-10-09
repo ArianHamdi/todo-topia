@@ -15,19 +15,17 @@ const Task = (props: ITask) => {
   const { mutate: editTask } = useEditTask(todoListId);
   const { mutate: deleteTask } = useDeleteTask();
 
-  console.log('statusstatus', status);
-
   const { t } = useTranslation();
 
   const { open } = usePopup();
 
-  const toggleHandler = (e: MouseEvent<HTMLInputElement>) => {
-    e.stopPropagation();
+  const toggleHandler = (e: MouseEvent<HTMLElement>) => {
+    e.preventDefault();
     editTask({ ...props, status: !status });
   };
 
-  const deleteHandler = (e: MouseEvent<HTMLInputElement>) => {
-    e.stopPropagation();
+  const deleteHandler = (e: MouseEvent<HTMLElement>) => {
+    e.preventDefault();
     open({
       message: t('delete_task', { title: title }),
       title: t('delete'),
@@ -46,11 +44,19 @@ const Task = (props: ITask) => {
   };
 
   return (
-    <Link className={styles.task} href={'/edit/task/' + id}>
+    <Link
+      className={styles.task}
+      href={`/edit/todo-list/${todoListId}/task/${id}`}
+    >
       <div className={styles.header}>
-        <CheckboxUI onClick={toggleHandler} checked={true} />
-        <h3>{title}</h3>
-        <Close onClick={deleteHandler} />
+        <CheckboxUI onClick={toggleHandler} checked={status} />
+        <h3 className={styles.title}>{title}</h3>
+        <Close
+          className={styles.delete}
+          onClick={deleteHandler}
+          width={20}
+          height={20}
+        />
       </div>
       <div className={styles.footer}>
         <p>{description}</p>

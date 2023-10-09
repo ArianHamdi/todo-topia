@@ -55,13 +55,9 @@ export const useEditTask = (todoListId: string) => {
       queryClient.setQueryData<ITodoList>(
         ['todo-list', todoListId],
         produce(draft => {
-          if (!draft) return;
-          let task = draft.tasks.find(task => task.id === variables.id);
+          let task = draft?.tasks.find(task => task.id === variables.id);
           if (task) {
-            task = {
-              ...task,
-              ...variables,
-            };
+            Object.assign(task, variables);
           }
         })
       );

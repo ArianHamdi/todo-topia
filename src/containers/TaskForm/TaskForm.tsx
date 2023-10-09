@@ -23,6 +23,7 @@ interface IProps {
 const TaskForm = ({ type }: IProps) => {
   const {
     query: { todoListId, taskId },
+    push,
   } = useRouter();
 
   const { data: task, isLoading } = useTask({
@@ -54,10 +55,20 @@ const TaskForm = ({ type }: IProps) => {
 
   const onSubmit = handleSubmit(data => {
     if (type === 'create') {
-      create({ ...data, todoListId: todoListId as string });
+      create(
+        { ...data, todoListId: todoListId as string },
+        {
+          onSuccess: () => push('/todo-list/' + todoListId),
+        }
+      );
     } else {
       if (!task?.id) return;
-      edit({ ...data, id: task.id });
+      edit(
+        { ...data, id: task.id },
+        {
+          onSuccess: () => push('/todo-list/' + todoListId),
+        }
+      );
     }
   });
 

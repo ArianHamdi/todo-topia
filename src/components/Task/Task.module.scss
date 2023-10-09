@@ -10,5 +10,17 @@
     display: flex;
 }
 
-.footer {
+.title{
+    margin-right: auto;
 }
+
+.delete{
+    fill:$color-danger;
+    margin-left: 16px;
+}
+
+.footer {
+    margin-left: 26px;
+}
+
+
