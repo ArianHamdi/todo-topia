@@ -54,9 +54,6 @@ const TodoListForm = ({ type }: IProps) => {
 
   useMainButton({
     text: t(type),
-    isEnabled: isValid,
-    backgroundColor: '#22ff11',
-    disableBackgroundColor: '#ff1133',
     isLoading: isCreateLoading || isEditLoading,
     onClick: onSubmit,
   });

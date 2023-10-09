@@ -1,15 +1,18 @@
 import { useEffect, useMemo } from 'react';
-import { useMainButton as useMainButtonReact } from '@tma.js/sdk-react';
+import {
+  useMainButton as useMainButtonReact,
+  useThemeParams,
+} from '@tma.js/sdk-react';
 import { RGB } from '@tma.js/colors';
 import { capitalizeFirstLetter } from '@/utils';
 
 interface IProps {
   isVisible?: boolean;
   isLoading?: boolean;
-  isEnabled?: boolean;
-  backgroundColor?: RGB;
-  disableBackgroundColor?: RGB;
-  textColor?: RGB;
+  // isEnabled?: boolean;
+  // backgroundColor?: RGB;
+  // disableBackgroundColor?: RGB;
+  // textColor?: RGB;
   text?: string;
   onClick?: () => void;
 }
@@ -17,14 +20,16 @@ interface IProps {
 export const useMainButton = ({
   isVisible = true,
   isLoading = false,
-  isEnabled = true,
-  backgroundColor,
-  disableBackgroundColor,
-  textColor,
+  // isEnabled = true,
+  // backgroundColor,
+  // disableBackgroundColor,
+  // textColor,
   text,
   onClick = () => {},
 }: IProps) => {
   const mainButton = useMainButtonReact();
+
+  const { buttonColor, buttonTextColor } = useThemeParams();
 
   // useEffect(() => {
   //   if (backgroundColor) {
@@ -51,25 +56,24 @@ export const useMainButton = ({
   }, [isLoading, mainButton]);
 
   useEffect(() => {
-    if (isEnabled) {
-      mainButton.enable();
-      if (backgroundColor) {
-        mainButton.setBackgroundColor(backgroundColor);
-      }
+    mainButton.enable();
+    if (buttonColor) {
+      mainButton.setBackgroundColor(buttonColor);
     }
+
     return () => {
       mainButton.disable();
-      if (disableBackgroundColor) {
-        mainButton.setBackgroundColor(disableBackgroundColor);
+      if (buttonColor) {
+        mainButton.setBackgroundColor(buttonColor);
       }
     };
-  }, [isEnabled, backgroundColor, disableBackgroundColor, mainButton]);
+  }, [buttonColor, mainButton]);
 
   useEffect(() => {
-    if (textColor) {
-      mainButton.setTextColor(textColor);
+    if (buttonTextColor) {
+      mainButton.setTextColor(buttonTextColor);
     }
-  }, [textColor, mainButton]);
+  }, [buttonTextColor, mainButton]);
 
   useEffect(() => {
     if (text) {
