@@ -1,11 +1,14 @@
-.task{
-
+.task {
+    display: block;
+    background-color: $color-bg;
+    border: 1px solid $color-primary;
+    border-radius: 8px;
+    padding: 12px;
 }
 
-.header{
-
+.header {
+    display: flex;
 }
 
-.footer{
-    
+.footer {
 }

@@ -66,7 +66,7 @@ const TodoList = () => {
       <LinkButton href={`/create/todo-list/${todoListId}/task`}>
         {t('new_task')}
       </LinkButton>
-      <div>
+      <div className={styles.tasks}>
         {data.tasks.map(task => (
           <Task key={task.id} {...task} />
         ))}

@@ -41,13 +41,35 @@ export const useCreateTask = (todoListId: string) => {
   });
 };
 
-export const useEditTask = () => {
+export const useEditTask = (todoListId: string) => {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: api.editTask,
     onMutate: variables => {
-      // const snapshot = queryClient.getQueryData<ITodoList>(['todo-list']);
+      const snapshot = queryClient.getQueryData<ITodoList>([
+        'todo-list',
+        todoListId,
+      ]);
+
+      queryClient.setQueryData<ITodoList>(
+        ['todo-list', todoListId],
+        produce(draft => {
+          if (!draft) return;
+          let task = draft.tasks.find(task => task.id === variables.id);
+          if (task) {
+            task = {
+              ...task,
+              ...variables,
+            };
+          }
+        })
+      );
+
+      return { snapshot };
+    },
+    onError: (_error, _variables, context) => {
+      queryClient.setQueryData(['todo-list', todoListId], context?.snapshot);
     },
   });
 };
