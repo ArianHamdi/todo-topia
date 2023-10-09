@@ -7,11 +7,16 @@ import { produce } from 'immer';
 import { findTodoListById } from '@/utils';
 
 export const useTodoList = (todoListId: string) => {
-  return useQuery({
+  const result = useQuery({
     queryKey: ['todo-list', todoListId],
     queryFn: () => api.getTodoList(todoListId),
     enabled: !!todoListId,
   });
+
+  return {
+    ...result,
+    isLoading: result.isLoading && result.fetchStatus !== 'idle',
+  };
 };
 
 export const useCreateTodoList = () => {

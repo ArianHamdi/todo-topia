@@ -25,8 +25,6 @@ const TodoListForm = ({ type }: IProps) => {
 
   const { data: todoList, isLoading } = useTodoList(todoListId as string);
 
-  console.log('todoListId', todoListId);
-
   const methods = useForm({
     resolver: yupResolver(todoListSchema),
     // values: {
