@@ -12,14 +12,13 @@ const TodoList = ({
 }: ITodoList) => {
   return (
     <Link href={`/todo-list/${id}`} className={styles.list}>
-      <div>
+      <div className={styles.info}>
         <h3>{title}</h3>
-        {description && <p>{description}</p>}
-        <p className={styles.description}>
-          jfsdjfalsdjflasfj;sdljflasjflsajfldsflka
-        </p>
+        {description && <p className={styles.description}>{description}</p>}
       </div>
-      <div className={styles.details}>0 / 0</div>
+      <div className={styles.stats}>
+        {completed} / {left + completed}
+      </div>
     </Link>
   );
 };
