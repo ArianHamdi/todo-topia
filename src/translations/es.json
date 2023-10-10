@@ -16,7 +16,11 @@
   "delete": "Eliminar",
   "description": "Descripción",
   "edit": "Editar",
-  "delete_category": "¿Estás seguro de que quieres eliminar la categoría {title}?",
-  "delete_task": "¿Estás seguro de que quieres eliminar la tarea {title}?",
+  "edit_category": "Editar la categoría {title}",
+  "edit_todo_list": "Editar la lista de tareas {title}",
+  "edit_task": "Editar la tarea {title}",
+  "delete_category": "¿Estás seguro de que deseas eliminar la categoría {title}?",
+  "delete_todo_list": "¿Estás seguro de que deseas eliminar la lista de tareas {title}?",
+  "delete_task": "¿Estás seguro de que deseas eliminar la tarea {title}?",
   "required": "*Requerido"
 }

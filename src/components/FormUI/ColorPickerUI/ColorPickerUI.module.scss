@@ -5,13 +5,12 @@
 .hexColor {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
     margin: 15px 0;
 }
 
 .preview {
-    margin-left: 20px;
+    margin-left: 50px;
     width: 120px;
     height: 60px;
     background-color: red;

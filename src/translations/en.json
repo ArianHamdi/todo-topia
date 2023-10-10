@@ -16,7 +16,11 @@
   "delete": "Delete",
   "description": "Description",
   "edit": "Edit",
+  "edit_category": "Edit {title} category",
+  "edit_todo_list": "Edit {title} todo list",
+  "edit_task": "Edit {title} task",
   "delete_category": "Are you sure you want to delete {title} category?",
+  "delete_todo_list": "Are you sure you want to delete {title} todo list?",
   "delete_task": "Are you sure you want to delete {title} task?",
   "required": "*Required"
 }

@@ -16,7 +16,11 @@
   "delete": "Elimina",
   "description": "Descrizione",
   "edit": "Modifica",
+  "edit_category": "Modifica la categoria {title}",
+  "edit_todo_list": "Modifica la lista delle cose da fare {title}",
+  "edit_task": "Modifica l'attività {title}",
   "delete_category": "Sei sicuro di voler eliminare la categoria {title}?",
-  "delete_task": "Sei sicuro di voler eliminare il compito {title}?",
+  "delete_todo_list": "Sei sicuro di voler eliminare la lista delle cose da fare {title}?",
+  "delete_task": "Sei sicuro di voler eliminare l'attività {title}?",
   "required": "*Richiesto"
 }

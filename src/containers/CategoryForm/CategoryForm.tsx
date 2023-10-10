@@ -70,7 +70,11 @@ const CategoryForm = ({ type }: IProps) => {
   return (
     <div>
       <Header>
-        <h1>{t('new_category')}</h1>
+        <h1>
+          {type === 'create'
+            ? t('new_category')
+            : t('edit_category', { title: category?.title || '' })}
+        </h1>
       </Header>
       <div className={styles.categoryForm}>
         <FormProvider {...methods}>

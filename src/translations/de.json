@@ -16,7 +16,11 @@
   "delete": "Löschen",
   "description": "Beschreibung",
   "edit": "Bearbeiten",
-  "delete_category": "Sind Sie sicher, dass Sie die Kategorie {title} löschen möchten?",
-  "delete_task": "Sind Sie sicher, dass Sie die Aufgabe {title} löschen möchten?",
+  "edit_category": "Kategorie {title} bearbeiten",
+  "edit_todo_list": "Aufgabenliste {title} bearbeiten",
+  "edit_task": "Aufgabe {title} bearbeiten",
+  "delete_category": "Möchten Sie die Kategorie {title} wirklich löschen?",
+  "delete_todo_list": "Möchten Sie die Aufgabenliste {title} wirklich löschen?",
+  "delete_task": "Möchten Sie die Aufgabe {title} wirklich löschen?",
   "required": "*Erforderlich"
 }
