@@ -6,6 +6,7 @@
   "completed": "completed",
   "left": "left",
   "new_task": "New task",
+  "color": "Color",
   "new_category": "New category",
   "new_todo_list": "New todo list",
   "category_name": "Category name",
