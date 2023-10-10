@@ -22,5 +22,6 @@
   "delete_category": "Êtes-vous sûr de vouloir supprimer la catégorie {title}?",
   "delete_todo_list": "Êtes-vous sûr de vouloir supprimer la liste de tâches {title}?",
   "delete_task": "Êtes-vous sûr de vouloir supprimer la tâche {title}?",
-  "required": "*Requis"
+  "required": "*Requis",
+  "empty": "Vide !"
 }

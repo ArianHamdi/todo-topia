@@ -22,5 +22,6 @@
   "delete_category": "Sei sicuro di voler eliminare la categoria {title}?",
   "delete_todo_list": "Sei sicuro di voler eliminare la lista delle cose da fare {title}?",
   "delete_task": "Sei sicuro di voler eliminare l'attività {title}?",
-  "required": "*Richiesto"
+  "required": "*Richiesto",
+  "empty": "Vuoto!"
 }
