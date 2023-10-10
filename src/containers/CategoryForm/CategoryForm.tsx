@@ -17,7 +17,6 @@ import { useMemo } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
-import NotFound from '@/components/NotFound';
 import Spinner from '@/components/Spinner';
 
 interface IProps {
@@ -72,7 +71,7 @@ const CategoryForm = ({ type }: IProps) => {
 
   if (type === 'edit' && isLoading) return <Spinner />;
 
-  if (!category && type === 'edit') return <NotFound />;
+  if (!category && type === 'edit') return null;
 
   return (
     <div>

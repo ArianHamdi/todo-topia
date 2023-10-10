@@ -15,7 +15,6 @@ import {
 } from '@/hooks/api/todo-list';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
-import NotFound from '@/components/NotFound';
 import Spinner from '@/components/Spinner';
 
 interface IProps {
@@ -71,7 +70,7 @@ const TodoListForm = ({ type }: IProps) => {
 
   if (type === 'edit' && isLoading) return <Spinner />;
 
-  if (!todoList && type === 'edit') return <NotFound />;
+  if (!todoList && type === 'edit') return null;
 
   return (
     <div>
