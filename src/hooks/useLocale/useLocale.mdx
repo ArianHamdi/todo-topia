@@ -1,0 +1,19 @@
+# `useLocale` Hook
+
+## Introduction
+
+The `useLocale` custom hook ensures that the language of the mini app is in sync with the user's preferred language in Telegram. It fetches the user's language from the launch parameters and updates the app's locale if necessary.
+
+## Features
+
+- **Automatic Locale Detection**: Determines the user's preferred language based on the launch parameters.
+- **Locale Synchronization**: Adjusts the app's locale to match the user's preferred language.
+
+## Code Details
+
+Here's a breakdown of the hook:
+
+1. **Fetching Locale**: The hook fetches the user's preferred language code using `useLaunchParams` from TMA.js SDK.
+2. **Locale Verification**: It then checks whether the detected locale is within the list of supported locales.
+3. **Locale Update**: If the detected locale is supported and different from the current app locale, it updates the app's locale using Next.js's router.
+
