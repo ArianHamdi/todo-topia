@@ -69,10 +69,10 @@ const Category = () => {
           </ContextMenu>
         </div>
       </Header>
-      <LinkButton href={`/create/category/${categoryId}/todo-list`}>
-        {t('new_todo_list')}
-      </LinkButton>
       <div className={styles.list}>
+        <LinkButton href={`/create/category/${categoryId}/todo-list`}>
+          {t('new_todo_list')}
+        </LinkButton>
         {data?.todoLists?.map(todoList => (
           <TodoList key={todoList.id} {...todoList} />
         ))}
