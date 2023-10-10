@@ -5,15 +5,18 @@ import { useTranslation } from '@/hooks/useTranslation/useTranslation';
 import LinkButton from '@/components/LinkButton';
 import Profile from '@/components/Profile';
 import { useBackButton } from '@/hooks/useBackButton';
+import Spinner from '@/components/Spinner';
 
 const Landing = () => {
   useBackButton();
-  const { data } = useCategories();
+  const { data, isLoading } = useCategories();
   const { t } = useTranslation();
 
   const items = data?.map(category => (
     <Category key={category.id} {...category} />
   ));
+
+  if (isLoading) return <Spinner />;
 
   return (
     <div className={styles.landing}>

@@ -11,6 +11,7 @@ import LinkButton from '@/components/LinkButton';
 import TodoList from '@/components/TodoList';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
+import Spinner from '@/components/Spinner';
 
 const Category = () => {
   const {
@@ -25,7 +26,7 @@ const Category = () => {
 
   const { mutate } = useDeleteCategory();
 
-  if (isLoading) return 'loading ...';
+  if (isLoading) return <Spinner />;
 
   if (!data) return <NotFound />;
 
