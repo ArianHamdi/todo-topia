@@ -1,0 +1,35 @@
+# `useTheme` Custom Hook
+
+## Introduction
+
+The `useTheme` custom hook offers a declarative way to manage and apply the theme within Telegram Mini Apps using the TMA.js SDK. It leverages `useThemeParams` from the SDK to get various theme parameters and applies them to your app.
+
+## Features
+
+- **Dynamic Theme Change**: Automatically switches between dark and light themes.
+- **Primary Color Customization**: Allows you to set the primary button color.
+- **Background Color Customization**: Allows you to set the background color of the app.
+
+## Usage Example
+
+Here's a simple example showing how to use the `useTheme` hook:
+
+```javascript
+import { useTheme } from '@/hooks/useTheme';
+
+const MyApp = () => {
+  useTheme();
+
+  return (
+    // Your app JSX
+  );
+};
+```
+
+## Code Details
+
+The hook relies on the `useThemeParams` function provided by the TMA.js SDK. It performs the following:
+
+- Sets CSS variables for the primary button color and background color.
+- Sets a cookie named `theme` to remember the user's preferred theme (`dark` or `light`).
+- Updates the `data-theme` attribute on the HTML tag based on the user's preferred theme.
