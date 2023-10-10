@@ -10,7 +10,7 @@ export const usePopup = () => {
 
   const open = async ({ onConfirm, ...params }: IOpen) => {
     const isSupported = popup.supports('open');
-    if (isSupported) {
+    if (isSupported && !popup.isOpened) {
       const id = await popup.open(params);
       if (id === 'confirm') {
         console.log('id', id);
