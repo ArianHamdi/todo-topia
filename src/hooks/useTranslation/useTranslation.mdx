@@ -1,0 +1,35 @@
+# `useTranslation` Hook
+
+## Introduction
+
+The `useTranslation` custom hook is designed to simplify the process of i18n translation within an application. This hook provides a declarative way to utilize language-specific strings based on keys.
+
+## Features
+
+- **Key-based Translation**: Translate a given string based on its corresponding key.
+- **Parameter Injection**: Inject parameters into the translation string for dynamic content.
+
+
+## Use Cases
+
+To translate text strings within the application based on given keys and optional parameters.
+
+```jsx
+import React from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
+
+const WelcomeComponent = () => {
+  const { t } = useTranslation();
+  const welcomeMessage = t('welcome', { name: 'John' }); // Output: 'Welcome, John'
+  
+  return (
+    <div>
+      <h1>{welcomeMessage}</h1>
+    </div>
+  );
+};
+
+export default WelcomeComponent;
+```
+
+n this example, the useTranslation hook is imported from its source file, and we use it within the WelcomeComponent. The t function allows us to get the translated string for the welcome key, and it also supports injecting the name parameter.

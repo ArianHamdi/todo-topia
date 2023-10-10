@@ -1,8 +1,7 @@
-import { ReactNode } from 'react';
 import styles from './Chip.module.scss';
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslation } from '@/hooks/useTranslation/useTranslation';
 
-interface IProps {
+export interface IProps {
   variant: 'completed' | 'left';
   count: number;
 }

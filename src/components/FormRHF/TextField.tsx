@@ -1,7 +1,7 @@
 import { TextFieldUI, ITextFieldUI } from '@/components/FormUI';
 import { useFormContext, useFormState } from 'react-hook-form';
 import ErrorMessage from '@/components/ErrorMessage';
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslation } from '@/hooks/useTranslation/useTranslation';
 import { IFormError, IFormErrorObj, RequiredName } from '@/types';
 
 type IProps = RequiredName<ITextFieldUI>;

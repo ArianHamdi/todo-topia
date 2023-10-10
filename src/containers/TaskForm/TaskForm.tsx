@@ -1,7 +1,7 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import styles from './TaskForm.module.scss';
 import { ColorPicker, TextField } from '@/components/FormRHF';
-import { useMainButton } from '@/hooks/useMainButton';
+import { useMainButton } from '@/hooks/useMainButton/useMainButton';
 import { categorySchema, taskSchema } from '@/schema';
 import { generateRandomHexColor } from '@/utils';
 import {
@@ -9,10 +9,10 @@ import {
   useCreateCategory,
   useEditCategory,
 } from '@/hooks/api/category';
-import { useTranslation } from '@/hooks/useTranslation';
-import { useClosingBehaviour } from '@/hooks/useClosingBehaviour';
+import { useTranslation } from '@/hooks/useTranslation/useTranslation';
+import { useClosingBehaviour } from '@/hooks/useClosingBehaviour/useClosingBehaviour';
 import { IFormType } from '@/types';
-import { useRouter } from '@/hooks/useRouter';
+import { useRouter } from '@/hooks/useRouter/useRouter';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useCreateTask, useEditTask, useTask } from '@/hooks/api/task';
 

@@ -1,5 +1,5 @@
 import { useBackButton as useBackButtonReact } from '@tma.js/sdk-react';
-import { useRouter } from '@/hooks/useRouter';
+import { useRouter } from '@/hooks/useRouter/useRouter';
 import { useEffect } from 'react';
 
 export const useBackButton = () => {

@@ -1,0 +1,1 @@
+export { useClosingBehaviour } from './useClosingBehaviour';

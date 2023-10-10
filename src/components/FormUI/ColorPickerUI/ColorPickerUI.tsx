@@ -4,6 +4,7 @@ import { isColorDark } from '@tma.js/colors';
 export interface IColorPickerUI {
   value: string;
   label?: string;
+  onChange: (newColor: string) => void;
 }
 
 const ColorPickerUI = ({ value, label, ...props }: IColorPickerUI) => {
