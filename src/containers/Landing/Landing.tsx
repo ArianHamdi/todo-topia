@@ -6,6 +6,7 @@ import LinkButton from '@/components/LinkButton';
 import Profile from '@/components/Profile';
 import { useBackButton } from '@/hooks/useBackButton';
 import Spinner from '@/components/Spinner';
+import EmptyState from '@/components/EmptyState/EmptyState';
 
 const Landing = () => {
   useBackButton();
@@ -25,7 +26,9 @@ const Landing = () => {
         <h1>{t('task_categories')}</h1>
       </div>
       <LinkButton href='/create/category'>{t('new_category')}</LinkButton>
-      <div className={styles.categories}>{items}</div>
+      <div className={styles.categories}>
+        {data?.length === 0 ? <EmptyState /> : items}
+      </div>
     </div>
   );
 };
