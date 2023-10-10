@@ -17,6 +17,7 @@ export default withAuthorization(async function handler(
       case 'PUT':
         // Handle HTTP PUT request (update a task)
         const { title, description, deadline, todoListId, status } = req.body; // Extract task data from the request body
+
         // Validate the extracted data using the taskSchema
         await taskSchema.validate({
           title,
@@ -25,61 +26,68 @@ export default withAuthorization(async function handler(
           status,
         });
 
-        // Fetch the existing task from the database
-        const task = await prisma.task.findUnique({
-          where: {
-            id: idAsString,
-          },
-        });
-
-        // Check if the task's status has changed and update related todoList accordingly
-        if (task?.status !== status && status === true) {
-          await prisma.todoList.update({
+        // Wrap the entire operation in a transaction for atomicity
+        await prisma.$transaction(async prisma => {
+          // Fetch the existing task from the database
+          const task = await prisma.task.findUnique({
             where: {
-              id: todoListId.toString(),
-            },
-            data: {
-              left: {
-                decrement: 1,
-              },
-              completed: {
-                increment: 1,
-              },
+              id: idAsString,
             },
           });
-        } else if (task?.status !== status && status === false) {
-          await prisma.todoList.update({
-            where: {
-              id: todoListId.toString(),
-            },
-            data: {
-              left: {
-                increment: 1,
-              },
-              completed: {
-                decrement: 1,
-              },
-            },
-          });
-        }
 
-        // Update the task in the database
-        await prisma.task.update({
-          where: {
-            id: idAsString,
-          },
-          data: {
-            title,
-            description,
-            deadline,
-            todoListId,
-            status,
-          },
+          // Assuming task is found (if not, you might want to handle that case)
+          if (task) {
+            if (task.status !== status) {
+              if (status === true) {
+                await prisma.todoList.update({
+                  where: {
+                    id: todoListId.toString(),
+                  },
+                  data: {
+                    left: {
+                      decrement: 1,
+                    },
+                    completed: {
+                      increment: 1,
+                    },
+                  },
+                });
+              } else if (status === false) {
+                await prisma.todoList.update({
+                  where: {
+                    id: todoListId.toString(),
+                  },
+                  data: {
+                    left: {
+                      increment: 1,
+                    },
+                    completed: {
+                      decrement: 1,
+                    },
+                  },
+                });
+              }
+            }
+
+            // Update the task in the database
+            await prisma.task.update({
+              where: {
+                id: idAsString,
+              },
+              data: {
+                title,
+                description,
+                deadline,
+                todoListId,
+                status,
+              },
+            });
+          }
         });
 
         res.status(201).json('success'); // Respond with a success message
-        break;
 
+        break;
       case 'DELETE':
         // Handle HTTP DELETE request (delete a task)
 
