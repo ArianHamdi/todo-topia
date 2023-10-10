@@ -51,55 +51,46 @@ export const useEditTodoList = () => {
   return useMutation({
     mutationFn: api.editTodoList,
     onMutate: async variables => {
-      const snapshot = queryClient.getQueryData<ICategory[]>(['categories']);
+      const snapshot = queryClient.getQueryData<ITodoList>([
+        'todo-list',
+        variables.id,
+      ]);
 
       // Optimistically update to the new value
-      queryClient.setQueryData<ICategory[]>(
-        ['categories'],
-        produce(draft => {
-          const category = draft?.find(
-            category => category.id === variables.categoryId
-          );
-          let todoList = category?.todoLists.find(
-            todo => todo.id === variables.id
-          );
-
-          if (todoList) {
-            todoList = { ...todoList, ...variables };
-          }
-        })
-      );
+      queryClient.setQueryData<ITodoList>(['todo-list', variables.id], prev => {
+        if (!prev) return;
+        return {
+          ...prev,
+          ...variables,
+        };
+      });
 
       router.replace('/todo-list/' + variables.id);
 
       // Return a context object with the snapshot value
       return { snapshot };
     },
+    onSuccess: () => {
+      queryClient.refetchQueries({
+        exact: true,
+        queryKey: ['categories'],
+      });
+    },
   });
 };
 
-//Should converted to Todo List with immer
 export const useDeleteTodoList = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
 
   return useMutation({
     mutationFn: api.deleteTodoList,
-    onMutate: async ({ id }) => {
-      // Snapshot the previous value
-      const snapshot = queryClient.getQueryData<ICategory[]>(['categories']);
-
-      // Optimistically update to the new value
-      queryClient.setQueryData<ICategory[]>(['categories'], old => old);
-
-      // Redirect to landing page
-      router.replace('/');
-
-      // Return a context object with the snapshot value
-      return { snapshot };
-    },
-    onError: (_error, _variables, context) => {
-      queryClient.setQueryData(['categories'], context?.snapshot);
+    onSuccess: () => {
+      router.push('/');
+      queryClient.refetchQueries({
+        exact: true,
+        queryKey: ['categories'],
+      });
     },
   });
 };
