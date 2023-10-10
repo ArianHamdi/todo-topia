@@ -16,6 +16,7 @@ import { useRouter } from '@/hooks/useRouter/useRouter';
 import { useMemo } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Header from '@/components/Header';
+import NotFound from '@/components/NotFound';
 
 interface IProps {
   type: IFormType;
@@ -27,6 +28,8 @@ const CategoryForm = ({ type }: IProps) => {
   } = useRouter();
 
   const { data: category, isLoading } = useCategory(categoryId as string);
+
+  if (!category && type === 'edit') return <NotFound />;
 
   const randomHexColor = useMemo(generateRandomHexColor, []);
 
