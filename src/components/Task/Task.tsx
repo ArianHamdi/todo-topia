@@ -17,7 +17,7 @@ const Task = (props: ITask) => {
 
   const { t } = useTranslation();
 
-  // const { open } = usePopup();
+  const { open } = usePopup();
 
   const toggleHandler = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -26,21 +26,21 @@ const Task = (props: ITask) => {
 
   const deleteHandler = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    // open({
-    //   message: t('delete_task', { title: title }),
-    //   title: t('delete'),
-    //   buttons: [
-    //     {
-    //       type: 'destructive',
-    //       text: t('delete'),
-    //       id: 'confirm',
-    //     },
-    //     {
-    //       type: 'cancel',
-    //     },
-    //   ],
-    //   onConfirm: () => deleteTask({ id }),
-    // });
+    open({
+      message: t('delete_task', { title: title }),
+      title: t('delete'),
+      buttons: [
+        {
+          type: 'destructive',
+          text: t('delete'),
+          id: 'confirm',
+        },
+        {
+          type: 'cancel',
+        },
+      ],
+      onConfirm: () => deleteTask({ id }),
+    });
   };
 
   return (
