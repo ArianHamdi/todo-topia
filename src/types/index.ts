@@ -1,5 +1,7 @@
 import { Properties } from 'csstype';
 
+export type Locales = 'en' | 'es' | 'fr' | 'de' | 'it';
+
 export type RequiredName<T> = T & { name: string };
 
 export type IFormErrorObj = {
