@@ -29,7 +29,7 @@ export default withAuthorization(async function handler(
 
       case 'PUT':
         // Handle HTTP PUT request (update a todoList)
-        const { title, categoryId } = req.body; // Extract updated todoList data from the request body
+        const { title, categoryId, description } = req.body; // Extract updated todoList data from the request body
 
         // Validate the extracted data using the todoListSchema
         await todoListSchema.validate({
@@ -40,7 +40,7 @@ export default withAuthorization(async function handler(
         // Update the todoList in the database
         await prisma.todoList.update({
           where: { id: idAsString },
-          data: { title, categoryId },
+          data: { title, categoryId, description },
         });
 
         res.status(201).json('success'); // Respond with a success message
