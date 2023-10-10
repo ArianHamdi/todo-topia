@@ -13,7 +13,7 @@ const Task = (props: ITask) => {
   const { id, status, title, description, deadline, todoListId } = props;
 
   const { mutate: editTask } = useEditTask(todoListId);
-  const { mutate: deleteTask } = useDeleteTask();
+  const { mutate: deleteTask } = useDeleteTask(todoListId);
 
   const { t } = useTranslation();
 
