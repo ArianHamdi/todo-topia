@@ -79,7 +79,3 @@ For detailed documentation and component visualization, we leverage **Storybook*
 ```bash
 pnpm storybook
 ```
-
-```
-
-```
