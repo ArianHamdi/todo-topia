@@ -75,8 +75,8 @@ const CategoryForm = ({ type }: IProps) => {
       <div className={styles.categoryForm}>
         <FormProvider {...methods}>
           <form className={styles.form}>
-            <TextField name='title' label='Category name' />
-            <ColorPicker name='color' label='Color' />
+            <TextField name='title' label={t('category_name')} />
+            <ColorPicker name='color' label={t('color')} />
           </form>
         </FormProvider>
       </div>
