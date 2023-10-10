@@ -76,8 +76,29 @@ export const useEditTask = (todoListId: string) => {
   });
 };
 
-export const useDeleteTask = () => {
+export const useDeleteTask = (todoListId: string) => {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: api.deleteTask,
+    onMutate: variables => {
+      const snapshot = queryClient.getQueryData<ITodoList>([
+        'todo-list',
+        todoListId,
+      ]);
+
+      queryClient.setQueryData<ITodoList>(['todo-list', todoListId], prev => {
+        if (!prev) return;
+        return {
+          ...prev,
+          tasks: prev.tasks.filter(task => task.id !== variables.id),
+        };
+      });
+
+      return { snapshot };
+    },
+    onError: (_error, _variables, context) => {
+      queryClient.setQueryData(['todo-list', todoListId], context?.snapshot);
+    },
   });
 };
