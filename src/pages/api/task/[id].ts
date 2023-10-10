@@ -27,7 +27,7 @@ export default withAuthorization(async function handler(
         });
 
         // Wrap the entire operation in a transaction for atomicity
-        await prisma.$transaction(async prisma => {
+        await prisma.$transaction(async (prisma: any) => {
           // Fetch the existing task from the database
           const task = await prisma.task.findUnique({
             where: {
