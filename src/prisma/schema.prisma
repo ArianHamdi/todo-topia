@@ -32,7 +32,7 @@ model Category {
   title     String
   color     String
   todoLists TodoList[]
-  User      User       @relation(fields: [userId], references: [userId])
+  User      User       @relation(fields: [userId], references: [userId], onDelete: Cascade)
   userId    String
 }
 
@@ -44,8 +44,8 @@ model TodoList {
   description String?
   completed   Int      @default(0)
   left        Int      @default(0)
-  user        User     @relation(fields: [userId], references: [userId])
-  category    Category @relation(fields: [categoryId], references: [id])
+  user        User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   tasks Task[]
 }
@@ -58,7 +58,7 @@ model Task {
   deadline    DateTime?
 
   userId     String
-  user       User     @relation(fields: [userId], references: [userId])
+  user       User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
   todoListId String   @db.ObjectId
-  todoList   TodoList @relation(fields: [todoListId], references: [id])
+  todoList   TodoList @relation(fields: [todoListId], references: [id], onDelete: Cascade)
 }
