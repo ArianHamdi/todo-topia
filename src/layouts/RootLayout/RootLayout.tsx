@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import styles from './RootLayout.module.scss';
-import { useBackButton } from '@/hooks/useBackButton/useBackButton';
 import { Lato } from 'next/font/google';
 import { useTheme } from '@/hooks/useTheme/useTheme';
 import { useLocale } from '@/hooks/useLocale/useLocale';
@@ -17,7 +16,6 @@ interface IProps {
 const RootLayout = ({ children }: IProps) => {
   useLocale();
   useTheme();
-  useBackButton();
 
   return (
     <div className={lato.className}>

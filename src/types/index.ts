@@ -55,3 +55,5 @@ export interface ICategoryAnalyze {
   totalTasks: number;
   completionPercentage: number;
 }
+
+export type IRoute = `/${string}`;

@@ -11,11 +11,14 @@ import LinkButton from '@/components/LinkButton';
 import Task from '@/components/Task';
 import { useDeleteTodoList, useTodoList } from '@/hooks/api/todo-list';
 import Header from '@/components/Header';
+import { useBackButton } from '@/hooks/useBackButton';
 
 const TodoList = () => {
   const {
     query: { todoListId },
   } = useRouter();
+
+  useBackButton('/');
 
   const { data, isLoading } = useTodoList(todoListId as string);
   const { open } = usePopup();

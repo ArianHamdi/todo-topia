@@ -14,6 +14,7 @@ import {
   useTodoList,
 } from '@/hooks/api/todo-list';
 import Header from '@/components/Header';
+import { useBackButton } from '@/hooks/useBackButton';
 
 interface IProps {
   type: IFormType;
@@ -23,6 +24,10 @@ const TodoListForm = ({ type }: IProps) => {
   const {
     query: { todoListId, categoryId },
   } = useRouter();
+
+  useBackButton(
+    type === 'create' ? `/category/${categoryId}` : `/todo-list/${todoListId}`
+  );
 
   const { data: todoList, isLoading } = useTodoList(todoListId as string);
 
