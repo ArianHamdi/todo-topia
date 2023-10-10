@@ -12,6 +12,7 @@ import Task from '@/components/Task';
 import { useDeleteTodoList, useTodoList } from '@/hooks/api/todo-list';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
+import Spinner from '@/components/Spinner';
 
 const TodoList = () => {
   const {
@@ -26,7 +27,7 @@ const TodoList = () => {
 
   const { mutate } = useDeleteTodoList();
 
-  if (isLoading) return 'loading ...';
+  if (isLoading) return <Spinner />;
 
   if (!data) return <NotFound />;
 

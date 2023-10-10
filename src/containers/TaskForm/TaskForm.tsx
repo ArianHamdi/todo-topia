@@ -18,6 +18,7 @@ import { useCreateTask, useEditTask, useTask } from '@/hooks/api/task';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
 import NotFound from '@/components/NotFound';
+import Spinner from '@/components/Spinner';
 
 interface IProps {
   type: IFormType;
@@ -85,7 +86,7 @@ const TaskForm = ({ type }: IProps) => {
 
   useClosingBehaviour(isValid);
 
-  if (isLoading) return 'loading...';
+  if (type === 'edit' && isLoading) return <Spinner />;
 
   if (!task && type === 'edit') return <NotFound />;
 

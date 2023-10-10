@@ -18,6 +18,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
 import NotFound from '@/components/NotFound';
+import Spinner from '@/components/Spinner';
 
 interface IProps {
   type: IFormType;
@@ -69,7 +70,7 @@ const CategoryForm = ({ type }: IProps) => {
 
   useClosingBehaviour(isValid);
 
-  if (isLoading) return 'loading...';
+  if (type === 'edit' && isLoading) return <Spinner />;
 
   if (!category && type === 'edit') return <NotFound />;
 
