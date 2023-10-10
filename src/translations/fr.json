@@ -16,7 +16,11 @@
   "delete": "Supprimer",
   "description": "Description",
   "edit": "Éditer",
+  "edit_category": "Modifier la catégorie {title}",
+  "edit_todo_list": "Modifier la liste de tâches {title}",
+  "edit_task": "Modifier la tâche {title}",
   "delete_category": "Êtes-vous sûr de vouloir supprimer la catégorie {title}?",
+  "delete_todo_list": "Êtes-vous sûr de vouloir supprimer la liste de tâches {title}?",
   "delete_task": "Êtes-vous sûr de vouloir supprimer la tâche {title}?",
   "required": "*Requis"
 }
