@@ -26,7 +26,7 @@
     }
 
     &[data-variant='outline'] {
-        background-color: $color-button-text;
+        background-color: transparent;
         border-color: $color-button-bg;
         color: $color-button-bg;
     }

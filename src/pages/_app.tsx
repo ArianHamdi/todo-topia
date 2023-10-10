@@ -8,8 +8,11 @@ import { sdkInitOptions } from '@/lib/twa-sdk';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import RootLayout from '@/layouts/RootLayout';
 import PageTransition from '@/components/PageTransition';
+import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition';
 
 export default function App({ Component, pageProps }: AppProps) {
+  useNextCssRemovalPrevention();
+
   return (
     <QueryClientProvider client={queryClient}>
       <SDKProvider initOptions={sdkInitOptions}>
