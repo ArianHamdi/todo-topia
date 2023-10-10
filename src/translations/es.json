@@ -22,5 +22,6 @@
   "delete_category": "¿Estás seguro de que deseas eliminar la categoría {title}?",
   "delete_todo_list": "¿Estás seguro de que deseas eliminar la lista de tareas {title}?",
   "delete_task": "¿Estás seguro de que deseas eliminar la tarea {title}?",
-  "required": "*Requerido"
+  "required": "*Requerido",
+  "empty": "¡Vacío!"
 }
