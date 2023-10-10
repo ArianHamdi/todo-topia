@@ -22,5 +22,6 @@
   "delete_category": "Möchten Sie die Kategorie {title} wirklich löschen?",
   "delete_todo_list": "Möchten Sie die Aufgabenliste {title} wirklich löschen?",
   "delete_task": "Möchten Sie die Aufgabe {title} wirklich löschen?",
-  "required": "*Erforderlich"
+  "required": "*Erforderlich",
+  "empty": "Leer!"
 }

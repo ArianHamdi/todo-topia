@@ -22,5 +22,6 @@
   "delete_category": "Are you sure you want to delete {title} category?",
   "delete_todo_list": "Are you sure you want to delete {title} todo list?",
   "delete_task": "Are you sure you want to delete {title} task?",
-  "required": "*Required"
+  "required": "*Required",
+  "empty": "Empty!"
 }
