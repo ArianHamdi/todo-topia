@@ -8,7 +8,7 @@
     "build": "npm run check-env && next build",
     "ngrok": "ngrok http --domain=subtly-growing-gorilla.ngrok-free.app 3000",
     "ngrok-silver": "ngrok http --domain=open-evolving-seal.ngrok-free.app 3000",
-    "start": "next start",
+    "start": "npm run prisma-schema && next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --list-different",
     "prepare": "husky install",
