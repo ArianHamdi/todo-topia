@@ -16,6 +16,7 @@ import { useRouter } from '@/hooks/useRouter/useRouter';
 import { useMemo } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Header from '@/components/Header';
+import { useBackButton } from '@/hooks/useBackButton';
 
 interface IProps {
   type: IFormType;
@@ -25,6 +26,8 @@ const CategoryForm = ({ type }: IProps) => {
   const {
     query: { categoryId },
   } = useRouter();
+
+  useBackButton(type === 'create' ? '/' : `/${categoryId}`);
 
   const { data: category, isLoading } = useCategory(categoryId as string);
 

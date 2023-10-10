@@ -16,6 +16,7 @@ import { useRouter } from '@/hooks/useRouter/useRouter';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useCreateTask, useEditTask, useTask } from '@/hooks/api/task';
 import Header from '@/components/Header';
+import { useBackButton } from '@/hooks/useBackButton';
 
 interface IProps {
   type: IFormType;
@@ -26,6 +27,8 @@ const TaskForm = ({ type }: IProps) => {
     query: { todoListId, taskId },
     push,
   } = useRouter();
+
+  useBackButton(`/todo-list/${todoListId}`);
 
   const { data: task, isLoading } = useTask({
     todoListId: todoListId as string,

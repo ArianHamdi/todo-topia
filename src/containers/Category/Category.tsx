@@ -10,11 +10,14 @@ import { useTranslation } from '@/hooks/useTranslation/useTranslation';
 import LinkButton from '@/components/LinkButton';
 import TodoList from '@/components/TodoList';
 import Header from '@/components/Header';
+import { useBackButton } from '@/hooks/useBackButton';
 
 const Category = () => {
   const {
     query: { categoryId },
   } = useRouter();
+
+  useBackButton('/');
 
   const { data, isLoading } = useCategory(categoryId as string);
   const { open } = usePopup();
