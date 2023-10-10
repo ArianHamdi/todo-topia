@@ -28,7 +28,7 @@ const CategoryForm = ({ type }: IProps) => {
     query: { categoryId },
   } = useRouter();
 
-  useBackButton(type === 'create' ? '/' : `/${categoryId}`);
+  useBackButton(type === 'create' ? '/' : `/category/${categoryId}`);
 
   const { data: category, isLoading } = useCategory(categoryId as string);
 
