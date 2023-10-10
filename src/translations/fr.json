@@ -1,0 +1,22 @@
+{
+  "hi": "Salut",
+  "welcome_message": "Faisons d'aujourd'hui une journée productive",
+  "task_categories": "Catégories de tâches",
+  "tasks": "tâches",
+  "completed": "terminé",
+  "left": "restant",
+  "new_task": "Nouvelle tâche",
+  "color": "Couleur",
+  "new_category": "Nouvelle catégorie",
+  "new_todo_list": "Nouvelle liste de choses à faire",
+  "category_name": "Nom de la catégorie",
+  "todo_list_name": "Nom de la liste",
+  "task_name": "Nom de la tâche",
+  "create": "Créer",
+  "delete": "Supprimer",
+  "description": "Description",
+  "edit": "Éditer",
+  "delete_category": "Êtes-vous sûr de vouloir supprimer la catégorie {title}?",
+  "delete_task": "Êtes-vous sûr de vouloir supprimer la tâche {title}?",
+  "required": "*Requis"
+}

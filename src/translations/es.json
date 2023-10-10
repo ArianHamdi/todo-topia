@@ -1,0 +1,22 @@
+{
+  "hi": "Hola",
+  "welcome_message": "Hagamos el día de hoy productivo",
+  "task_categories": "Categorías de tareas",
+  "tasks": "tareas",
+  "completed": "completado",
+  "left": "restante",
+  "new_task": "Nueva tarea",
+  "color": "Color",
+  "new_category": "Nueva categoría",
+  "new_todo_list": "Nueva lista de cosas por hacer",
+  "category_name": "Nombre de la categoría",
+  "todo_list_name": "Nombre de la lista",
+  "task_name": "Nombre de la tarea",
+  "create": "Crear",
+  "delete": "Eliminar",
+  "description": "Descripción",
+  "edit": "Editar",
+  "delete_category": "¿Estás seguro de que quieres eliminar la categoría {title}?",
+  "delete_task": "¿Estás seguro de que quieres eliminar la tarea {title}?",
+  "required": "*Requerido"
+}
