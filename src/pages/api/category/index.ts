@@ -43,6 +43,9 @@ export default withAuthorization(async function handler(
             title,
             userId,
           },
+          include: {
+            todoLists: true,
+          },
         });
 
         res.status(201).json(newCategory); // Respond with the newly created category

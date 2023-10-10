@@ -3,10 +3,11 @@
     flex-grow: 0;
     border-radius: 8px;
     text-align: center;
-    border: 1px solid;
-    outline: none;
+    border: 3px dashed ;
+    outline: 3px solid $color-button-bg;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 20px 10px;
+    width: 100%;
 
     &::first-letter {
         text-transform: capitalize;
@@ -20,7 +21,7 @@
 
     &[data-variant='filled'] {
         background-color: $color-button-bg;
-        border-color: $color-button-bg;
+        border-color: $color-footer-text;
         color: $color-button-text;
     }
 
