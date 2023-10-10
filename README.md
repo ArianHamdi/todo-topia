@@ -41,6 +41,22 @@ In line with our aim to offer a seamless user experience, Todo Topia automatical
 3. **Environment Configuration**:
    Create a `.env` file in the root directory of your project. Use the `.env.example` file as a reference and fill in your `DATABASE_URL` and `BOT_API_TOKEN`.
 
+### Development:
+
+For local development, we suggest using `ngrok` to tunnel the server. After starting the development server using:
+
+````bash
+pnpm dev
+‍‍‍```
+
+You can set up ngrok to tunnel the local server:
+
+```bash
+ngrok http 3000
+````
+
+This will provide you with a public URL to access your local development server.
+
 ### Tools and Libraries:
 
 - **TypeScript**: Provides static typing to JavaScript, ensuring a more robust codebase.
