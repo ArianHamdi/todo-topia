@@ -1,6 +1,7 @@
 import { HexColorPicker } from 'react-colorful';
 import styles from './ColorPickerUI.module.scss';
 import { isColorDark } from '@tma.js/colors';
+import { forwardRef } from 'react';
 export interface IColorPickerUI {
   value: string;
   label?: string;
@@ -25,4 +26,4 @@ const ColorPickerUI = ({ value, label, ...props }: IColorPickerUI) => {
   );
 };
 
-export default ColorPickerUI;
+export default forwardRef(ColorPickerUI);
