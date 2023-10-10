@@ -69,10 +69,10 @@ const TodoList = () => {
           </ContextMenu>
         </div>
       </Header>
-      <LinkButton href={`/create/todo-list/${todoListId}/task`}>
-        {t('new_task')}
-      </LinkButton>
       <div className={styles.tasks}>
+        <LinkButton href={`/create/todo-list/${todoListId}/task`}>
+          {t('new_task')}
+        </LinkButton>
         {data.tasks.map(task => (
           <Task key={task.id} {...task} />
         ))}

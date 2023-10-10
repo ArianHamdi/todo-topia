@@ -9,7 +9,7 @@ export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = ({
   children,
   className,
-  variant = 'filled',
+  variant = 'outline',
   ...props
 }: IButton) => (
   <button className={styles.button} data-variant={variant} {...props}>
