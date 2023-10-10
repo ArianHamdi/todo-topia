@@ -11,6 +11,7 @@ import TodoList from '@/components/TodoList';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
 import Spinner from '@/components/Spinner';
+import EmptyState from '@/components/EmptyState/EmptyState';
 
 const Category = () => {
   const {
@@ -73,9 +74,13 @@ const Category = () => {
         <LinkButton href={`/create/category/${categoryId}/todo-list`}>
           {t('new_todo_list')}
         </LinkButton>
-        {data?.todoLists?.map(todoList => (
-          <TodoList key={todoList.id} {...todoList} />
-        ))}
+        {data.todoLists.length === 0 ? (
+          <EmptyState />
+        ) : (
+          data?.todoLists?.map(todoList => (
+            <TodoList key={todoList.id} {...todoList} />
+          ))
+        )}
       </div>
     </div>
   );

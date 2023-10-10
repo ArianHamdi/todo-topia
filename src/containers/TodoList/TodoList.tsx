@@ -12,6 +12,7 @@ import { useDeleteTodoList, useTodoList } from '@/hooks/api/todo-list';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
 import Spinner from '@/components/Spinner';
+import EmptyState from '@/components/EmptyState/EmptyState';
 
 const TodoList = () => {
   const {
@@ -73,9 +74,11 @@ const TodoList = () => {
         <LinkButton href={`/create/todo-list/${todoListId}/task`}>
           {t('new_task')}
         </LinkButton>
-        {data.tasks.map(task => (
-          <Task key={task.id} {...task} />
-        ))}
+        {data.tasks.length === 0 ? (
+          <EmptyState />
+        ) : (
+          data.tasks.map(task => <Task key={task.id} {...task} />)
+        )}
       </div>
     </div>
   );
