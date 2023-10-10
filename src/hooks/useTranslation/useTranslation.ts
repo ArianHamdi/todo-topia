@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 export const useTranslation = () => {
   const { locale } = useRouter();
-  const translation = translations[locale as Locales];
+  const translation = translations[(locale || 'en') as Locales];
 
   const translator = (
     key: keyof typeof translation,

@@ -18,9 +18,8 @@ const TodoList = () => {
     query: { todoListId },
   } = useRouter();
 
-  useBackButton('/');
-
   const { data, isLoading } = useTodoList(todoListId as string);
+  useBackButton(!!data ? `/category/${data.categoryId}` : '/');
   const { open } = usePopup();
   const { t } = useTranslation();
 
