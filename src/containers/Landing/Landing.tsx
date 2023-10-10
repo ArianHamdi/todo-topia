@@ -23,8 +23,8 @@ const Landing = () => {
       <Profile />
       <div className={styles.header}>
         <h1>{t('task_categories')}</h1>
-        <LinkButton href='/create/category'>{t('new_category')}</LinkButton>
       </div>
+      <LinkButton href='/create/category'>{t('new_category')}</LinkButton>
       <div className={styles.categories}>{items}</div>
     </div>
   );
