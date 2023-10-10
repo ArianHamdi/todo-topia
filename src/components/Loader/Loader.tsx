@@ -1,5 +1,6 @@
 import { useSDK } from '@tma.js/sdk-react';
 import { PropsWithChildren, useEffect } from 'react';
+import Spinner from '../Spinner';
 
 const Loader = ({ children }: PropsWithChildren<{}>) => {
   const { didInit, components, error } = useSDK();
@@ -20,7 +21,7 @@ const Loader = ({ children }: PropsWithChildren<{}>) => {
   // several milliseconds or something like that, but we should
   // have this check.
   if (components === null) {
-    return <div>Warming up SDK.</div>;
+    return <Spinner />;
   }
 
   // Safely render application.
