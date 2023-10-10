@@ -17,6 +17,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCreateTask, useEditTask, useTask } from '@/hooks/api/task';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
+import NotFound from '@/components/NotFound';
 
 interface IProps {
   type: IFormType;
@@ -86,10 +87,16 @@ const TaskForm = ({ type }: IProps) => {
 
   if (isLoading) return 'loading...';
 
+  if (!task && type === 'edit') return <NotFound />;
+
   return (
     <div>
       <Header>
-        <h1>{t('new_task')}</h1>
+        <h1>
+          {type === 'create'
+            ? t('new_task')
+            : t('edit_task', { title: task?.title || '' })}
+        </h1>
       </Header>
       <div className={styles.taskForm}>
         <FormProvider {...methods}>

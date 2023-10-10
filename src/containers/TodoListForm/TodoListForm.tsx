@@ -15,6 +15,7 @@ import {
 } from '@/hooks/api/todo-list';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
+import NotFound from '@/components/NotFound';
 
 interface IProps {
   type: IFormType;
@@ -69,10 +70,16 @@ const TodoListForm = ({ type }: IProps) => {
 
   if (isLoading) return 'loading...';
 
+  if (!todoList && type === 'edit') return <NotFound />;
+
   return (
     <div>
       <Header>
-        <h1>{t('new_todo_list')}</h1>
+        <h1>
+          {type === 'create'
+            ? t('new_todo_list')
+            : t('edit_todo_list', { title: todoList?.title || '' })}
+        </h1>
       </Header>
       <div className={styles.todoListForm}>
         <FormProvider {...methods}>
