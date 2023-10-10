@@ -17,7 +17,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCreateTask, useEditTask, useTask } from '@/hooks/api/task';
 import Header from '@/components/Header';
 import { useBackButton } from '@/hooks/useBackButton';
-import NotFound from '@/components/NotFound';
 import Spinner from '@/components/Spinner';
 
 interface IProps {
@@ -88,7 +87,7 @@ const TaskForm = ({ type }: IProps) => {
 
   if (type === 'edit' && isLoading) return <Spinner />;
 
-  if (!task && type === 'edit') return <NotFound />;
+  if (!task && type === 'edit') return null;
 
   return (
     <div>

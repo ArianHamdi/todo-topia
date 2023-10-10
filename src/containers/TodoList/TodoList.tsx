@@ -1,6 +1,5 @@
 import { ContextMenu, ContextMenuItem } from '@/components/ContextMenu';
 import styles from './TodoList.module.scss';
-import NotFound from '@/components/NotFound';
 import { useCategory, useDeleteCategory } from '@/hooks/api/category';
 import { useRouter } from '@/hooks/useRouter/useRouter';
 import Delete from '@/assets/icons/delete.svg';
@@ -29,7 +28,7 @@ const TodoList = () => {
 
   if (isLoading) return <Spinner />;
 
-  if (!data) return <NotFound />;
+  if (!data) return null;
 
   const deletePopupHandler = () => {
     open({
