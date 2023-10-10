@@ -44,16 +44,17 @@ In line with our aim to offer a seamless user experience, Todo Topia automatical
 ### Development:
 
 For local development, we suggest using `ngrok` to tunnel the server. After starting the development server using:
+‍‍
 
-````bash
+```bash
 pnpm dev
-‍‍‍```
+```
 
 You can set up ngrok to tunnel the local server:
 
 ```bash
 ngrok http 3000
-````
+```
 
 This will provide you with a public URL to access your local development server.
 
@@ -77,4 +78,8 @@ For detailed documentation and component visualization, we leverage **Storybook*
 
 ```bash
 pnpm storybook
+```
+
+```
+
 ```
