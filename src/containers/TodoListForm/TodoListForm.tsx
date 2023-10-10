@@ -14,6 +14,7 @@ import {
   useTodoList,
 } from '@/hooks/api/todo-list';
 import Header from '@/components/Header';
+import NotFound from '@/components/NotFound';
 
 interface IProps {
   type: IFormType;
@@ -25,6 +26,8 @@ const TodoListForm = ({ type }: IProps) => {
   } = useRouter();
 
   const { data: todoList, isLoading } = useTodoList(todoListId as string);
+
+  if (!todoList && type === 'edit') return <NotFound />;
 
   const methods = useForm({
     resolver: yupResolver(todoListSchema),
@@ -66,7 +69,11 @@ const TodoListForm = ({ type }: IProps) => {
   return (
     <div>
       <Header>
-        <h1>{t('new_todo_list')}</h1>
+        <h1>
+          {type === 'create'
+            ? t('new_todo_list')
+            : t('edit_todo_list', { title: todoList?.title || '' })}
+        </h1>
       </Header>
       <div className={styles.todoListForm}>
         <FormProvider {...methods}>
