@@ -1,14 +1,14 @@
 .item {
     display: flex;
     align-items: center;
-    padding: 4px 16px;
+    padding: 8px 16px;
     cursor: pointer;
 
     &:hover {
-        background-color: $color-bg;
+        background-color: $color-hover;;
     }
 
-    &[data-variant='danger'] {
+    &[data-variant='info'] {
         color: $color-text;
         fill: $color-text;
     }
@@ -20,5 +20,5 @@
 }
 
 .label {
-    margin-left: 20px;
+    margin-left: 8px;
 }
