@@ -29,7 +29,7 @@ In line with our aim to offer a seamless user experience, Todo Topia automatical
 1. **Clone the Repository**:
 
    ```bash
-   git clone [repository_link]
+   git clone https://github.com/ArianHamdi/todo-topia
    ```
 
 2. **Install Dependencies**:
@@ -49,7 +49,7 @@ In line with our aim to offer a seamless user experience, Todo Topia automatical
 - **Lint-Staged**: Runs linters against staged git files, making sure you're only committing files that meet your linting criteria.
 - **Husky**: Enhances git hooks by making them easier to use, share, and configure.
 
-  > Note: Husky should install automatically when you use `pnpm`. If for some reason it doesn't, execute the following command:
+  > Note: Husky should install automatically when you use `pnpm install`. If for some reason it doesn't, execute the following command:
   >
   > ```bash
   > npm run prepare
