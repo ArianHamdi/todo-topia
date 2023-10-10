@@ -21,7 +21,6 @@ const TodoList = () => {
   const { open } = usePopup();
   const { t } = useTranslation();
 
-  // const { mutate } = useDeleteCategory();
   const { mutate } = useDeleteTodoList();
 
   if (isLoading) return 'loading ...';
@@ -30,7 +29,7 @@ const TodoList = () => {
 
   const deletePopupHandler = () => {
     open({
-      message: t('delete_category', { title: data.title }),
+      message: t('delete_todo_list', { title: data.title }),
       title: t('delete'),
       buttons: [
         {

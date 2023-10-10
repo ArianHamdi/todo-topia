@@ -30,6 +30,7 @@ const TodoListForm = ({ type }: IProps) => {
     resolver: yupResolver(todoListSchema),
     values: {
       title: todoList?.title ?? '',
+      description: todoList?.description ?? '',
       categoryId: categoryId as string,
     },
   });
@@ -45,8 +46,8 @@ const TodoListForm = ({ type }: IProps) => {
   } = methods;
 
   const onSubmit = handleSubmit(data => {
-    if (type === 'create') {
-      create(data);
+    if (type === 'create' && data.categoryId) {
+      create({ ...data, categoryId: data.categoryId });
     } else {
       if (!todoList?.id) return;
       edit({ ...data, id: todoList.id });

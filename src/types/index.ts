@@ -36,7 +36,7 @@ export interface ITodoList {
 }
 export type ITodoListGet = Pick<ITodoList, 'id'>;
 export type ITodoListPost = Pick<ITodoList, 'title' | 'categoryId'>;
-export type ITodoListEdit = Pick<ITodoList, 'title' | 'categoryId' | 'id'>;
+export type ITodoListEdit = Pick<ITodoList, 'title' | 'id'>;
 export type ITodoListDelete = Pick<ITodoList, 'id'>;
 
 export interface ICategory {
