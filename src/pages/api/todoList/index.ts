@@ -13,7 +13,7 @@ export default withAuthorization(async function handler(
     switch (req.method) {
       case 'POST':
         // Handle HTTP POST request (create a new todoList)
-        const { title, categoryId } = req.body; // Extract todoList data from the request body
+        const { title, categoryId, description } = req.body; // Extract todoList data from the request body
 
         // Validate the extracted data using the todoListSchema
         await todoListSchema.validate({ title, categoryId });
@@ -24,6 +24,7 @@ export default withAuthorization(async function handler(
             userId,
             title,
             categoryId,
+            description,
           },
         });
 
