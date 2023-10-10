@@ -1,0 +1,22 @@
+{
+  "hi": "Hallo",
+  "welcome_message": "Lass uns den heutigen Tag produktiv machen",
+  "task_categories": "Aufgabenkategorien",
+  "tasks": "Aufgaben",
+  "completed": "abgeschlossen",
+  "left": "übrig",
+  "new_task": "Neue Aufgabe",
+  "color": "Farbe",
+  "new_category": "Neue Kategorie",
+  "new_todo_list": "Neue To-Do-Liste",
+  "category_name": "Kategoriename",
+  "todo_list_name": "Name der To-Do-Liste",
+  "task_name": "Aufgabenname",
+  "create": "Erstellen",
+  "delete": "Löschen",
+  "description": "Beschreibung",
+  "edit": "Bearbeiten",
+  "delete_category": "Sind Sie sicher, dass Sie die Kategorie {title} löschen möchten?",
+  "delete_task": "Sind Sie sicher, dass Sie die Aufgabe {title} löschen möchten?",
+  "required": "*Erforderlich"
+}
