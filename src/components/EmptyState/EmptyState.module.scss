@@ -1,0 +1,20 @@
+.emptyState {
+    @include flex-center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.message {
+    @include flex-center;
+    flex-direction: column;
+    width: 220px;
+    background-color: $color-bg;
+    padding: 30px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    fill: $color-footer-text;
+    margin-bottom: 20px;
+}
