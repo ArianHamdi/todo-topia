@@ -1,0 +1,26 @@
+# `useBackButton` Custom Hook
+
+## Introduction
+
+The `useBackButton` custom hook offers a declarative way to manage the back button behavior in Telegram Mini Apps using the TMA.js SDK. This hook integrates with a custom router hook (`useRouter`) to control the back button's appearance and functionality based on the current route.
+
+## Features
+
+- **Visibility Control**: The back button is automatically shown or hidden based on the current route.
+- **Click Handling**: Clicking the back button triggers the `back` function from the custom `useRouter` hook to navigate to the previous page.
+
+## Usage Example
+
+Here's a simple example demonstrating how to use the `useBackButton` hook:
+
+```javascript
+import { useBackButton } from '@/hooks/useBackButton';
+
+const MyComponent = () => {
+  useBackButton();
+
+  return (
+    // Your component JSX
+  );
+};
+```

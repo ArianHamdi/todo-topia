@@ -1,4 +1,3 @@
-import { Properties } from 'csstype';
 import styles from './Category.module.scss';
 import Chip from '@/components/Chip';
 import CircularProgressBar from '../CircularProgressBar';
@@ -6,7 +5,7 @@ import CircleFilled from '../CircleFilled';
 import { ICategory } from '@/types';
 import Link from 'next/link';
 import { analyzeTodoLists } from '@/utils';
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslation } from '@/hooks/useTranslation/useTranslation';
 
 const Category = ({ color, title, todoLists, id }: ICategory) => {
   const { t } = useTranslation();

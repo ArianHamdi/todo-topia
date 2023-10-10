@@ -1,0 +1,26 @@
+# `useClosingBehaviour` Custom Hook
+
+## Introduction
+
+The `useClosingBehaviour` custom hook provides a declarative way to manage the closing behavior of Telegram Mini Apps using the TMA.js SDK. Specifically, it allows you to enable or disable confirmation dialogs when closing the app.
+
+## Features
+
+- **Enable/Disable Confirmation**: Use the `enable` prop to either enable or disable the confirmation dialog when closing the app.
+
+## Usage Example
+
+Here's a basic example of how to use the `useClosingBehaviour` hook:
+
+```javascript
+import { useClosingBehaviour } from '@/hooks/useClosingBehaviour';
+
+const MyComponent = () => {
+  // Enable the confirmation dialog
+  useClosingBehaviour(true);
+
+  return (
+    // Your component JSX
+  );
+};
+```

@@ -2,7 +2,7 @@ import { useInitData } from '@tma.js/sdk-react';
 import styles from './Profile.module.scss';
 import { generateNameAbbr, generateRandomHexColor } from '@/utils';
 import { useMemo } from 'react';
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslation } from '@/hooks/useTranslation/useTranslation';
 import { isColorDark } from '@tma.js/colors';
 
 const Profile = () => {

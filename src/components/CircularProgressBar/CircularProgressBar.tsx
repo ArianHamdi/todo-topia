@@ -1,7 +1,7 @@
 import styles from './CircularProgressBar.module.scss';
 import { Properties } from 'csstype';
 
-interface IProps {
+export interface IProps {
   percentage: number;
   stroke: Properties['stroke'];
 }

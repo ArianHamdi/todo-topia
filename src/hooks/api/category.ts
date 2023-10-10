@@ -1,7 +1,7 @@
 import * as api from '@/api/category';
 import { ICategory } from '@/types';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useRouter } from '@/hooks/useRouter';
+import { useRouter } from '@/hooks/useRouter/useRouter';
 
 export const useCategories = () => {
   return useQuery({

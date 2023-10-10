@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import styles from './ErrorMessage.module.scss';
 
-interface IProps {
+export interface IProps {
   children: ReactNode;
 }
 
