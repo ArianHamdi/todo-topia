@@ -76,5 +76,5 @@ This will provide you with a public URL to access your local development server.
 For detailed documentation and component visualization, we leverage **Storybook**. To launch Storybook, use the command:
 
 ```bash
-    pnpm storybook
+pnpm storybook
 ```
