@@ -86,3 +86,7 @@ For detailed documentation and component visualization, we leverage **Storybook*
 ```bash
 pnpm storybook
 ```
+
+### Bot script
+
+Todo Topia bot script is available on [todo-topia-bot](https://github.com/alirezaghorbani79/todo-topia-bot)
