@@ -16,6 +16,7 @@ import { useRouter } from '@/hooks/useRouter/useRouter';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useCreateTask, useEditTask, useTask } from '@/hooks/api/task';
 import Header from '@/components/Header';
+import NotFound from '@/components/NotFound';
 
 interface IProps {
   type: IFormType;
@@ -31,6 +32,8 @@ const TaskForm = ({ type }: IProps) => {
     todoListId: todoListId as string,
     taskId: taskId as string,
   });
+
+  if (!task && type === 'edit') return <NotFound />;
 
   const methods = useForm({
     resolver: yupResolver(taskSchema),
@@ -86,7 +89,11 @@ const TaskForm = ({ type }: IProps) => {
   return (
     <div>
       <Header>
-        <h1>{t('new_task')}</h1>
+        <h1>
+          {type === 'create'
+            ? t('new_task')
+            : t('edit_task', { title: task?.title || '' })}
+        </h1>
       </Header>
       <div className={styles.taskForm}>
         <FormProvider {...methods}>
