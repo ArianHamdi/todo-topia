@@ -1,0 +1,34 @@
+# `useRouter` Hook
+
+## Introduction
+
+The `useRouter` custom hook provides a workaround to preserve the router query during page transitions within a Next.js application. This hook is specifically designed to enable smoothly page transition using framer-motion.
+
+## Features
+
+- **Query Preservation**: Retains the router query across different page transitions.
+
+## Code Details
+
+Here's a breakdown of how the hook works:
+
+1. **Dependency on Next.js**: Utilizes `useRouter` from Next.js to get the router object.
+2. **Local State**: Initializes a local state `query` to hold the router's query.
+3. **Initialization**: Uses `useEffect` to set the `query` state once when the component mounts.
+4. **Return Value**: Returns an object that spreads the original router object but overrides the `query` property with the local `query` state.
+
+```javascript
+// Snippet of implementation
+export const useRouter = () => {
+  const router = useNextRouter();
+  const [query, setQuery] = useState(router.query);
+  useEffect(() => {
+    setQuery(router.query);
+  }, []);
+  return { ...router, query };
+};
+```
+
+## Use Case
+
+- To maintain query parameters when transitioning between pages in a Next.js application.

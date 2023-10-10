@@ -6,8 +6,8 @@ import { useDeleteTask, useEditTask } from '@/hooks/api/task';
 import Link from 'next/link';
 import { MouseEvent } from 'react';
 import Close from '@/assets/icons/close-circle.svg';
-import { usePopup } from '@/hooks/usePopup';
-import { useTranslation } from '@/hooks/useTranslation';
+import { usePopup } from '@/hooks/usePopup/usePopup';
+import { useTranslation } from '@/hooks/useTranslation/useTranslation';
 
 const Task = (props: ITask) => {
   const { id, status, title, description, deadline, todoListId } = props;
@@ -17,7 +17,7 @@ const Task = (props: ITask) => {
 
   const { t } = useTranslation();
 
-  const { open } = usePopup();
+  // const { open } = usePopup();
 
   const toggleHandler = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -26,21 +26,21 @@ const Task = (props: ITask) => {
 
   const deleteHandler = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    open({
-      message: t('delete_task', { title: title }),
-      title: t('delete'),
-      buttons: [
-        {
-          type: 'destructive',
-          text: t('delete'),
-          id: 'confirm',
-        },
-        {
-          type: 'cancel',
-        },
-      ],
-      onConfirm: () => deleteTask({ id }),
-    });
+    // open({
+    //   message: t('delete_task', { title: title }),
+    //   title: t('delete'),
+    //   buttons: [
+    //     {
+    //       type: 'destructive',
+    //       text: t('delete'),
+    //       id: 'confirm',
+    //     },
+    //     {
+    //       type: 'cancel',
+    //     },
+    //   ],
+    //   onConfirm: () => deleteTask({ id }),
+    // });
   };
 
   return (

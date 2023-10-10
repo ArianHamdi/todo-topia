@@ -1,0 +1,60 @@
+# `usePopup` Custom Hook
+
+## Introduction
+
+The `usePopup` custom hook is designed to enhance the popup handling capabilities of the TMA.js SDK for Telegram Mini Apps. This hook provides a more streamlined way to work with popups by including features like environment support checking and simplified callback handling.
+
+## Installation
+
+Make sure you have `@tma.js/sdk` and `@tma.js/sdk-react` installed before using this hook.
+
+## API
+
+### `open({ onConfirm, title, message, buttons }: IOpen)`
+
+- **`onConfirm`**: A callback function that will be called when the user confirms the popup.
+- **`title`**: (Optional) The title of the popup.
+- **`message`**: The message displayed within the popup.
+- **`buttons`**: (Optional) An array of `PopupButton` objects to display as buttons on the popup.
+
+## Usage
+
+First, import the `usePopup` hook:
+
+```jsx
+import { usePopup } from '@/hooks/usePopup';
+```
+
+Then, within your React component:
+
+```jsx
+const MyComponent = () => {
+  const { open } = usePopup();
+
+  const handleOpenPopup = () => {
+    open({
+      message: 'Are you sure you want to continue?',
+      onConfirm: () => {
+        console.log('User confirmed.');
+      },
+    });
+  };
+
+  return (
+    <button onClick={handleOpenPopup}>
+      Open Popup
+    </button>
+  );
+};
+```
+
+## Return Value
+
+The `usePopup` hook returns an object with the following properties:
+
+- `open`: A function to open the popup.
+
+## Features
+
+- The hook checks if popup support is available in the current environment. If not, it falls back to directly calling the `onConfirm` callback.
+- Simplifies the way to specify a callback with the `onConfirm` prop.

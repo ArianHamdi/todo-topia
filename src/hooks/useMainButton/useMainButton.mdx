@@ -1,0 +1,48 @@
+# `useMainButton` Custom Hook
+
+## Introduction
+
+The `useMainButton` custom hook provides a declarative interface to control the main button's behavior and appearance in Telegram Mini Apps using the TMA.js SDK. It offers features like visibility toggling, loading state, text updating, and click handling.
+
+## Installation
+
+Ensure `@tma.js/sdk-react` and `@tma.js/colors` are installed before using this hook.
+
+## API
+
+### Parameters
+
+- **`isVisible`**: (Optional, default is `true`) Specifies whether the main button should be visible.
+- **`isLoading`**: (Optional, default is `false`) Specifies whether the main button is in a loading state.
+- **`text`**: (Optional) The text that will be displayed on the main button.
+- **`onClick`**: (Optional) A function to be called when the button is clicked.
+
+### Return Value
+
+The hook does not return any value but performs side effects on the main button component based on the provided parameters.
+
+## Usage
+
+First, import the `useMainButton` hook:
+
+```jsx
+import { useMainButton } from '@/hooks/useMainButton';
+const MyComponent = () => {
+  useMainButton({
+    isVisible: true,
+    text: 'Click Me',
+    onClick: () => {
+      console.log('Button Clicked');
+    },
+  });
+
+  return <div>{/* Your component JSX */}</div>;
+};
+```
+
+## Features
+
+- **Visibility Toggling**: Use the `isVisible` prop to show or hide the main button.
+- **Loading State**: Use the `isLoading` prop to set the main button's loading state.
+- **Text Update**: Use the `text` prop to set the text displayed on the button.
+- **Click Handling**: Use the `onClick` prop to set the function to be called when the button is clicked.

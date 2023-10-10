@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useTodoList } from './todo-list';
 import { ITodoList } from '@/types';
 import { produce } from 'immer';
-import { useRouter } from '@/hooks/useRouter';
+import { useRouter } from '@/hooks/useRouter/useRouter';
 
 export const useTask = ({
   todoListId,

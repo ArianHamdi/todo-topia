@@ -1,7 +1,7 @@
 import Category from '@/components/Category';
 import { useCategories } from '@/hooks/api/category';
 import styles from './Landing.module.scss';
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslation } from '@/hooks/useTranslation/useTranslation';
 import LinkButton from '@/components/LinkButton';
 import Profile from '@/components/Profile';
 

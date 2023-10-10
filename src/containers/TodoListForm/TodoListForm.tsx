@@ -1,12 +1,12 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import styles from './TodoListForm.module.scss';
 import { ColorPicker, TextField } from '@/components/FormRHF';
-import { useMainButton } from '@/hooks/useMainButton';
+import { useMainButton } from '@/hooks/useMainButton/useMainButton';
 import { todoListSchema } from '@/schema';
-import { useTranslation } from '@/hooks/useTranslation';
-import { useClosingBehaviour } from '@/hooks/useClosingBehaviour';
+import { useTranslation } from '@/hooks/useTranslation/useTranslation';
+import { useClosingBehaviour } from '@/hooks/useClosingBehaviour/useClosingBehaviour';
 import { IFormType } from '@/types';
-import { useRouter } from '@/hooks/useRouter';
+import { useRouter } from '@/hooks/useRouter/useRouter';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   useCreateTodoList,
